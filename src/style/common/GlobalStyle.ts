@@ -23,6 +23,10 @@ const GlobalStyle = createGlobalStyle`
     vertical-align: baseline;
 		position: relative;
   }
+  a{
+	  text-decoration: none;
+	  color: #000;
+  }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
