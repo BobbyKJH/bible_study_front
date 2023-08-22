@@ -1,10 +1,17 @@
+/** React */
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { BrowserRouter } from "react-router-dom";
+/** Component */
+import App from '@/App.tsx'
+/** Style */
+import GlobalStyle from '@style/common/GlobalStyle.ts'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <GlobalStyle/>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
 )
