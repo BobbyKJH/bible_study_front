@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/** React */
+import React from 'react'
+import { Route, Routes } from "react-router";
+/** Tanstack-Query */
+import { QueryClient } from '@tanstack/query-core'
+import { QueryClientProvider } from '@tanstack/react-query'
+/** Page */
+import HomePage from '@/page/HomePage.tsx'
+import SideBar from '@components/common/sideBar/SideBar.tsx'
+import Header from '@components/common/Header.tsx'
+import BiblePage from '@page/BiblePage.tsx'
+import PBSPage from '@page/PBSPage.tsx'
+import QTPage from '@page/QTPage.tsx'
+import QTCreatePage from '@page/QTCreatePage.tsx'
+import PBSCreatePage from '@page/PBSCreatePage.tsx'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const queryClient = new QueryClient();
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <QueryClientProvider client={queryClient}>
+      <Header/>
 
-export default App
+      <SideBar/>
+
+      <Routes>
+        <Route path={"/"} element={<HomePage/>}/>
+        <Route path={"/bible"} element={<BiblePage/>}/>
+        <Route path={"/pbs"} element={<PBSPage/>}/>
+        <Route path={"/pbsCreate"} element={<PBSCreatePage/>}/>
+        <Route path={"/qt"} element={<QTPage/>}/>
+        <Route path={"/qtCreate"} element={<QTCreatePage/>}/>
+      </Routes>
+
+    </QueryClientProvider>
+  );
+};
+
+export default App;
