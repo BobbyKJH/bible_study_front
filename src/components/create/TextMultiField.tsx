@@ -2,19 +2,16 @@
 import React from 'react';
 /** Style */
 import { TextField } from '@mui/material'
-import { UseFormRegister } from 'react-hook-form'
+/** Type */
+import Bible from '@type/Bible'
 
-interface TextFieldProps {
-	register: UseFormRegister<any>;
-	name: string;
-}
-const TextMultiField: React.FC<TextFieldProps> = (props) => {
+const TextMultiField: React.FC<Bible.Text> = (props) => {
 	const { register, name } = props;
 
 	return (
 		<TextField
 			multiline
-			rows={4}
+			rows={20}
 			sx={{ width: "100%" }}
 			{...register(name, { required: true })}
 		/>
