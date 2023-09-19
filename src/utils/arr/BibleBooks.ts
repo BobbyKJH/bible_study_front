@@ -1,4 +1,4 @@
-const BibleBooks: { id: number, book: string }[] = [
+export const oldTestament: { id: number, book: string }[] = [
 	{ id: 1, book: "창세기"},
 	{ id: 2, book: "출애굽기"},
 	{ id: 3, book: "레위기"},
@@ -38,6 +38,10 @@ const BibleBooks: { id: number, book: string }[] = [
 	{ id: 37, book: "학개"},
 	{ id: 38, book: "스가랴"},
 	{ id: 39, book: "말라기"},
+
+]
+
+export const newTestament: { id: number, book: string }[] = [
 	{ id: 40, book: "마태복음"},
 	{ id: 41, book: "마가복음"},
 	{ id: 42, book: "누가복음"},
@@ -67,4 +71,3 @@ const BibleBooks: { id: number, book: string }[] = [
 	{ id: 66, book: "요한계시록"},
 ]
 
-export default BibleBooks
