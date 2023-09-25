@@ -14,16 +14,16 @@ const getPBSList = async (page: number) => {
 export const usePBSQuery = (page: number) => useQuery(["pbs"], () => getPBSList(page));
 
 /** 상세 정보 */
-const getPBSDetailList = async (page:  string) => {
+const getPBSDetailList = async (id: string) => {
 	try{
-		const res = await axios.get(`http://localhost:8083/pbs/${page}`)
+		const res = await axios.get(`http://localhost:8083/pbs/${id}`)
 		return res.data
 	} catch (err) {
 		throw err;
 	}
-}
+};
 
-export const useDetailQuery = (id: string) => useQuery(["PBSDetail"], () => getPBSDetailList(id as string))
+export const useDetailQuery = (id: string) => useQuery( ["PBSDetail", id], () => getPBSDetailList( id as string ));
 
 /** PBS MyPage */
 const getMyPagePBS = async (userId: string | null, page: number) => {
@@ -48,7 +48,7 @@ const createPBSList = async (data: any) => {
 	}
 }
 
-export const useCreateMutation = () => useMutation(createPBSList, {
+export const useCreatePBSMutation = () => useMutation(createPBSList, {
 	onSuccess: () => {
 		alert( "작성 완료" )
 	},
@@ -69,4 +69,24 @@ const deletePBS = async (id: number) => {
 }
 
 export const useDeleteMutation = () => useMutation(deletePBS);
+
+/** PBS 수정 */
+const editPBSList = async (data: any) => {
+	try{
+		const res = await axios.put("http://localhost:8083/pbs", data)
+		console.log(res.data)
+		return res.data
+	} catch (err) {
+		throw err
+	}
+}
+
+export const useEditPBSMutation = () => useMutation(editPBSList, {
+	onSuccess: () => {
+		alert( "수정 완료" )
+	},
+	onError: () => {
+		alert( "수정 실패" )
+	}
+});
 
