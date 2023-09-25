@@ -1,5 +1,5 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
 import axios from 'axios'
+import { useMutation, useQuery } from '@tanstack/react-query'
 
 /** PBS 게시판 */
 const getPBSList = async (page: number) => {
@@ -24,6 +24,18 @@ const getPBSDetailList = async (page:  string) => {
 }
 
 export const useDetailQuery = (id: string) => useQuery(["PBSDetail"], () => getPBSDetailList(id as string))
+
+/** PBS MyPage */
+const getMyPagePBS = async (userId: string | null, page: number) => {
+	try {
+		const res = await axios.get(`http://localhost:8083/mypage/pbs?userId=${userId}&page=${page}`)
+		return res.data
+	} catch (err){
+		throw err;
+	}
+}
+
+export const useMyPbsQuery = (userId: string | null, page: number) => useQuery(["myPagePbs"], () => getMyPagePBS(userId, page))
 
 /** PBS 생성 */
 const createPBSList = async (data: any) => {
