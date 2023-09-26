@@ -60,8 +60,8 @@ export const useCreatePBSMutation = () => useMutation(createPBSList, {
 /** PBS 삭제 */
 const deletePBS = async (id: number) => {
 	try{
-		const res = await axios.delete(`http://localhost:8083/pbs/${id}`)
-		console.log(res.data)
+		const res = await axios.delete(`http://localhost:8083/pbs/${id}`);
+
 		return res.data
 	} catch (err) {
 		throw err
@@ -73,8 +73,8 @@ export const useDeleteMutation = () => useMutation(deletePBS);
 /** PBS 수정 */
 const editPBSList = async (data: any) => {
 	try{
-		const res = await axios.put("http://localhost:8083/pbs", data)
-		console.log(res.data)
+		const res = await axios.put("http://localhost:8083/pbs", data);
+
 		return res.data
 	} catch (err) {
 		throw err
