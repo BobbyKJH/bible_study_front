@@ -2,6 +2,7 @@
 import React from 'react'
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from 'react-router-dom'
+import AuthRouter from '@components/common/AuthRouter.tsx'
 /** Tanstack-Query */
 import { QueryClient } from '@tanstack/query-core'
 import { QueryClientProvider } from '@tanstack/react-query'
@@ -26,9 +27,10 @@ import PBsEditPage from '@page/pbs/PBSEditPage.tsx'
 import QTPage from '@page/qt/QTPage.tsx'
 import QTCreatePage from '@page/qt/QTCreatePage.tsx'
 import QTReadPage from '@page/qt/QTReadPage.tsx'
+
+import AdminPage from '@page/admin/AdminPage.tsx'
 /** Style */
 import GlobalStyle from '@style/common/GlobalStyle.ts'
-import AuthRouter from '@components/common/AuthRouter.tsx'
 
 const App: React.FC = () => {
   const queryClient = new QueryClient();
@@ -61,6 +63,8 @@ const App: React.FC = () => {
             <Route path={"/qt"} element={<QTPage/>}/>
             <Route path={"/qt/create"} element={<QTCreatePage/>}/>
             <Route path={"/qt/read/:id"} element={<QTReadPage/>}/>
+
+            <Route path={"/admin"} element={<AdminPage/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
