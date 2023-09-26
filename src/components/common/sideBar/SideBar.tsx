@@ -10,17 +10,17 @@ import { Box, Divider, Drawer, List, Toolbar } from '@mui/material';
 /** Icon */
 import { BiHome } from "react-icons/bi";
 import { TbClipboardText, TbClipboardList } from "react-icons/tb";
+import { BsFillPersonLinesFill } from 'react-icons/bs'
 
 const SideBar: React.FC = () => {
 	const { handleCloseSideBar, sideBar } = useSideBar();
-
 
 	const drawer = (
 		<div>
 			<Toolbar />
 			<Divider />
 			<List sx={{ paddingTop: 0 }}>
-				<SideBarText path={""} text={"홈"} icon={BiHome}/>
+				<SideBarText path={"home"} text={"홈"} icon={BiHome}/>
 
 				<SideBarBible/>
 
@@ -28,15 +28,16 @@ const SideBar: React.FC = () => {
 
 				<SideBarText path={"qt"} text={"QT"} icon={TbClipboardList}/>
 
+				{sessionStorage.getItem("userAuth") === "admin" && <SideBarText path={"admin"} text={"관리자 권한"} icon={BsFillPersonLinesFill}/>}
 			</List>
 		</div>
 	);
 
 	return (
-		<Box sx={{ display: 'flex' }}>
+		<Box sx={{display: 'flex'}}>
 			<Box
 				component="nav"
-				sx={{ width: { md: 200 }, flexShrink: { md: 0 } }}
+				sx={{width: { md: 200 }, flexShrink: { md: 0 }}}
 			>
 				<Drawer
 					variant="temporary"
@@ -47,7 +48,7 @@ const SideBar: React.FC = () => {
 					}}
 					sx={{
 						display: { xs: 'block', md: 'none' },
-						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: 200 },
+						'& .MuiDrawer-paper': {boxSizing: 'border-box', width: 200},
 					}}
 				>
 					{drawer}
@@ -57,7 +58,7 @@ const SideBar: React.FC = () => {
 					variant="permanent"
 					sx={{
 						display: { xs: 'none', md: 'block' },
-						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: 200 },
+						'& .MuiDrawer-paper': {boxSizing: 'border-box', width: 200},
 					}}
 					open
 				>
