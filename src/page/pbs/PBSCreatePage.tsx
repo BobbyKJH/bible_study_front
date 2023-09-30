@@ -17,6 +17,7 @@ import { PageContainer } from '@style/common/PageStyle.ts'
 import { Paper } from '@mui/material'
 /** Type */
 import Bible from '@type/Bible'
+import DateFormat from '@utils/dateFormat.ts'
 
 
 const PBSCreatePage: React.FC = () => {
@@ -29,9 +30,10 @@ const PBSCreatePage: React.FC = () => {
 	const { register, handleSubmit, watch } = useForm({
 		mode: "onChange",
 		defaultValues: {
+			date: DateFormat(new Date()),
 			...pbs,
 			userId: sessionStorage.getItem("userId"),
-			userName: sessionStorage.getItem("userName")}
+			userName: sessionStorage.getItem("userName")},
 	});
 
 
@@ -45,9 +47,11 @@ const PBSCreatePage: React.FC = () => {
 		}
 	}
 
+	/** 암시 저장 */
 	const tmpSave = (event: React.MouseEvent<HTMLButtonElement>): void => {
 		event.preventDefault()
 		if(window.confirm("임시 저장 하시겠습니까?")){
+			alert("임시저장 되었습니다.")
 			savePBS(watch())
 		}
 	}
