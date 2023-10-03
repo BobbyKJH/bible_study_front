@@ -1,6 +1,5 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import DateFormat from '@utils/dateFormat.ts'
 
 interface UseHeader {
 	sideBar: boolean;
@@ -21,7 +20,6 @@ interface PBSCreateProps {
 		chapter:     number | null;
 		startVerse:  number | null;
 		endVerse:    number | null;
-		date:        string;
 		content:     string;
 		showData:    string;
 	},
@@ -38,7 +36,6 @@ export const usePBSCreate = create<PBSCreateProps>()(
 				chapter:    null,
 				startVerse: null,
 				endVerse:   null,
-				date:       DateFormat(new Date()),
 				content:    "",
 				showData:   "Y"
 			},
@@ -50,7 +47,6 @@ export const usePBSCreate = create<PBSCreateProps>()(
 					chapter:    "",
 					startVerse: "",
 					endVerse:   "",
-					date:       DateFormat(new Date()),
 					content:    "",
 					showData:   "Y"
 				} }))
