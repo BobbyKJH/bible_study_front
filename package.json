@@ -22,6 +22,7 @@
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.15.0",
+    "recharts": "^2.8.0",
     "styled-components": "^6.0.7",
     "zustand": "^4.4.1",
     "zustand-persist": "^0.4.0"
