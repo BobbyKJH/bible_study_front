@@ -1,5 +1,7 @@
 /** React */
 import React from 'react';
+/** Sha256 */
+import { sha256 } from 'js-sha256'
 /** Component */
 import SideBarText from '@components/common/sideBar/SideBarText.tsx'
 import SideBarBible from '@components/common/sideBar/SideBarBible.tsx'
@@ -28,7 +30,7 @@ const SideBar: React.FC = () => {
 
 				<SideBarText path={"qt"} text={"QT"} icon={TbClipboardList}/>
 
-				{sessionStorage.getItem("userAuth") === "admin" && <SideBarText path={"admin"} text={"관리자 권한"} icon={BsFillPersonLinesFill}/>}
+				{sessionStorage.getItem("userAuth") === sha256("admin") && <SideBarText path={"admin"} text={"관리자 권한"} icon={BsFillPersonLinesFill}/>}
 			</List>
 		</div>
 	);
