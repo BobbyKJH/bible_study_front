@@ -48,7 +48,7 @@ const createQTList = async (data: any) => {
 	}
 }
 
-export const useCreateMutation = () => useMutation(createQTList, {
+export const useCreateQTMutation = () => useMutation(createQTList, {
 	onSuccess: () => {
 		alert( "작성 완료" )
 	},
