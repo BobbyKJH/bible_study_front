@@ -23,7 +23,7 @@ const getPBSDetailList = async (id: string) => {
 	}
 };
 
-export const useDetailQuery = (id: string) => useQuery( ["PBSDetail", id], () => getPBSDetailList( id as string ));
+export const usePBSDetailQuery = (id: string) => useQuery( ["PBSDetail", id], () => getPBSDetailList( id as string ));
 
 /** PBS MyPage */
 const getMyPagePBS = async (userId: string | null, page: number) => {
@@ -35,7 +35,7 @@ const getMyPagePBS = async (userId: string | null, page: number) => {
 	}
 }
 
-export const useMyPbsQuery = (userId: string | null, page: number) => useQuery(["myPagePbs"], () => getMyPagePBS(userId, page))
+export const useMyPBSQuery = (userId: string | null, page: number) => useQuery(["myPagePbs"], () => getMyPagePBS(userId, page))
 
 /** PBS 생성 */
 const createPBSList = async (data: any) => {
@@ -68,7 +68,7 @@ const deletePBS = async (id: number) => {
 	}
 }
 
-export const useDeleteMutation = () => useMutation(deletePBS);
+export const usePBSDeleteMutation = () => useMutation(deletePBS);
 
 /** PBS 수정 */
 const editPBSList = async (data: any) => {
