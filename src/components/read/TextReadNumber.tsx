@@ -14,6 +14,11 @@ const TextReadNumber: React.FC<Bible.Read> = (props) => {
 			endAdornment={<InputAdornment position="end">{verse}</InputAdornment>}
 			disabled={true}
 			value={value}
+			sx={{
+				"& .MuiInputBase-input.Mui-disabled": {
+					WebkitTextFillColor: "#000000",
+				},
+			}}
 		/>
 	);
 };
