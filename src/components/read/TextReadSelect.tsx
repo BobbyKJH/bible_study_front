@@ -21,6 +21,11 @@ const TextReadSelect: React.FC<TextSelectProps> = (props) => {
 				displayEmpty
 				fullWidth={true}
 				disabled={true}
+				sx={{
+					"& .MuiInputBase-input.Mui-disabled": {
+						WebkitTextFillColor: "#000000",
+					}
+				}}
 			>
 				<MenuItem value={value}>
 					<em>{value}</em>
