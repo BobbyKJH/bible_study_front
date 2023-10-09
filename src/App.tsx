@@ -27,6 +27,7 @@ import PBsEditPage from '@page/pbs/PBSEditPage.tsx'
 import QTPage from '@page/qt/QTPage.tsx'
 import QTCreatePage from '@page/qt/QTCreatePage.tsx'
 import QTReadPage from '@page/qt/QTReadPage.tsx'
+import QTEditPage from '@page/qt/QTEditPage.tsx'
 
 import AdminPage from '@page/admin/AdminPage.tsx'
 /** Style */
@@ -63,6 +64,7 @@ const App: React.FC = () => {
             <Route path={"/qt"} element={<QTPage/>}/>
             <Route path={"/qt/create"} element={<QTCreatePage/>}/>
             <Route path={"/qt/read/:id"} element={<QTReadPage/>}/>
+            <Route path={"/qt/edit/:id"} element={<QTEditPage/>}/>
 
             <Route path={"/admin"} element={<AdminPage/>}/>
           </Route>
