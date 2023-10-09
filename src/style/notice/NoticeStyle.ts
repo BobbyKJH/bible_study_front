@@ -5,13 +5,30 @@ import { Paper } from '@mui/material';
 
 
 export const NoticePaper = styled(Paper)`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
 	justify-content: space-between;
-	height: 800px;
+	height: 500px;
 	width: 100%;
 	padding: 0;
+`;
+/** 게시판 이름 */
+export const NoticeTitle = styled.span`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 10px;
+	p {
+    font-size: 2rem;
+    font-weight: 900;
+	};
+	a {
+		display: block;
+		border: 1px solid black;
+		padding: 10px;
+	}
 `;
 
 /** 게시판 */
@@ -30,7 +47,7 @@ export const NoticeNum = styled.span`
 	text-align: center;
 `;
 /** 게시판 내용 */
-export const NoticeTitle = styled.span``;
+export const NoticeContent = styled.span``;
 /** 게시판 성경 */
 export const NoticeBook = styled.span``;
 /** 게시판 절 */
