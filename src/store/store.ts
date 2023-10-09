@@ -7,14 +7,7 @@ interface UseHeader {
 	handleCloseSideBar: () => void;
 }
 
-/** SideBar State */
-export const useSideBar = create<UseHeader>((set) => ({
-	sideBar: false,
-	handleOpenSideBar: () => set({ sideBar: true }),
-	handleCloseSideBar: () => set({ sideBar: false }),
-}));
-
-interface PBSCreateProps {
+interface PBSSaveProps {
 	pbs: {
 		book:        string;
 		chapter:     number | null;
@@ -27,8 +20,29 @@ interface PBSCreateProps {
 	clearPBS: any
 }
 
-/** PBS 생성 */
-export const usePBSCreate = create<PBSCreateProps>()(
+interface QTSaveProps {
+	qt: {
+		book:        string;
+		chapter:     number | null;
+		startVerse:  number | null;
+		endVerse:    number | null;
+		content:     string;
+		showData:    string;
+	},
+	saveQT: (object: any) => void,
+	clearQT: any
+}
+
+/** SideBar State */
+export const useSideBar = create<UseHeader>((set) => ({
+	sideBar: false,
+	handleOpenSideBar: () => set({ sideBar: true }),
+	handleCloseSideBar: () => set({ sideBar: false }),
+}));
+
+
+/** PBS 임시저장 */
+export const usePBSCreate = create<PBSSaveProps>()(
 	persist(
 		(set) => ({
 			pbs: {
@@ -53,8 +67,38 @@ export const usePBSCreate = create<PBSCreateProps>()(
 		}),
 
 		{
-			name: 'pbs-create',
-			// storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used
+			name: 'pbs-save',
+		}
+	)
+)
+
+/** QT 임시저장 */
+export const useQTCreate = create<QTSaveProps>()(
+	persist(
+		(set) => ({
+			qt: {
+				book:       "",
+				chapter:    null,
+				startVerse: null,
+				endVerse:   null,
+				content:    "",
+				showData:   "Y"
+			},
+
+			saveQT: (object) => set(() => ({ qt: object })),
+
+			clearQT: () => set((): any => ({ qt: {
+					book:       "",
+					chapter:    "",
+					startVerse: "",
+					endVerse:   "",
+					content:    "",
+					showData:   "Y"
+				} }))
+		}),
+
+		{
+			name: 'qt-save',
 		}
 	)
 )
