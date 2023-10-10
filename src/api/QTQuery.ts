@@ -2,16 +2,16 @@ import axios from 'axios'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
 /** QT 게시판 */
-const getQTList  = async (page: number) => {
+const getQTList  = async () => {
 	try {
-		const res = await axios.get(`http://localhost:8083/qt?page=${page}`);
+		const res = await axios.get(`http://localhost:8083/qt/all`);
 		return res.data
 	} catch(err){
 		throw err;
 	}
 };
 
-export const useQTQuery = (page: number) => useQuery(["qt"], () => getQTList(page));
+export const useQTQuery = () => useQuery(["qt"], () => getQTList());
 
 /** QT 상세 정보 */
 const getQtDetailList = async (page:  string) => {

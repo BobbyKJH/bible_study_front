@@ -2,16 +2,16 @@ import axios from 'axios'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
 /** PBS 게시판 */
-const getPBSList = async (page: number) => {
+const getPBSList = async () => {
 	try{
-		const res = await axios.get(`http://localhost:8083/pbs?page=${page}`)
+		const res = await axios.get(`http://localhost:8083/pbs/all`)
 		return res.data
 	} catch (err) {
 		console.error(err)
 	}
 }
 
-export const usePBSQuery = (page: number) => useQuery(["pbs"], () => getPBSList(page));
+export const usePBSQuery = () => useQuery(["pbs"], () => getPBSList());
 
 /** 상세 정보 */
 const getPBSDetailList = async (id: string) => {
