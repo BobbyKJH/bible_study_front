@@ -11,8 +11,14 @@ const TextMultiField: React.FC<Bible.Text> = (props) => {
 	return (
 		<TextField
 			multiline
-			rows={20}
-			sx={{ width: "100%" }}
+			fullWidth
+			minRows={10}
+			variant="standard"
+			inputProps={{
+				style: {
+					padding: "15px 20px"
+				}
+			}}
 			{...register(name, { required: true })}
 		/>
 	);

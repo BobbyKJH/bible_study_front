@@ -11,12 +11,17 @@ const TextReadMultiField: React.FC<Bible.Read> = (props) => {
 	return (
 		<TextField
 			multiline
-			rows={20}
 			value={value}
+			variant="standard"
 			disabled={true}
+			fullWidth={true}
+			inputProps={{
+				style: {
+					padding: "15px 20px"
+				}
+			}}
 			sx={
 				{
-					width: "100%",
 					"& .MuiInputBase-input.Mui-disabled": {
 						WebkitTextFillColor: "#000000",
 					},
