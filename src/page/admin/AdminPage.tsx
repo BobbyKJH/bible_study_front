@@ -11,7 +11,9 @@ import TextMultiField from '@components/create/TextMultiField.tsx'
 import TextReadNumber from '@components/read/TextReadNumber.tsx'
 import TextReadMultiField from '@components/read/TextReadMultiField.tsx'
 /** Style */
+import { Button } from '@mui/material'
 import { PageContainer } from '@style/common/PageStyle.ts'
+import { FooterContainer } from '@style/common/FooterStyle.ts'
 
 const AdminPage: React.FC = () => {
 	const [edit, setEdit] = useState<boolean>(true);
@@ -29,7 +31,6 @@ const AdminPage: React.FC = () => {
 			mutate(data)
 			setEdit(true);
 		}
-		console.log(data)
 	}
 
 	/** 수정 여부 */
@@ -42,8 +43,6 @@ const AdminPage: React.FC = () => {
 			setEdit(true);
 		}
 	}
-
-	console.log(!isLoading && data)
 
 	return (
 		<PageContainer>
@@ -60,7 +59,9 @@ const AdminPage: React.FC = () => {
 
           <TextReadMultiField value={data.evangelize}/>
 
-          <button name={"edit"} onClick={editStart}>수정 하기</button>
+          <FooterContainer content={"right"}>
+						<Button name={"edit"} onClick={editStart} variant="contained">수정 하기</Button>
+					</FooterContainer>
         </form>
 			}
 
@@ -77,8 +78,11 @@ const AdminPage: React.FC = () => {
 
 						<TextMultiField register={register} name={"evangelize"}/>
 
-						<button type={"submit"}>수정 완료</button>
-            <button name={""} onClick={editStart}>수정 취소</button>
+						<FooterContainer content={"right"}>
+							<Button type={"submit"} variant="contained">수정 완료</Button>
+
+							<Button name={""}  onClick={editStart} variant="outlined">수정 취소</Button>
+            </FooterContainer>
 					</form>
 			}
 		</PageContainer>
