@@ -1,61 +1,80 @@
 /** React */
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
 /** Query */
 import { useQTQuery } from '@/api/QTQuery.ts'
 /** Hook */
 import usePage from '@/hook/usePage.ts'
+import useSearch from '@/hook/useSearch.ts'
 /** Utils */
 import pageIndex from '@utils/pageIndex.ts'
 import pageCount from '@utils/pageCount.ts'
-/** Type */
-import Bible from '@type/Bible'
+import pageNumber from '@utils/pageNumber.ts'
+/** Component */
+import NoticeSearch from '@components/notice/NoticeSearch.tsx'
 /** Style */
-import { Pagination } from '@mui/material'
-import { NoticeContainer, PageContainer } from '@style/common/PageStyle.ts'
-/** Icon */
-import { IoCreateOutline } from "react-icons/io5";
+import { Button, Pagination } from '@mui/material'
+import { PageContainer } from '@style/common/PageStyle.ts'
+import { FooterContainer } from '@style/common/FooterStyle.ts'
+import { NoticeBook, NoticeChapter, NoticeCreateBtn, NoticeDate, NoticeItem, NoticeNum, NoticePaper, NoticeTitle, NoticeVerse } from '@style/notice/NoticeStyle.ts'
 
 const QTPage: React.FC = () => {
+	/** 검색 */
+	const { search, handleChangeSearch } = useSearch();
+	/** Page */
 	const { page, handleClickPage } = usePage();
-	const { data, isLoading } = useQTQuery(page);
+	/** Data */
+	const { data, isLoading, refetch } = useQTQuery();
 
-	console.log(!isLoading && data)
+	useEffect(() => {
+		refetch();
+	}, [page]);
 
 	return (
 		<PageContainer>
-			<IoCreateOutline/>
-			<div>
+			<NoticeTitle>
+				<p>QT 게시판</p>
+
+				<NoticeSearch search={search} handleChangeSearch={handleChangeSearch} />
+			</NoticeTitle>
+
 				{!isLoading ?
-					<NoticeContainer>
+					<NoticePaper elevation={0}>
 						<div>
-							{data.qt.map((item: Bible.Notice, index: number) => (
-								<Link to={`/qt/read/${item.id}`} key={item.id}>
-									<div>
-										<span>{pageIndex(index, page)}</span>
-										<span>{item.book}</span>
-										<span>{item.chapter}장</span>
-										<span>{item.startVerse}절</span>
+							{pageNumber(data, search, page).map((item, index: number) => (
+								<NoticeItem to={`/qt/read/${item.id}`} key={item.id}>
+									<NoticeNum>{pageIndex(index, page)}</NoticeNum>
+									<NoticeBook>{item.book}</NoticeBook>
+									<NoticeChapter>{item.chapter}장</NoticeChapter>
+									<NoticeVerse>
+										<span>{item.startVerse}</span>
+										~
 										<span>{item.endVerse}절</span>
-										<span>{item.id}</span>
-									</div>
-								</Link>
+									</NoticeVerse>
+									<NoticeDate>{item.date}</NoticeDate>
+								</NoticeItem>
 							))}
 						</div>
 
-						<Pagination
-							count={pageCount(data.length)}
-							page={page}
-							onChange={handleClickPage}
-							showFirstButton
-							showLastButton
-							sx={{ display:"flex",justifyContent:"center" }}
-						/>
-					</NoticeContainer>
+						<FooterContainer content={"center"}>
+							<Pagination
+								count={pageCount(data, search)}
+								page={page}
+								onChange={handleClickPage}
+								showFirstButton
+								showLastButton
+								sx={{ display:"flex",justifyContent:"center", p: "10px 0px" }}
+							/>
+
+							<NoticeCreateBtn to={"/qt/create"}>
+								<Button variant="contained" color="success">
+									글쓰기
+								</Button>
+							</NoticeCreateBtn>
+						</FooterContainer>
+					</NoticePaper>
 					:
 					null
 				}
-			</div>
 		</PageContainer>
 	);
 };
