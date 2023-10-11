@@ -5,10 +5,7 @@ import { useNavigate } from 'react-router'
 import { useSideBar } from '@/store/store.ts'
 /** Style */
 import styled from 'styled-components'
-import Toolbar from '@mui/material/Toolbar'
-import AppBar from '@mui/material/AppBar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
+import { Tooltip, Toolbar, AppBar, IconButton, Typography } from '@mui/material'
 /** Icon */
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";
@@ -69,6 +66,7 @@ const Header: React.FC = () => {
 
 				<div>
 					<LoginBox>
+						<Tooltip title="마이 페이지">
 							<IconButton
 							color="inherit"
 							aria-label="open drawer"
@@ -77,15 +75,18 @@ const Header: React.FC = () => {
 							>
 								<BsFillPersonFill/>
 							</IconButton>
+						</Tooltip>
 
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="end"
-              onClick={handleLogout}
-            >
-              <IoLogOutOutline/>
-            </IconButton>
+						<Tooltip title="로그아웃">
+							<IconButton
+								color="inherit"
+								aria-label="open drawer"
+								edge="end"
+								onClick={handleLogout}
+							>
+								<IoLogOutOutline/>
+							</IconButton>
+						</Tooltip>
 					</LoginBox>
 				</div>
 
