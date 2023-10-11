@@ -5,7 +5,7 @@ import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, Toolt
 /** Query */
 import { useQTChartQuery } from '@/api/AdminQuery.ts'
 /** Style */
-import { ChartBox, ChartTitle } from '@style/common/ChartStyle.ts'
+import { ChartBox, ChartSubTitle, ChartTitle } from '@style/common/ChartStyle.ts'
 
 interface QTChartProps {
 	startDate: string;
@@ -25,6 +25,7 @@ const QTChart: React.FC<QTChartProps> = (props) => {
 	return (
 		<ChartBox>
 			<ChartTitle>QT</ChartTitle>
+			<ChartSubTitle>Quiet Time</ChartSubTitle>
 
 			<ResponsiveContainer width={"90%"} height={"100%"}>
 				<BarChart

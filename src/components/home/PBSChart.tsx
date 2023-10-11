@@ -5,7 +5,7 @@ import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, Toolt
 /** Query */
 import { usePBSChartQuery } from '@/api/AdminQuery.ts'
 /** Style */
-import { ChartBox, ChartTitle } from '@style/common/ChartStyle.ts'
+import { ChartBox, ChartSubTitle, ChartTitle } from '@style/common/ChartStyle.ts'
 
 interface PBSChartProps {
 	startDate: string;
@@ -25,6 +25,7 @@ const PBSChart: React.FC<PBSChartProps> = (props) => {
 	return (
 		<ChartBox>
 			<ChartTitle>PBS</ChartTitle>
+			<ChartSubTitle>Personal Bible Study</ChartSubTitle>
 			<ResponsiveContainer width={"90%"} height={"100%"}>
 				<BarChart
 					data={data}
