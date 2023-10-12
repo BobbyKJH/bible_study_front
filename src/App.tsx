@@ -2,12 +2,14 @@
 import React from 'react'
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from 'react-router-dom'
-import AuthRouter from '@components/common/AuthRouter.tsx'
+/** Recoil */
+import { RecoilRoot } from 'recoil'
 /** Tanstack-Query */
 import { QueryClient } from '@tanstack/query-core'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 /** Components */
+import AuthRouter from '@components/common/AuthRouter.tsx'
 import ScrollToTop from '@components/common/ScrollToTop.tsx'
 /** Page */
 import HomePage from '@/page/HomePage.tsx'
@@ -37,42 +39,44 @@ const App: React.FC = () => {
   const queryClient = new QueryClient();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <GlobalStyle/>
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <GlobalStyle/>
 
-      <BrowserRouter>
+        <BrowserRouter>
 
-        <ScrollToTop/>
+          <ScrollToTop/>
 
-        <Routes>
-          <Route path={"/"} element={<LoginPage/>}/>
-          <Route path={"/create/user"} element={<LoginCreatePage/>}/>
+          <Routes>
+            <Route path={"/"} element={<LoginPage/>}/>
+            <Route path={"/create/user"} element={<LoginCreatePage/>}/>
 
-          <Route element={<AuthRouter/>}>
-            <Route path={"/home"} element={<HomePage/>}/>
-            <Route path={"/mypage"} element={<MyPage/>}/>
+            <Route element={<AuthRouter/>}>
+              <Route path={"/home"} element={<HomePage/>}/>
+              <Route path={"/mypage"} element={<MyPage/>}/>
 
-            <Route path={"/oldTestament"} element={<BibleOldTestamentPage/>}/>
-            <Route path={"/newTestament"} element={<BibleNewTestamentPage/>}/>
+              <Route path={"/oldTestament"} element={<BibleOldTestamentPage/>}/>
+              <Route path={"/newTestament"} element={<BibleNewTestamentPage/>}/>
 
-            <Route path={"/pbs"} element={<PBSPage/>}/>
-            <Route path={"/pbs/create"} element={<PBSCreatePage/>}/>
-            <Route path={"/pbs/read/:id"} element={<PBSReadPage/>}/>
-            <Route path={"/pbs/edit/:id"} element={<PBsEditPage/>}/>
+              <Route path={"/pbs"} element={<PBSPage/>}/>
+              <Route path={"/pbs/create"} element={<PBSCreatePage/>}/>
+              <Route path={"/pbs/read/:id"} element={<PBSReadPage/>}/>
+              <Route path={"/pbs/edit/:id"} element={<PBsEditPage/>}/>
 
 
-            <Route path={"/qt"} element={<QTPage/>}/>
-            <Route path={"/qt/create"} element={<QTCreatePage/>}/>
-            <Route path={"/qt/read/:id"} element={<QTReadPage/>}/>
-            <Route path={"/qt/edit/:id"} element={<QTEditPage/>}/>
+              <Route path={"/qt"} element={<QTPage/>}/>
+              <Route path={"/qt/create"} element={<QTCreatePage/>}/>
+              <Route path={"/qt/read/:id"} element={<QTReadPage/>}/>
+              <Route path={"/qt/edit/:id"} element={<QTEditPage/>}/>
 
-            <Route path={"/admin"} element={<AdminPage/>}/>
-          </Route>
-        </Routes>
-      </BrowserRouter>
+              <Route path={"/admin"} element={<AdminPage/>}/>
+            </Route>
+          </Routes>
+        </BrowserRouter>
 
-      <ReactQueryDevtools initialIsOpen={false}/>
-    </QueryClientProvider>
+        <ReactQueryDevtools initialIsOpen={false}/>
+      </QueryClientProvider>
+    </RecoilRoot>
   );
 };
 
