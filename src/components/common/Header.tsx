@@ -2,8 +2,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
-/** Zustand */
-import { useSideBar } from '@/store/store.ts'
+/** Recoil */
+import { useSetRecoilState } from 'recoil'
+import { sideBarAtom } from '@/store/sideBarAtom.ts'
 /** Style */
 import styled from 'styled-components'
 import { Tooltip, Toolbar, AppBar, IconButton, Typography } from '@mui/material'
@@ -12,6 +13,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogOutOutline } from "react-icons/io5";
 import { BsFillPersonFill } from 'react-icons/bs'
 
+
 const LoginBox = styled.div`
 	display: flex;
 	width: 60px;
@@ -19,8 +21,13 @@ const LoginBox = styled.div`
 `
 
 const Header: React.FC = () => {
-	const { handleOpenSideBar } = useSideBar();
 	const navigator = useNavigate();
+
+	const setSideBar = useSetRecoilState(sideBarAtom);
+
+	const handleOpenSideBar = () => {
+		setSideBar(true);
+	};
 
 	const handleLogout = () => {
 		if(window.confirm("로그아웃 하시겠습니까?")){
@@ -30,7 +37,7 @@ const Header: React.FC = () => {
 
 			navigator("/")
 		}
-	}
+	};
 
 	const handleMyPage = () => {
 		navigator("/mypage")

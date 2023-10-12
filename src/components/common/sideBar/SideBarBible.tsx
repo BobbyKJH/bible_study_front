@@ -1,6 +1,9 @@
 /** React */
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
+/** Recoil */
+import { useSetRecoilState } from 'recoil'
+import { sideBarAtom } from '@/store/sideBarAtom.ts'
 /** Utils */
 import { pathLocaiton } from '@utils/utilsFc.ts'
 /** Style */
@@ -13,12 +16,16 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import ListItemIcon from '@mui/material/ListItemIcon'
 import { BiSolidBible, BiBible } from "react-icons/bi";
-import { useSideBar } from '@/store/store.ts'
+
 
 
 const SideBarBible = () => {
 	const [open, setOpen] = useState(true);
-	const { handleCloseSideBar } = useSideBar()
+	const setSideBar = useSetRecoilState(sideBarAtom);
+
+	const handleCloseSideBar = () => {
+		setSideBar(false);
+	};
 
 	const handleClick = () => {
 		setOpen((prevOpen) => !prevOpen);

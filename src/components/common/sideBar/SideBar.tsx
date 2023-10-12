@@ -5,8 +5,9 @@ import { sha256 } from 'js-sha256'
 /** Component */
 import SideBarText from '@components/common/sideBar/SideBarText.tsx'
 import SideBarBible from '@components/common/sideBar/SideBarBible.tsx'
-/** Zustand */
-import { useSideBar } from '@/store/store.ts'
+/** Recoil */
+import { useRecoilState } from 'recoil'
+import { sideBarAtom } from '@/store/sideBarAtom.ts'
 /** Style */
 import { Box, Divider, Drawer, List, Toolbar } from '@mui/material';
 /** Icon */
@@ -14,23 +15,29 @@ import { BiHome } from "react-icons/bi";
 import { TbClipboardText, TbClipboardList } from "react-icons/tb";
 import { BsFillPersonLinesFill } from 'react-icons/bs'
 
+
 const SideBar: React.FC = () => {
-	const { handleCloseSideBar, sideBar } = useSideBar();
+	const [sideBar, setSideBar] = useRecoilState(sideBarAtom);
+
+	const handleCloseSideBar = () => {
+		setSideBar(false);
+	}
+
 
 	const drawer = (
 		<div>
 			<Toolbar />
 			<Divider />
 			<List sx={{ paddingTop: 0 }}>
-				<SideBarText path={"home"} text={"홈"} icon={BiHome}/>
+				<SideBarText path={"home"} text={"홈"} Icon={BiHome}/>
 
 				<SideBarBible/>
 
-				<SideBarText path={"pbs"} text={"PBS"} icon={TbClipboardText}/>
+				<SideBarText path={"pbs"} text={"PBS"} Icon={TbClipboardText}/>
 
-				<SideBarText path={"qt"} text={"QT"} icon={TbClipboardList}/>
+				<SideBarText path={"qt"} text={"QT"} Icon={TbClipboardList}/>
 
-				{sessionStorage.getItem("userAuth") === sha256("admin") && <SideBarText path={"admin"} text={"관리자 권한"} icon={BsFillPersonLinesFill}/>}
+				{sessionStorage.getItem("userAuth") === sha256("admin") && <SideBarText path={"admin"} text={"관리자 권한"} Icon={BsFillPersonLinesFill}/>}
 			</List>
 		</div>
 	);
