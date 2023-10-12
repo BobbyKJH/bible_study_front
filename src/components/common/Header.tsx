@@ -1,5 +1,6 @@
 /** React */
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 /** Zustand */
 import { useSideBar } from '@/store/store.ts'
@@ -57,12 +58,14 @@ const Header: React.FC = () => {
 					onClick={handleOpenSideBar}
 					sx={{ mr: 2, display: { md: 'none' } }}
 				>
-					<GiHamburgerMenu style={{color:"#fff"}} />
+					<GiHamburgerMenu style={{ color:"#fff" }} />
 				</IconButton>
 
-				<Typography variant="h6" noWrap component="div">
-					주은혜 교회
-				</Typography>
+				<Link to={"/home"} style={{ color:"#fff" }}>
+					<Typography variant="h6" noWrap component="div">
+						주은혜 교회
+					</Typography>
+				</Link>
 
 				<div>
 					<LoginBox>
