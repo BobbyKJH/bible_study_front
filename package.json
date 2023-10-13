@@ -25,9 +25,7 @@
     "recharts": "^2.8.0",
     "recoil": "^0.7.7",
     "recoil-persist": "^5.1.0",
-    "styled-components": "^6.0.7",
-    "zustand": "^4.4.1",
-    "zustand-persist": "^0.4.0"
+    "styled-components": "^6.0.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
