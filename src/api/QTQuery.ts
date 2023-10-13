@@ -2,10 +2,10 @@ import axios from 'axios'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
 /** QT 게시판 */
-const getQTList  = async () => {
+const getQTList = async () => {
 	try {
 		const res = await axios.get(`http://localhost:8083/qt/all`);
-		return res.data
+		return res.data;
 	} catch(err){
 		throw err;
 	}
@@ -17,7 +17,7 @@ export const useQTQuery = () => useQuery(["qt"], () => getQTList());
 const getQtDetailList = async (page:  string) => {
 	try{
 		const res = await axios.get(`http://localhost:8083/qt/${page}`)
-		return res.data
+		return res.data;
 	} catch (err) {
 		throw err;
 	}
@@ -29,7 +29,7 @@ export const useQTDetailQuery = (id: string) => useQuery(["QTDetail"], () => get
 const getMyPageQt = async (userId: string | null, page: number) => {
 	try {
 		const res = await axios.get(`http://localhost:8083/mypage/qt?userId=${userId}&page=${page}`)
-		return res.data
+		return res.data;
 	} catch (err){
 		throw err;
 	}
@@ -41,8 +41,7 @@ export const useMyQTQuery = (userId: string | null, page: number) => useQuery(["
 const createQTList = async (data: any) => {
 	try{
 		const res = await axios.post("http://localhost:8083/qt", data)
-		console.log(res.data)
-		return res.data
+		return res.data;
 	} catch (err) {
 		throw err
 	}
@@ -50,10 +49,10 @@ const createQTList = async (data: any) => {
 
 export const useCreateQTMutation = () => useMutation(createQTList, {
 	onSuccess: () => {
-		alert( "작성 완료" )
+		alert( "작성 완료" );
 	},
 	onError: () => {
-		alert( "작성 실패" )
+		alert( "작성 실패" );
 	}
 });
 
@@ -74,7 +73,7 @@ const editQTList = async (data: any) => {
 	try{
 		const res = await axios.put("http://localhost:8083/qt", data);
 
-		return res.data
+		return res.data;
 	} catch (err) {
 		throw err
 	}
@@ -82,10 +81,10 @@ const editQTList = async (data: any) => {
 
 export const useEditQTMutation = () => useMutation(editQTList, {
 	onSuccess: () => {
-		alert( "수정 완료" )
+		alert( "수정 완료" );
 	},
 	onError: () => {
-		alert( "수정 실패" )
+		alert( "수정 실패" );
 	}
 });
 
