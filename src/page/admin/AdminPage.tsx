@@ -60,7 +60,9 @@ const AdminPage: React.FC = () => {
           <TextReadMultiField value={data.evangelize}/>
 
           <FooterContainer content={"right"}>
-						<Button name={"edit"} onClick={editStart} variant="contained">수정 하기</Button>
+						<div>
+							<Button name={"edit"} onClick={editStart} variant="contained">수정 하기</Button>
+            </div>
 					</FooterContainer>
         </form>
 			}
@@ -79,9 +81,11 @@ const AdminPage: React.FC = () => {
 						<TextMultiField register={register} name={"evangelize"}/>
 
 						<FooterContainer content={"right"}>
-							<Button type={"submit"} variant="contained">수정 완료</Button>
+							<div>
+								<Button type={"submit"} variant="contained" sx={{ margin : "0 20px"}}>수정 완료</Button>
 
-							<Button name={""}  onClick={editStart} variant="outlined">수정 취소</Button>
+								<Button name={""}  onClick={editStart} variant="outlined">수정 취소</Button>
+              </div>
             </FooterContainer>
 					</form>
 			}
