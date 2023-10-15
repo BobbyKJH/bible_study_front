@@ -7,7 +7,7 @@ import SideBarText from '@components/common/sideBar/SideBarText.tsx'
 import SideBarBible from '@components/common/sideBar/SideBarBible.tsx'
 /** Recoil */
 import { useRecoilState } from 'recoil'
-import { sideBarAtom } from '@/store/sideBarAtom.ts'
+import { sideBarAtom } from '@/store/SideBarAtom.ts'
 /** Style */
 import { Box, Divider, Drawer, List, Toolbar } from '@mui/material';
 /** Icon */

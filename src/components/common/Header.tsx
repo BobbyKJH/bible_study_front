@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 /** Recoil */
 import { useSetRecoilState } from 'recoil'
-import { sideBarAtom } from '@/store/sideBarAtom.ts'
+import { sideBarAtom } from '@/store/SideBarAtom.ts'
 /** Style */
 import styled from 'styled-components'
 import { Tooltip, Toolbar, AppBar, IconButton, Typography } from '@mui/material'

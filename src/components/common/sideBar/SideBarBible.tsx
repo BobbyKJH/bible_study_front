@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom';
 /** Recoil */
 import { useSetRecoilState } from 'recoil'
-import { sideBarAtom } from '@/store/sideBarAtom.ts'
+import { sideBarAtom } from '@/store/SideBarAtom.ts'
 /** Utils */
 import { pathLocaiton } from '@utils/utilsFc.ts'
 /** Style */
