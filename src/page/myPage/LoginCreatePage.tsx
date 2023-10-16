@@ -1,16 +1,16 @@
 /** React */
 import React from 'react';
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router';
 /** Hook */
-import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form';
 /** Component */
-import TextInput from '@components/create/TextInput.tsx'
+import TextInput from '@components/create/TextInput.tsx';
 /** Query */
-import { useCreateUserMutation } from '@/api/UserQuery.ts'
+import { useCreateUserMutation } from '@/api/UserQuery.ts';
 /** Type */
-import Bible from '@type/Bible'
+import Bible from '@type/Bible';
 /** Styles */
-import { LoginAlert, LoginBtn, LoginContainer, LoginPaper, LoginTitle } from '@style/login/LoginStyle.ts'
+import { LoginAlert, LoginBtn, LoginContainer, LoginDate, LoginPaper, LoginTitle } from '@style/login/LoginStyle.ts';
 
 const LoginCreatePage: React.FC = () => {
 	const {
@@ -20,7 +20,7 @@ const LoginCreatePage: React.FC = () => {
 		resetField,
 		formState: { errors }} =
 		useForm<Bible.User>({
-		defaultValues: { userName: "", userId: ""}
+		defaultValues: { userName: "", userId: "", userBirth: "" }
 	});
 	const { mutate } = useCreateUserMutation();
 	const navigate = useNavigate();
@@ -40,8 +40,6 @@ const LoginCreatePage: React.FC = () => {
 	}
 
 	return (
-
-
 	<LoginContainer maxWidth="sm" >
 		<LoginPaper elevation={3}>
 			<LoginTitle>회원가입</LoginTitle>
@@ -54,6 +52,18 @@ const LoginCreatePage: React.FC = () => {
 
 				<TextInput register={register} name={"userId"} label={"ID"}/>
 				{errors.userId && <LoginAlert>ID를 입력해주세요.</LoginAlert>}
+
+				<div style={{ height: "40px" }}/>
+
+				<LoginDate
+					type={"date"}
+					label={"생년 월 일"}
+					{...register("userBirth", { required: "생년월일을 입력해주세요.", maxLength: { value: 10, message: "생년 월 일을 확인해보세요." } })}
+					InputLabelProps={{
+						shrink: true,
+					}}
+				/>
+				<LoginAlert>{errors?.userBirth?.message}</LoginAlert>
 
 				<LoginBtn type={"submit"}>회원가입</LoginBtn>
 			</form>
