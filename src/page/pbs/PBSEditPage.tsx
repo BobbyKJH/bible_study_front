@@ -1,22 +1,26 @@
+/** React */
 import React, { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router'
-import { useDetailQuery, useEditPBSMutation } from '@/api/PBSQuery.ts'
-import { useForm } from 'react-hook-form'
-import { PageContainer } from '@style/common/PageStyle.ts'
-import TextNumber from '@components/create/TextNumber.tsx'
-import Bible from '@type/Bible'
-import TextSelect from '@components/create/TextSelect.tsx'
-import { bible, newTestament, oldTestament } from '@utils/arr/BibleBooks.ts'
-import TextMultiField from '@components/create/TextMultiField.tsx'
-import { FormControl, InputLabel, MenuItem, Paper, Select } from '@mui/material'
+import { useNavigate, useParams } from 'react-router';
+/** Hook */
+import { useForm } from 'react-hook-form';
+/** Api */
+import { usePBSDetailQuery, useEditPBSMutation } from '@/api/PBSQuery.ts';
+/** Component */
+import TextNumber from '@components/create/TextNumber.tsx';
+import TextSelect from '@components/create/TextSelect.tsx';
+import TextMultiField from '@components/create/TextMultiField.tsx';
+/** Utils */
+import { newTestament, oldTestament } from '@utils/arr/BibleBooks.ts';
+/** Style */
+import { Paper } from '@mui/material';
+import { PageContainer } from '@style/common/PageStyle.ts';
+import { FooterContainer } from '@style/common/FooterStyle.ts';
 
 const PbsEditPage: React.FC = () => {
 	const { id } = useParams();
+	const navigate = useNavigate();
 
-	const { data, isLoading } = useDetailQuery(id as string);
-
-	const naviagtor = useNavigate();
-
+	const { data, isLoading } = usePBSDetailQuery(id as string);
 	const { mutate } = useEditPBSMutation();
 
 	const {
@@ -26,19 +30,20 @@ const PbsEditPage: React.FC = () => {
 		reset} = useForm();
 
 	useEffect(() => {
-		reset( {...data})
-		watch()
+		reset( {...data});
+		watch();
 	}, [isLoading])
 
-	const editPBS = (data: Bible.Create) => {
+	const editPBS = (data: any) => {
 		if(window.confirm("수정 하시겠습니까?")){
 			mutate(data, {
 				onSuccess: () => {
-					naviagtor(`/pbs/read/${id}`);
+					navigate(`/pbs/read/${id}`);
 				}
 			});
-		};
+		}
 	}
+	console.log(watch())
 
 	return (
 	<PageContainer>
@@ -46,19 +51,8 @@ const PbsEditPage: React.FC = () => {
 		{!isLoading ?
 			<Paper>
 				<form onSubmit={handleSubmit(editPBS)}>
+					<div>
 					<TextSelect register={register} name={"book"} oldTestament={oldTestament} newTestament={newTestament} watch={watch}/>
-
-						<Select
-							labelId="demo-simple-select-autowidth-label"
-							id="demo-simple-select-autowidth"
-							{...register("book",{ required: true })}
-							autoWidth
-							label="Age"
-						>
-							{bible.map((bible) => <MenuItem key={bible.book} value={bible.book}>{bible.book}</MenuItem>)}
-						</Select>
-
-
 
 					<TextNumber register={register} name={"chapter"} verse={"장"}/>
 
@@ -68,9 +62,15 @@ const PbsEditPage: React.FC = () => {
 					</div>
 
 					<TextMultiField register={register} name={"content"} />
+					</div>
 
-					<button type={"submit"}>수정</button>
+					<FooterContainer content={"right"}>
+						<div>
+							<button type={"submit"}>수정</button>
+						</div>
+					</FooterContainer>
 				</form>
+
 			</Paper>
 			:
 			null

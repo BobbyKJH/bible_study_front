@@ -1,9 +1,11 @@
 /** React */
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom'
 /** Custom Hook */
 import usePage from '@/hook/usePage.ts'
 import useSearch from '@/hook/useSearch.ts'
 /** Component */
+import NoticeItem from '@components/notice/NoticeItem.tsx'
 import NoticeSearch from '@components/notice/NoticeSearch.tsx'
 /** Utils */
 import pageIndex from '@utils/pageIndex.ts'
@@ -13,14 +15,7 @@ import pageNumber from '@utils/pageNumber.ts'
 import { usePBSQuery } from '@/api/PBSQuery.ts'
 /** Style */
 import { PageContainer } from '@style/common/PageStyle.ts'
-import {
-	NoticeItem,
-	NoticePaper,
-	NoticeNum,
-	NoticeTitle,
-	NoticeBook,
-	NoticeChapter, NoticeVerse, NoticeDate, NoticeCreateBtn
-} from '@style/notice/NoticeStyle.ts'
+import { NoticePaper, NoticeTitle, NoticeCreateBtn } from '@style/notice/NoticeStyle.ts'
 import { Button, Pagination } from '@mui/material'
 import { FooterContainer } from '@style/common/FooterStyle.ts'
 
@@ -50,35 +45,36 @@ const PBSPage: React.FC = () => {
 				<NoticePaper elevation={0}>
 					<div>
 						{pageNumber(data, search, page).map((item, index: number) => (
-							<NoticeItem to={`/pbs/read/${item.id}`} key={item.id}>
-									<NoticeNum>{pageIndex(index, page)}</NoticeNum>
-									<NoticeBook>{item.book}</NoticeBook>
-									<NoticeChapter>{item.chapter}장</NoticeChapter>
-									<NoticeVerse>
-										<span>{item.startVerse}</span>
-										~
-										<span>{item.endVerse}절</span>
-									</NoticeVerse>
-								<NoticeDate>{item.date}</NoticeDate>
-							</NoticeItem>
+							<Link to={`/pbs/read/${item.id}`} key={item.id}>
+									<NoticeItem
+										id={pageIndex(index, page)}
+										book={item.book}
+										chapter={item.chapter}
+										startVerse={item.startVerse}
+										endVerse={item.endVerse}
+										date={item.date}
+									/>
+							</Link>
 						))}
 					</div>
 
 					<FooterContainer content={"center"}>
-						<Pagination
-							count={pageCount(data, search)}
-							page={page}
-							onChange={handleClickPage}
-							showFirstButton
-							showLastButton
-							sx={{ display:"flex",justifyContent:"center", p: "10px 0px" }}
-						/>
+						<div>
+							<Pagination
+								count={pageCount(data, search)}
+								page={page}
+								onChange={handleClickPage}
+								showFirstButton
+								showLastButton
+								sx={{ display:"flex",justifyContent:"center", p: "10px 0px" }}
+							/>
 
-						<NoticeCreateBtn to={"/pbs/create"}>
-							<Button variant="contained" color="success">
-								글쓰기
-							</Button>
-						</NoticeCreateBtn>
+							<NoticeCreateBtn to={"/pbs/create"}>
+								<Button variant="contained" color="success">
+									글쓰기
+								</Button>
+							</NoticeCreateBtn>
+						</div>
 					</FooterContainer>
 				</NoticePaper>
 				:

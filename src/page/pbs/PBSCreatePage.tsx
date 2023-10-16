@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 /** Hook */
 import { useForm } from 'react-hook-form'
 /** Recoil */
-import { PBSNoticeAtom } from '@/store/noticeAtom.ts'
+import { PBSNoticeAtom } from '@/store/NoticeAtom.ts'
 import { useRecoilState, useResetRecoilState } from 'recoil'
 /** Api */
 import { useCreatePBSMutation } from '@/api/PBSQuery.ts'
