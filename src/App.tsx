@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router";
 import { BrowserRouter } from 'react-router-dom'
 /** Recoil */
 import { RecoilRoot } from 'recoil'
-/** Tanstack-Query */
+/** React-Query */
 import { QueryClient } from '@tanstack/query-core'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
@@ -58,16 +58,19 @@ const App: React.FC = () => {
               <Route path={"/oldTestament"} element={<BibleOldTestamentPage/>}/>
               <Route path={"/newTestament"} element={<BibleNewTestamentPage/>}/>
 
-              <Route path={"/pbs"} element={<PBSPage/>}/>
-              <Route path={"/pbs/create"} element={<PBSCreatePage/>}/>
-              <Route path={"/pbs/read/:id"} element={<PBSReadPage/>}/>
-              <Route path={"/pbs/edit/:id"} element={<PBsEditPage/>}/>
+              <Route path={"pbs"} >
+                <Route path={""} element={<PBSPage/>}/>
+                <Route path={"create"} element={<PBSCreatePage/>}/>
+                <Route path={"read/:id"} element={<PBSReadPage/>}/>
+                <Route path={"edit/:id"} element={<PBsEditPage/>}/>
+              </Route>
 
-
-              <Route path={"/qt"} element={<QTPage/>}/>
-              <Route path={"/qt/create"} element={<QTCreatePage/>}/>
-              <Route path={"/qt/read/:id"} element={<QTReadPage/>}/>
-              <Route path={"/qt/edit/:id"} element={<QTEditPage/>}/>
+              <Route path={"qt"} >
+                <Route path={""} element={<QTPage/>}/>
+                <Route path={"create"} element={<QTCreatePage/>}/>
+                <Route path={"read/:id"} element={<QTReadPage/>}/>
+                <Route path={"edit/:id"} element={<QTEditPage/>}/>
+              </Route>
 
               <Route path={"/admin"} element={<AdminPage/>}/>
             </Route>
