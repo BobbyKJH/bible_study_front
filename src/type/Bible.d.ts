@@ -46,6 +46,7 @@ declare namespace Bible{
 	interface User{
 		userId: string;
 		userName: string;
+		userBirth: string;
 	}
 
 }
