@@ -7,7 +7,7 @@ import { sha256 } from 'js-sha256'
 const getUserId = async (data: { userId: string }) =>{
 	try{
 		const res = await axios.post(`http://localhost:8083/user/userId`, data);
-		sessionStorage.setItem("userId", sha256(res.data.userId));
+		sessionStorage.setItem("userId", res.data.userId);
 		sessionStorage.setItem("userName", res.data.userName);
 		sessionStorage.setItem("userAuth", sha256(res.data.userAuth));
 		
