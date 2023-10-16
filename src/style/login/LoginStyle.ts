@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 /** Style */
 import styled from 'styled-components'
-import { Container, Paper } from '@mui/material'
+import { Container, Paper, TextField } from '@mui/material'
 
 export const LoginContainer = styled(Container)`
 	display: flex;
@@ -47,3 +47,10 @@ export const LoginAlert = styled.p`
 	position: absolute;
 	padding: 5px 0;
 `
+
+export const LoginDate = styled(TextField)`
+	width: 100%;
+  input[type="date"]::-webkit-calendar-picker-indicator {
+		display: none;
+	}
+`;
