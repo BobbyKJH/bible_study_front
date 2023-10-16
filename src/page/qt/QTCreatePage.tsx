@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router'
 import { useForm } from 'react-hook-form'
 /** Api */
 import { useCreateQTMutation } from '@/api/QTQuery.ts'
+/** Atom */
+import { QTNoticeAtom } from '@/store/NoticeAtom.ts'
+import { useRecoilState, useResetRecoilState } from 'recoil'
 /** Utils */
 import { newTestament, oldTestament } from '@utils/arr/BibleBooks.ts'
 /** Component */
@@ -17,8 +20,6 @@ import { Button } from '@mui/material'
 import { NoticeForm } from '@style/notice/NoticeStyle.ts'
 import { PageContainer } from '@style/common/PageStyle.ts'
 import { FooterContainer } from '@style/common/FooterStyle.ts'
-import { useRecoilState, useResetRecoilState } from 'recoil'
-import { QTNoticeAtom } from '@/store/noticeAtom.ts'
 
 const QTCreatePage: React.FC = () => {
 	const [notice, setNotice] = useRecoilState<Bible.Create>(QTNoticeAtom);
