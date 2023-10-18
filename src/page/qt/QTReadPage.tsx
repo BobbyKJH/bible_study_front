@@ -5,16 +5,11 @@ import { useNavigate, useParams } from 'react-router';
 /** Api */
 import { useQTDeleteMutation, useQTDetailQuery } from '@/api/QTQuery.ts';
 /** Component */
-import TextReadSelect from '@components/read/TextReadSelect.tsx';
-import TextReadNumber from '@components/read/TextReadNumber.tsx';
 import TextReadMultiField from '@components/read/TextReadMultiField.tsx';
 /** Style */
-import { Paper, Tooltip } from '@mui/material';
+import { Button, Paper } from '@mui/material';
 import { PageContainer } from '@style/common/PageStyle.ts';
 import { FooterContainer } from '@style/common/FooterStyle.ts'
-/** Icon */
-import { BiSolidTrashAlt } from 'react-icons/bi';
-import IconButton from '@mui/material/IconButton';
 
 const QTReadPage: React.FC = () => {
 	const navigate = useNavigate();
@@ -36,11 +31,15 @@ const QTReadPage: React.FC = () => {
 		}
 	};
 
+	const handleBackPage = () => {
+		navigate("/qt")
+	}
+
 	return (
 		<PageContainer>
 			{
 				!isLoading ?
-					<Paper sx={{ maxWidth: "lg", margin: "20px auto" }}>
+					<Paper elevation={0} sx={{ maxWidth: "lg", margin: "20px auto" }}>
 						<h1>{data.book}</h1>
 						<span>{data.chapter}장</span>
 						<div>
@@ -48,42 +47,29 @@ const QTReadPage: React.FC = () => {
 							<span>{data.endVerse}절</span>
 						</div>
 
-						<TextReadSelect value={data.book}/>
-
-						<div style={{display: "flex", justifyContent: "space-between"}}>
-							<TextReadNumber value={data.chapter} verse={"장"}/>
-
-							<div style={{display: "flex", alignItems: "center"}}>
-								<TextReadNumber value={data.startVerse} verse={"절"}/>
-								<div style={{display: "flex", alignItems: "center", height: "100%"}}>&nbsp; ~ &nbsp;</div>
-								<TextReadNumber value={data.endVerse} verse={"절"}/>
-							</div>
-
-							<TextReadNumber value={data.chapter} verse={"장"}/>
-						</div>
+						<hr/>
 
 						<TextReadMultiField value={data.content}/>
 
 
-						<FooterContainer content={"right"}>
+						<FooterContainer content={"space-between"}>
 							<div>
+								<Button variant="outlined" onClick={handleBackPage}>나가기</Button>
 								{
 									sessionStorage.getItem("userId") === data.userId
 									&&
 									<>
-										<Tooltip title="수정">
-											<Link to={`/qt/edit/${id}`}>
-												<IconButton>
-													<BiSolidTrashAlt/>
-												</IconButton>
+										<span>
+										<Button variant="contained" sx={{ margin: "0 20px"}}>
+											<Link to={`/qt/edit/${id}`} style={{ color: "#fff" }}>
+												수정
 											</Link>
-										</Tooltip>
+										</Button>
 
-										<Tooltip title="삭제" onClick={deleteBtn}>
-											<IconButton>
-												<BiSolidTrashAlt/>
-											</IconButton>
-										</Tooltip>
+										<Button variant="outlined" color="error" onClick={deleteBtn}>
+											삭제
+										</Button>
+									</span>
 									</>
 								}
 							</div>

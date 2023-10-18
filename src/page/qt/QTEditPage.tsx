@@ -1,21 +1,19 @@
 /** React */
+import { FooterContainer } from '@style/common/FooterStyle.ts'
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 /** Hook */
 import { useForm } from 'react-hook-form';
 /** Api */
 import { useEditQTMutation, useQTDetailQuery } from '@/api/QTQuery.ts';
-/** Utils */
-import { bible, newTestament, oldTestament } from '@utils/arr/BibleBooks.ts';
 /** Component */
 import TextSelect from '@components/create/TextSelect.tsx';
 import TextNumber from '@components/create/TextNumber.tsx';
+import TextSwitch from '@components/create/TextSwitch.tsx'
 import TextMultiField from '@components/create/TextMultiField.tsx';
-/** Type */
-import Bible from '@type/Bible';
 /** Style */
+import { Button, Paper } from '@mui/material';
 import { PageContainer } from '@style/common/PageStyle.ts';
-import { MenuItem, Paper, Select } from '@mui/material';
 
 const QtEditPage: React.FC = () => {
 	const { id } = useParams();
@@ -28,6 +26,7 @@ const QtEditPage: React.FC = () => {
 		register,
 		watch,
 		handleSubmit,
+		setValue,
 		reset} = useForm();
 
 	useEffect(() => {
@@ -35,7 +34,7 @@ const QtEditPage: React.FC = () => {
 		watch()
 	}, [isLoading]);
 
-	const editQT = (data: Bible.Create) => {
+	const editQT = (data: any): void => {
 		if(window.confirm("수정 하시겠습니까?")){
 			mutate(data, {
 				onSuccess: () => {
@@ -45,23 +44,20 @@ const QtEditPage: React.FC = () => {
 		};
 	};
 
+	const handleBackPage = () => {
+		navigate(`/qt/read/${id}`)
+	}
+
 	return (
 		<PageContainer>
 
-			{!isLoading ?
-				<Paper>
+			{!isLoading && watch("showData") ?
+				<Paper elevation={0}>
 					<form onSubmit={handleSubmit(editQT)}>
-						<TextSelect register={register} name={"book"} oldTestament={oldTestament} newTestament={newTestament} watch={watch}/>
+						<TextSwitch setValue={setValue} watch={watch}/>
 
-						<Select
-							labelId="demo-simple-select-autowidth-label"
-							id="demo-simple-select-autowidth"
-							{...register("book",{ required: true })}
-							autoWidth
-							label="Age"
-						>
-							{bible.map((bible) => <MenuItem key={bible.book} value={bible.book}>{bible.book}</MenuItem>)}
-						</Select>
+						<TextSelect register={register} name={"book"} watch={watch}/>
+
 
 
 
@@ -74,7 +70,17 @@ const QtEditPage: React.FC = () => {
 
 						<TextMultiField register={register} name={"content"} />
 
-						<button type={"submit"}>수정</button>
+						<FooterContainer content={"right"}>
+							<div>
+								<Button variant="contained" type={"submit"} sx={{ margin: "0 20px"}}>
+									수정
+								</Button>
+
+								<Button variant="outlined" onClick={handleBackPage}>
+									나가기
+								</Button>
+							</div>
+						</FooterContainer>
 					</form>
 				</Paper>
 				:

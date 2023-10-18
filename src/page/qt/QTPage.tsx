@@ -1,14 +1,16 @@
 /** React */
-import NoticePage from '@utils/notice/NoticePage.ts'
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 /** Query */
 import { useQTQuery } from '@/api/QTQuery.ts';
+/** Atom */
+import { QTPageAtom, QTSearchAtom } from '@/store/NoticeAtom.ts'
 /** Hook */
 import usePage from '@/hook/usePage.ts';
 import useSearch from '@/hook/useSearch.ts';
 /** Utils */
 import pageIndex from '@utils/pageIndex.ts';
+import NoticePage from '@utils/notice/NoticePage.ts'
 /** Component */
 import NoticeItem from '@components/notice/NoticeItem.tsx';
 import NoticeSearch from '@components/notice/NoticeSearch.tsx';
@@ -20,9 +22,9 @@ import { NoticeCreateBtn, NoticePaper, NoticeTitle } from '@style/notice/NoticeS
 
 const QTPage: React.FC = () => {
 	/** 검색 */
-	const { search, handleChangeSearch } = useSearch();
+	const { search, handleChangeSearch } = useSearch(QTSearchAtom, QTPageAtom);
 	/** Page */
-	const { page, handleClickPage } = usePage();
+	const { page, handleClickPage } = usePage(QTPageAtom);
 	/** Data */
 	const { data, isLoading, refetch } = useQTQuery(page, search);
 

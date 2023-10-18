@@ -1,17 +1,17 @@
 /** React */
 import React from 'react';
 import { useNavigate } from 'react-router'
+/** Hook */
 import { useForm } from 'react-hook-form'
 /** Api */
 import { useCreateQTMutation } from '@/api/QTQuery.ts'
 /** Atom */
 import { QTNoticeAtom } from '@/store/NoticeAtom.ts'
 import { useRecoilState, useResetRecoilState } from 'recoil'
-/** Utils */
-import { newTestament, oldTestament } from '@utils/arr/BibleBooks.ts'
 /** Component */
 import TextSelect from '@components/create/TextSelect.tsx'
 import TextNumber from '@components/create/TextNumber.tsx'
+import TextSwitch from '@components/create/TextSwitch.tsx'
 import TextMultiField from '@components/create/TextMultiField.tsx'
 /** Type */
 import Bible from '@type/Bible'
@@ -30,7 +30,7 @@ const QTCreatePage: React.FC = () => {
 
 	const { mutate } = useCreateQTMutation();
 
-	const { register, handleSubmit, watch } = useForm({
+	const { register, handleSubmit, watch, setValue } = useForm({
 		mode: "onChange",
 		defaultValues: {
 			...notice,
@@ -64,7 +64,9 @@ const QTCreatePage: React.FC = () => {
 		<PageContainer>
 				<NoticeForm onSubmit={handleSubmit(createQT)}>
 					<div style={{display: "flex"}}>
-						<TextSelect register={register} name={"book"} oldTestament={oldTestament} newTestament={newTestament} watch={watch}/>
+						<TextSwitch setValue={setValue} watch={watch}/>
+
+						<TextSelect register={register} name={"book"} watch={watch}/>
 
 						<TextNumber register={register} name={"chapter"} verse={"장"}/>
 
@@ -73,8 +75,6 @@ const QTCreatePage: React.FC = () => {
 							<TextNumber register={register} name={"endVerse"} verse={"절"}/>
 						</div>
 					</div>
-
-					<input type={"date"} {...register("date")}/>
 
 					<hr/>
 
