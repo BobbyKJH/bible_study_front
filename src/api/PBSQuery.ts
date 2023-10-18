@@ -1,10 +1,10 @@
-import axios from 'axios'
+import AxiosInstance from '@/api/AxiosInstance.ts'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
 /** PBS 게시판 */
 const getPBSList = async (page: number, book: string) => {
 	try{
-		const res = await axios.get(`http://localhost:8083/pbs?page=${page}&book=${book}`)
+		const res = await AxiosInstance.get(`pbs?page=${page}&book=${book}`)
 		return res.data
 	} catch (err) {
 		console.error(err)
@@ -16,7 +16,7 @@ export const usePBSQuery = (page: number, book: string) => useQuery(["pbs"], () 
 /** 상세 정보 */
 const getPBSDetailList = async (id: string) => {
 	try{
-		const res = await axios.get(`http://localhost:8083/pbs/${id}`)
+		const res = await AxiosInstance.get(`pbs/${id}`)
 		return res.data
 	} catch (err) {
 		throw err;
@@ -28,7 +28,7 @@ export const usePBSDetailQuery = (id: string) => useQuery( ["PBSDetail", id], ()
 /** PBS MyPage */
 const getMyPagePBS = async (userId: string | null, page: number, book: string) => {
 	try {
-		const res = await axios.get(`http://localhost:8083/mypage/pbs?userId=${userId}&page=${page}&book=${book}`)
+		const res = await AxiosInstance.get(`mypage/pbs?userId=${userId}&page=${page}&book=${book}`)
 		return res.data
 	} catch (err){
 		throw err;
@@ -40,7 +40,7 @@ export const useMyPBSQuery = (userId: string | null, page: number, book: string)
 /** PBS 생성 */
 const createPBSList = async (data: any) => {
 	try{
-		const res = await axios.post("http://localhost:8083/pbs", data)
+		const res = await AxiosInstance.post("pbs", data)
 		console.log(res.data)
 		return res.data
 	} catch (err) {
@@ -60,7 +60,7 @@ export const useCreatePBSMutation = () => useMutation(createPBSList, {
 /** PBS 삭제 */
 const deletePBS = async (id: number) => {
 	try{
-		const res = await axios.delete(`http://localhost:8083/pbs/${id}`);
+		const res = await AxiosInstance.delete(`pbs/${id}`);
 
 		return res.data
 	} catch (err) {
@@ -73,7 +73,7 @@ export const usePBSDeleteMutation = () => useMutation(deletePBS);
 /** PBS 수정 */
 const editPBSList = async (data: any) => {
 	try{
-		const res = await axios.put("http://localhost:8083/pbs", data);
+		const res = await AxiosInstance.put("pbs", data);
 
 		return res.data
 	} catch (err) {

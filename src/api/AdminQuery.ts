@@ -1,11 +1,11 @@
-import axios from 'axios'
+import AxiosInstance from '@/api/AxiosInstance.ts'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
 
 
 const getAdminList = async () => {
 	try{
-		const res = await axios.get("http://localhost:8083/admin")
+		const res = await AxiosInstance.get("admin")
 		return res.data
 	} catch (err) {
 		throw err;
@@ -17,7 +17,7 @@ export const useAdminQuery = () => useQuery(["admin"], () => getAdminList());
 /** PBS Chart */
 const getPBSChart = async (startDate: string, endDate: string) => {
 	try {
-		const res = await axios.get(`http://localhost:8083/analytics/pbs?startDate=${startDate}&endDate=${endDate}`);
+		const res = await AxiosInstance.get(`analytics/pbs?startDate=${startDate}&endDate=${endDate}`);
 		return res.data;
 	} catch (err) {
 		throw err;
@@ -30,7 +30,7 @@ export const usePBSChartQuery = (startDate: string, endDate: string) => useQuery
 /** QT Chart */
 const getQTChart = async (startDate: string, endDate: string) => {
 	try {
-		const res = await axios.get(`http://localhost:8083/analytics/qt?startDate=${startDate}&endDate=${endDate}`);
+		const res = await AxiosInstance.get(`analytics/qt?startDate=${startDate}&endDate=${endDate}`);
 		return res.data;
 	} catch (err) {
 		throw err;
@@ -45,7 +45,7 @@ export const useQTChartQuery = (startDate: string, endDate: string) => useQuery(
 /** 주간 PBS 업데이트 */
 const editAdmin = async (data: any) => {
 	try{
-		const res = await axios.put("http://localhost:8083/admin", data);
+		const res = await AxiosInstance.put("admin", data);
 
 		return res.data
 	} catch (err) {
