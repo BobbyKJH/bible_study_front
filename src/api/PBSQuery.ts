@@ -2,16 +2,16 @@ import axios from 'axios'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
 /** PBS 게시판 */
-const getPBSList = async () => {
+const getPBSList = async (page: number, book: string) => {
 	try{
-		const res = await axios.get(`http://localhost:8083/pbs/all`)
+		const res = await axios.get(`http://localhost:8083/pbs?page=${page}&book=${book}`)
 		return res.data
 	} catch (err) {
 		console.error(err)
 	}
 }
 
-export const usePBSQuery = () => useQuery(["pbs"], () => getPBSList());
+export const usePBSQuery = (page: number, book: string) => useQuery(["pbs"], () => getPBSList(page, book));
 
 /** 상세 정보 */
 const getPBSDetailList = async (id: string) => {
@@ -26,16 +26,16 @@ const getPBSDetailList = async (id: string) => {
 export const usePBSDetailQuery = (id: string) => useQuery( ["PBSDetail", id], () => getPBSDetailList( id as string ));
 
 /** PBS MyPage */
-const getMyPagePBS = async (userId: string | null, page: number) => {
+const getMyPagePBS = async (userId: string | null, page: number, book: string) => {
 	try {
-		const res = await axios.get(`http://localhost:8083/mypage/pbs?userId=${userId}&page=${page}`)
+		const res = await axios.get(`http://localhost:8083/mypage/pbs?userId=${userId}&page=${page}&book=${book}`)
 		return res.data
 	} catch (err){
 		throw err;
 	}
 }
 
-export const useMyPBSQuery = (userId: string | null, page: number) => useQuery(["myPagePbs"], () => getMyPagePBS(userId, page))
+export const useMyPBSQuery = (userId: string | null, page: number, book: string) => useQuery(["myPagePbs"], () => getMyPagePBS(userId, page, book))
 
 /** PBS 생성 */
 const createPBSList = async (data: any) => {

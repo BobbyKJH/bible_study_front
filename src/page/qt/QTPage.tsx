@@ -1,4 +1,5 @@
 /** React */
+import NoticePage from '@utils/notice/NoticePage.ts'
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 /** Query */
@@ -8,8 +9,6 @@ import usePage from '@/hook/usePage.ts';
 import useSearch from '@/hook/useSearch.ts';
 /** Utils */
 import pageIndex from '@utils/pageIndex.ts';
-import pageCount from '@utils/pageCount.ts';
-import pageNumber from '@utils/pageNumber.ts';
 /** Component */
 import NoticeItem from '@components/notice/NoticeItem.tsx';
 import NoticeSearch from '@components/notice/NoticeSearch.tsx';
@@ -25,11 +24,11 @@ const QTPage: React.FC = () => {
 	/** Page */
 	const { page, handleClickPage } = usePage();
 	/** Data */
-	const { data, isLoading, refetch } = useQTQuery();
+	const { data, isLoading, refetch } = useQTQuery(page, search);
 
 	useEffect(() => {
 		refetch();
-	}, [page]);
+	}, [page, search]);
 
 	return (
 		<PageContainer>
@@ -42,7 +41,7 @@ const QTPage: React.FC = () => {
 			{!isLoading ?
 				<NoticePaper elevation={0}>
 					<div>
-						{pageNumber( data, search, page ).map( ( item, index: number ) => (
+						{data.qt.map( ( item: any, index: number ) => (
 							<Link to={`/qt/read/${item.id}`} key={item.id}>
 								<NoticeItem
 									id={pageIndex(index, page)}
@@ -50,7 +49,6 @@ const QTPage: React.FC = () => {
 									chapter={item.chapter}
 									startVerse={item.startVerse}
 									endVerse={item.endVerse}
-									date={item.date}
 								/>
 							</Link>
 						))}
@@ -58,7 +56,7 @@ const QTPage: React.FC = () => {
 					<FooterContainer content={"center"}>
 						<div>
 							<Pagination
-								count={pageCount( data, search )}
+								count={NoticePage( data.length )}
 								page={page}
 								onChange={handleClickPage}
 								showFirstButton

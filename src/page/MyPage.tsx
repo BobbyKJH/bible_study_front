@@ -1,47 +1,52 @@
 /** React */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 /** Hook */
-import usePage from '@/hook/usePage.ts'
-/** Query */
-import { useMyQtQuery } from '@/api/QTQuery.ts'
-import { useMyPbsQuery } from '@/api/PBSQuery.ts'
+import usePage from '@/hook/usePage.ts';
+import useSearch from '@/hook/useSearch.ts';
 /** Component */
-import MyPageNotice from '@components/myPage/MyPageNotice.tsx'
-import NoticeSkeleton from '@components/notice/NoticeSkeleton.tsx'
+import MyQTNotice from '@components/myPage/MyQTNotice.tsx';
+import MyPBSNotice from '@components/myPage/MyPBSNotice.tsx';
 /** Style */
-import { PageContainer } from '@style/common/PageStyle.ts'
+import { Tab } from '@mui/material';
+import { PageContainer } from '@style/common/PageStyle.ts';
+import { MyPageFooterContainer } from '@style/common/FooterStyle.ts';
+
 
 const MyPage: React.FC = () => {
-	/** PBS Notice */
-	const { page: pbsPage, handleClickPage: handleClickPBS } = usePage();
-	const { data: dataPBS, isLoading: isLoadingPBS, refetch: refetchPBS } = useMyPbsQuery(sessionStorage.getItem("userId"), pbsPage);
-	/** QT Notice */
-	const { page: qtPage, handleClickPage: handleClickQT } = usePage();
-	const { data: dataQT, isLoading: isLoadingQT, refetch: refetchQT } = useMyQtQuery(sessionStorage.getItem("userId"), qtPage);
+	const [value, setValue] = useState(0);
+
+	const { page: PBSPage, setPage: setPBSPage, handleClickPage: handleClickPBS } = usePage();
+	const { search: PBSSearch, handleChangeSearch: handleSearchPBS } = useSearch();
 
 	useEffect(() => {
-		refetchPBS()
-	}, [pbsPage])
+		setPBSPage(1);
+	}, [PBSSearch])
 
-	useEffect(() => {
-		refetchQT()
-	}, [qtPage])
+	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+		setValue(newValue);
+	};
 
 	return (
 		<PageContainer>
-			<div style={{ display: "flex", justifyContent: "space-between"}}>
-				{!isLoadingPBS ?
-					<MyPageNotice data={dataPBS.myPbs} length={dataPBS.length} page={pbsPage} link={"pbs"} handleClickPage={handleClickPBS}/>
-					:
-					<NoticeSkeleton/>
-				}
+			<MyPageFooterContainer value={value} onChange={handleChange} centered>
+				<Tab label="그래프" sx={{ height: "100%", fontWeight: 900, width:"33.3%" }} />
+				<Tab label="PBS"  sx={{ height: "100%", fontWeight: 900, width:"33.3%" }} />
+				<Tab label="QT"   sx={{ height: "100%", fontWeight: 900, width:"33.3%" }} />
+			</MyPageFooterContainer>
 
-				{!isLoadingQT ?
-					<MyPageNotice data={dataQT.myQt} length={dataQT.length} page={qtPage} link={"qt"} handleClickPage={handleClickQT}/>
-					:
-					null
-				}
-			</div>
+			{
+				value === 1
+				&&
+				<MyPBSNotice
+					page={PBSPage}
+          search={PBSSearch}
+					handleClickPage={handleClickPBS}
+          handleChangeSearch={handleSearchPBS}
+				/>
+			}
+
+			{value === 2 && <MyQTNotice/>}
+
 		</PageContainer>
 	);
 };

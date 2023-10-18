@@ -1,6 +1,8 @@
 /** React */
-import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
+/** Api */
+import { usePBSQuery } from '@/api/PBSQuery.ts'
 /** Custom Hook */
 import usePage from '@/hook/usePage.ts'
 import useSearch from '@/hook/useSearch.ts'
@@ -9,15 +11,12 @@ import NoticeItem from '@components/notice/NoticeItem.tsx'
 import NoticeSearch from '@components/notice/NoticeSearch.tsx'
 /** Utils */
 import pageIndex from '@utils/pageIndex.ts'
-import pageCount from '@utils/pageCount.ts'
-import pageNumber from '@utils/pageNumber.ts'
-/** Api */
-import { usePBSQuery } from '@/api/PBSQuery.ts'
+import NoticePage from '@utils/notice/NoticePage.ts'
 /** Style */
-import { PageContainer } from '@style/common/PageStyle.ts'
-import { NoticePaper, NoticeTitle, NoticeCreateBtn } from '@style/notice/NoticeStyle.ts'
 import { Button, Pagination } from '@mui/material'
+import { PageContainer } from '@style/common/PageStyle.ts'
 import { FooterContainer } from '@style/common/FooterStyle.ts'
+import { NoticePaper, NoticeTitle, NoticeCreateBtn } from '@style/notice/NoticeStyle.ts'
 
 
 const PBSPage: React.FC = () => {
@@ -26,11 +25,13 @@ const PBSPage: React.FC = () => {
 	/** Page */
 	const { page, handleClickPage  } = usePage();
 	/** PBS 게시판 */
-	const { data, isLoading, refetch } = usePBSQuery();
+	const { data, isLoading, refetch } = usePBSQuery(page, search);
 
 	useEffect(() => {
 		refetch();
-	}, [page]);
+	}, [page, search]);
+
+	console.log( Math.ceil(1/ 10) );
 
 
 	return (
@@ -44,7 +45,7 @@ const PBSPage: React.FC = () => {
 			{!isLoading ?
 				<NoticePaper elevation={0}>
 					<div>
-						{pageNumber(data, search, page).map((item, index: number) => (
+						{data.pbs.map((item: any, index: number) => (
 							<Link to={`/pbs/read/${item.id}`} key={item.id}>
 									<NoticeItem
 										id={pageIndex(index, page)}
@@ -52,7 +53,6 @@ const PBSPage: React.FC = () => {
 										chapter={item.chapter}
 										startVerse={item.startVerse}
 										endVerse={item.endVerse}
-										date={item.date}
 									/>
 							</Link>
 						))}
@@ -61,7 +61,7 @@ const PBSPage: React.FC = () => {
 					<FooterContainer content={"center"}>
 						<div>
 							<Pagination
-								count={pageCount(data, search)}
+								count={NoticePage(data.length)}
 								page={page}
 								onChange={handleClickPage}
 								showFirstButton

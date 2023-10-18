@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Tabs } from '@mui/material'
 
 /** 관리자 권한 Footer */
 export const FooterContainer = styled.div<{ content: string }>`
@@ -21,5 +22,17 @@ export const FooterContainer = styled.div<{ content: string }>`
       margin-left: 0
     }
 	}
-  
 `
+
+export const MyPageFooterContainer = styled(Tabs)`
+	display: flex;
+	align-items: center;
+	background-color: #fff;
+	z-index: 10;
+	box-sizing: border-box;
+	position: sticky;
+	top: 0;
+	left: 0;
+	right: 0;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+`;

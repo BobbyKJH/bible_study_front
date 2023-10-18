@@ -2,16 +2,16 @@ import axios from 'axios'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
 /** QT 게시판 */
-const getQTList = async () => {
+const getQTList = async (page: number, book: string) => {
 	try {
-		const res = await axios.get(`http://localhost:8083/qt/all`);
+		const res = await axios.get(`http://localhost:8083/qt?page=${page}&book=${book}`);
 		return res.data;
 	} catch(err){
 		throw err;
 	}
 };
 
-export const useQTQuery = () => useQuery(["qt"], () => getQTList());
+export const useQTQuery = (page: number, book: string) => useQuery(["qt"], () => getQTList(page, book));
 
 /** QT 상세 정보 */
 const getQtDetailList = async (page:  string) => {
@@ -26,16 +26,16 @@ const getQtDetailList = async (page:  string) => {
 export const useQTDetailQuery = (id: string) => useQuery(["QTDetail"], () => getQtDetailList(id as string));
 
 /** QT MyPage */
-const getMyPageQt = async (userId: string | null, page: number) => {
+const getMyPageQt = async (userId: string | null, page: number, book: string) => {
 	try {
-		const res = await axios.get(`http://localhost:8083/mypage/qt?userId=${userId}&page=${page}`)
+		const res = await axios.get(`http://localhost:8083/mypage/qt?userId=${userId}&page=${page}&book=${book}`)
 		return res.data;
 	} catch (err){
 		throw err;
 	}
 }
 
-export const useMyQTQuery = (userId: string | null, page: number) => useQuery(["myPageQt"], () => getMyPageQt(userId, page));
+export const useMyQTQuery = (userId: string | null, page: number, book: string) => useQuery(["myPageQt"], () => getMyPageQt(userId, page, book));
 
 /** QT 생성 */
 const createQTList = async (data: any) => {
