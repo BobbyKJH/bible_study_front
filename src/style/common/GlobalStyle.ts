@@ -27,6 +27,9 @@ const GlobalStyle = createGlobalStyle`
 	  text-decoration: none;
 	  color: #000;
   }
+	hr{
+		margin: 0 auto;
+	}
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
