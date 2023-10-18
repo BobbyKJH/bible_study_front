@@ -1,9 +1,10 @@
 /** React */
+import { MyPagePBSAtom, MyPagePBSSearchAtom, MyPageQTAtom, MyPageQTSearchAtom } from '@/store/MyPageAtom.ts'
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 /** Recoil */
-import { useSetRecoilState } from 'recoil'
+import { useResetRecoilState, useSetRecoilState } from 'recoil'
 import { sideBarAtom } from '@/store/SideBarAtom.ts'
 /** Style */
 import styled from 'styled-components'
@@ -25,9 +26,24 @@ const Header: React.FC = () => {
 
 	const setSideBar = useSetRecoilState(sideBarAtom);
 
+	const resetMyPagePBSPage = useResetRecoilState(MyPagePBSAtom);
+	const resetMyPagePBSSearch = useResetRecoilState(MyPagePBSSearchAtom);
+	const resetMyPageQTPage = useResetRecoilState(MyPageQTAtom);
+	const resetMyPageQtSearch = useResetRecoilState(MyPageQTSearchAtom);
+
 	const handleOpenSideBar = () => {
 		setSideBar(true);
 	};
+
+	const handleMyPage = (): void => {
+		resetMyPagePBSPage();
+		resetMyPageQTPage();
+
+		resetMyPagePBSSearch();
+		resetMyPageQtSearch();
+
+		navigator("/mypage")
+	}
 
 	const handleLogout = () => {
 		if(window.confirm("로그아웃 하시겠습니까?")){
@@ -38,10 +54,6 @@ const Header: React.FC = () => {
 			navigator("/")
 		}
 	};
-
-	const handleMyPage = () => {
-		navigator("/mypage")
-	}
 
 	return (
 		<AppBar
