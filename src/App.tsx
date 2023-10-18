@@ -13,10 +13,13 @@ import AuthRouter from '@components/common/AuthRouter.tsx'
 import ScrollToTop from '@components/common/ScrollToTop.tsx'
 /** Page */
 import HomePage from '@/page/HomePage.tsx'
-import MyPage from '@page/MyPage.tsx'
 
-import LoginPage from '@page/myPage/LoginPage.tsx'
-import LoginCreatePage from '@page/myPage/LoginCreatePage.tsx'
+import MyPage from '@page/myPage/MyPage.tsx'
+import MyPageQT from '@page/myPage/MyPageQT.tsx'
+import MyPagePBS from '@page/myPage/MyPagePBS.tsx'
+
+import LoginPage from '@page/login/LoginPage.tsx'
+import LoginCreatePage from '@page/login/LoginCreatePage.tsx'
 
 import BibleOldTestamentPage from '@page/bible/BibleOldTestamentPage.tsx'
 import BibleNewTestamentPage from '@page/bible/BibleNewTestamentPage.tsx'
@@ -53,19 +56,24 @@ const App: React.FC = () => {
 
             <Route element={<AuthRouter/>}>
               <Route path={"/home"} element={<HomePage/>}/>
-              <Route path={"/mypage"} element={<MyPage/>}/>
+
+              <Route path={"mypage"}>
+                <Route path={""} element={<MyPage/>}/>
+                <Route path={"pbs"} element={<MyPagePBS/>}/>
+                <Route path={"qt"} element={<MyPageQT/>}/>
+              </Route>
 
               <Route path={"/oldTestament"} element={<BibleOldTestamentPage/>}/>
               <Route path={"/newTestament"} element={<BibleNewTestamentPage/>}/>
 
-              <Route path={"pbs"} >
+              <Route path={"pbs"}>
                 <Route path={""} element={<PBSPage/>}/>
                 <Route path={"create"} element={<PBSCreatePage/>}/>
                 <Route path={"read/:id"} element={<PBSReadPage/>}/>
                 <Route path={"edit/:id"} element={<PBsEditPage/>}/>
               </Route>
 
-              <Route path={"qt"} >
+              <Route path={"qt"}>
                 <Route path={""} element={<QTPage/>}/>
                 <Route path={"create"} element={<QTCreatePage/>}/>
                 <Route path={"read/:id"} element={<QTReadPage/>}/>
