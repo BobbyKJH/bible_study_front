@@ -8,10 +8,8 @@ import TextReadMultiField from '@components/read/TextReadMultiField.tsx'
 import { usePBSDeleteMutation, usePBSDetailQuery } from '@/api/PBSQuery.ts'
 /** Style */
 import { PageContainer } from '@style/common/PageStyle.ts'
-import { Paper, Tooltip } from '@mui/material'
+import { Button, Paper } from '@mui/material'
 /** Icon */
-import { BiSolidTrashAlt } from 'react-icons/bi'
-import IconButton from '@mui/material/IconButton'
 import { FooterContainer } from '@style/common/FooterStyle.ts'
 
 
@@ -36,6 +34,10 @@ const PBSReadPage: React.FC = () => {
 		}
 	};
 
+	const handleBackPage = () => {
+		navigate("/pbs")
+	};
+
 	return (
 		<PageContainer>
 			{
@@ -55,25 +57,24 @@ const PBSReadPage: React.FC = () => {
 					<TextReadMultiField value={data.content}/>
 
 
-					<FooterContainer content={"right"}>
+					<FooterContainer content={"space-between"}>
 						<div>
+							<Button variant="outlined" onClick={handleBackPage}>나가기</Button>
 							{
 								sessionStorage.getItem("userId") === data.userId
 								&&
 								<>
-                  <Tooltip title="수정">
-                    <Link to={`/pbs/edit/${id}`}>
-                      <IconButton>
-                        <BiSolidTrashAlt/>
-                      </IconButton>
-                    </Link>
-                  </Tooltip>
+                  <span>
+										<Button variant="contained" sx={{ margin: "0 20px"}}>
+											<Link to={`/pbs/edit/${id}`} style={{ color: "#fff" }}>
+												수정
+											</Link>
+										</Button>
 
-									<Tooltip title="삭제" onClick={deleteBtn}>
-										<IconButton>
-											<BiSolidTrashAlt/>
-										</IconButton>
-									</Tooltip>
+										<Button variant="outlined" color="error" onClick={deleteBtn}>
+											삭제
+										</Button>
+									</span>
 								</>
 							}
 						</div>

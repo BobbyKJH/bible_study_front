@@ -1,4 +1,5 @@
 /** React */
+import TextSwitch from '@components/create/TextSwitch.tsx'
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 /** Hook */
@@ -9,10 +10,8 @@ import { usePBSDetailQuery, useEditPBSMutation } from '@/api/PBSQuery.ts';
 import TextNumber from '@components/create/TextNumber.tsx';
 import TextSelect from '@components/create/TextSelect.tsx';
 import TextMultiField from '@components/create/TextMultiField.tsx';
-/** Utils */
-import { newTestament, oldTestament } from '@utils/arr/BibleBooks.ts';
 /** Style */
-import { Paper } from '@mui/material';
+import { Button, Paper } from '@mui/material';
 import { PageContainer } from '@style/common/PageStyle.ts';
 import { FooterContainer } from '@style/common/FooterStyle.ts';
 
@@ -27,7 +26,12 @@ const PbsEditPage: React.FC = () => {
 		register,
 		watch,
 		handleSubmit,
-		reset} = useForm();
+		setValue,
+		reset} = useForm({
+		defaultValues: {
+			...data
+		}
+	});
 
 	useEffect(() => {
 		reset( {...data});
@@ -43,30 +47,40 @@ const PbsEditPage: React.FC = () => {
 			});
 		}
 	}
-	console.log(watch())
+
+	const handleBackPage = (): void => {
+		navigate(`/pbs/read/${id}`)
+	};
 
 	return (
 	<PageContainer>
 
-		{!isLoading ?
-			<Paper>
+		{!isLoading && watch("showData") ?
+			<Paper elevation={0}>
 				<form onSubmit={handleSubmit(editPBS)}>
 					<div>
-					<TextSelect register={register} name={"book"} oldTestament={oldTestament} newTestament={newTestament} watch={watch}/>
+						<TextSwitch setValue={setValue} watch={watch}/>
+						<TextSelect register={register} name={"book"} watch={watch}/>
 
-					<TextNumber register={register} name={"chapter"} verse={"장"}/>
+						<TextNumber register={register} name={"chapter"} verse={"장"}/>
 
-					<div>
-						<TextNumber register={register} name={"startVerse"} verse={"절"}/>
-						<TextNumber register={register} name={"endVerse"} verse={"절"}/>
-					</div>
+						<div>
+							<TextNumber register={register} name={"startVerse"} verse={"절"}/>
+							<TextNumber register={register} name={"endVerse"} verse={"절"}/>
+						</div>
 
-					<TextMultiField register={register} name={"content"} />
+						<TextMultiField register={register} name={"content"} />
 					</div>
 
 					<FooterContainer content={"right"}>
 						<div>
-							<button type={"submit"}>수정</button>
+								<Button variant="contained" type={"submit"} sx={{ margin: "0 20px"}}>
+									수정
+								</Button>
+
+								<Button variant="outlined" onClick={handleBackPage}>
+									나가기
+								</Button>
 						</div>
 					</FooterContainer>
 				</form>

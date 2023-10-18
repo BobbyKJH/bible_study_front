@@ -1,4 +1,5 @@
 /** React */
+import { PBSPageAtom, PBSSearchAtom } from '@/store/NoticeAtom.ts'
 import { Link } from 'react-router-dom'
 import React, { useEffect } from 'react';
 /** Api */
@@ -21,9 +22,9 @@ import { NoticePaper, NoticeTitle, NoticeCreateBtn } from '@style/notice/NoticeS
 
 const PBSPage: React.FC = () => {
 	/** 검색 */
-	const { search, handleChangeSearch } = useSearch();
+	const { search, handleChangeSearch } = useSearch(PBSSearchAtom, PBSPageAtom);
 	/** Page */
-	const { page, handleClickPage  } = usePage();
+	const { page, handleClickPage  } = usePage(PBSPageAtom);
 	/** PBS 게시판 */
 	const { data, isLoading, refetch } = usePBSQuery(page, search);
 

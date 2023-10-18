@@ -11,9 +11,8 @@ import { useCreatePBSMutation } from '@/api/PBSQuery.ts'
 /** Component */
 import TextSelect from '@components/create/TextSelect.tsx'
 import TextNumber from '@components/create/TextNumber.tsx'
+import TextSwitch from '@components/create/TextSwitch.tsx'
 import TextMultiField from '@components/create/TextMultiField.tsx'
-/** Utils */
-import { newTestament, oldTestament } from '@utils/arr/BibleBooks.ts'
 /** Type */
 import Bible from '@type/Bible'
 /** Style */
@@ -27,7 +26,7 @@ const PBSCreatePage: React.FC = () => {
 	const [notice, setNotice] = useRecoilState<Bible.Create>(PBSNoticeAtom);
 	const resetNotice = useResetRecoilState(PBSNoticeAtom);
 
-	const { register, handleSubmit, watch } = useForm({
+	const { register, handleSubmit, watch, setValue } = useForm({
 		mode: "onChange",
 		defaultValues: {
 			...notice,
@@ -65,7 +64,9 @@ const PBSCreatePage: React.FC = () => {
 	return (
 		<PageContainer>
 			<NoticeForm onSubmit={handleSubmit(createPBS)}>
-					<TextSelect register={register} name={"book"} oldTestament={oldTestament} newTestament={newTestament} watch={watch}/>
+				<TextSwitch setValue={setValue} watch={watch}/>
+
+					<TextSelect register={register} name={"book"} watch={watch}/>
 
 					<TextNumber register={register} name={"chapter"} verse={"장"}/>
 
@@ -73,8 +74,6 @@ const PBSCreatePage: React.FC = () => {
 						<TextNumber register={register} name={"startVerse"} verse={"절"}/>
 						<TextNumber register={register} name={"endVerse"} verse={"절"}/>
 					</div>
-
-				<input type={"date"} {...register("date")}/>
 
 				<hr/>
 
@@ -86,11 +85,8 @@ const PBSCreatePage: React.FC = () => {
 					<Button variant="outlined" onClick={handleBackPage}>나가기</Button>
 
 					<span>
-						<Button
-							variant="contained"
-							onClick={handleSubmit(createPBS)}
-							sx={{ margin: "0 20px"}}
-						>생성
+						<Button variant="contained" onClick={handleSubmit(createPBS)} sx={{ margin: "0 20px"}}>
+							생성
 						</Button>
 
 						<Button variant="outlined" onClick={tmpSave}>
