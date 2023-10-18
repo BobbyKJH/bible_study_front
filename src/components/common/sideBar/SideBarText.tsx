@@ -1,9 +1,6 @@
 /** React */
 import React from 'react';
 import { Link } from 'react-router-dom'
-/** Recoil */
-import { useSetRecoilState } from 'recoil'
-import { sideBarAtom } from '@/store/SideBarAtom.ts'
 /** Utils */
 import { pathLocaiton } from '@utils/utilsFc.ts'
 /** Style */
@@ -17,18 +14,14 @@ interface SideBarTextProps {
 	path: string;
 	text: string;
 	Icon: React.ElementType;
+	handleClose: () => void;
 }
 
 const SideBarText: React.FC<SideBarTextProps> = (props) => {
-	const { path, text, Icon } = props;
-	const setSideBar = useSetRecoilState(sideBarAtom);
-
-	const handleCloseSideBar = () => {
-		setSideBar(false);
-	};
+	const { path, text, Icon, handleClose } = props;
 
 	return (
-		<Link to={`/${path}`} onClick={handleCloseSideBar}>
+		<Link to={`/${path}`} onClick={handleClose}>
 			<ListItemButton sx={
 				pathLocaiton(`${props.path}`)
 			}>
