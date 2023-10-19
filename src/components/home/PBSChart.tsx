@@ -1,11 +1,11 @@
 /** React */
 import React from 'react';
 /** Chart */
-import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, Tooltip } from 'recharts'
+import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, Tooltip, LabelList } from 'recharts'
 /** Query */
 import { usePBSChartQuery } from '@/api/AdminQuery.ts'
 /** Style */
-import { ChartBox, ChartSubTitle, ChartTitle } from '@style/common/ChartStyle.ts'
+import { ChartSubTitle, ChartTitle } from '@style/common/ChartStyle.ts'
 
 interface PBSChartProps {
 	startDate: string;
@@ -22,8 +22,10 @@ const PBSChart: React.FC<PBSChartProps> = (props) => {
 		return { day: day[idx], chart: pbs.chart };
 	});
 
+	console.log(data)
+
 	return (
-		<ChartBox>
+		<>
 			<ChartTitle>PBS</ChartTitle>
 			<ChartSubTitle>Personal Bible Study</ChartSubTitle>
 			<ResponsiveContainer width={"90%"} height={"100%"}>
@@ -37,10 +39,12 @@ const PBSChart: React.FC<PBSChartProps> = (props) => {
 					<XAxis dataKey="day" fontSize={"12px"} />
 					<Tooltip />
 					<Legend />
-					<Bar name={"PBS"} dataKey="chart" stackId="a" fill="#48c732" />
+					<Bar name={"PBS"} dataKey="chart" stackId="a" fill="#48c732">
+						<LabelList dataKey={"chart"} position={"top"} fontSize={"12px"}/>
+					</Bar>
 				</BarChart>
 			</ResponsiveContainer>
-		</ChartBox>
+		</>
 	);
 };
 

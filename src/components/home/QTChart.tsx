@@ -1,7 +1,7 @@
 /** React */
 import React from 'react';
 /** Chart */
-import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, Tooltip } from 'recharts'
+import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, Tooltip, LabelList } from 'recharts'
 /** Query */
 import { useQTChartQuery } from '@/api/AdminQuery.ts'
 /** Style */
@@ -38,7 +38,9 @@ const QTChart: React.FC<QTChartProps> = (props) => {
 					<XAxis dataKey="day" fontSize={"12px"} />
 					<Tooltip />
 					<Legend />
-					<Bar name={"QT"} dataKey="chart" stackId="a" fill="#4573fe" />
+					<Bar name={"QT"} dataKey="chart" stackId="a" fill="#4573fe">
+						<LabelList dataKey={"chart"} position={"top"} fontSize={"12px"}/>
+					</Bar>
 				</BarChart>
 			</ResponsiveContainer>
 		</ChartBox>
