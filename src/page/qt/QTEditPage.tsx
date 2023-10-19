@@ -41,7 +41,7 @@ const QtEditPage: React.FC = () => {
 					navigate(`/qt/read/${id}`);
 				}
 			});
-		};
+		}
 	};
 
 	const handleBackPage = () => {
@@ -58,15 +58,14 @@ const QtEditPage: React.FC = () => {
 
 						<TextSelect register={register} name={"book"} watch={watch}/>
 
-
-
-
 						<TextNumber register={register} name={"chapter"} verse={"장"}/>
 
 						<div>
 							<TextNumber register={register} name={"startVerse"} verse={"절"}/>
 							<TextNumber register={register} name={"endVerse"} verse={"절"}/>
 						</div>
+
+						<hr/>
 
 						<TextMultiField register={register} name={"content"} />
 

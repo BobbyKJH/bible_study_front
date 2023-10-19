@@ -60,11 +60,11 @@ const QTReadPage: React.FC = () => {
 									&&
 									<>
 										<span>
-										<Button variant="contained" sx={{ margin: "0 20px"}}>
-											<Link to={`/qt/edit/${id}`} style={{ color: "#fff" }}>
-												수정
+											<Link to={`/qt/edit/${id}`}>
+												<Button variant="contained" sx={{ margin: "0 20px"}}>
+													수정
+												</Button>
 											</Link>
-										</Button>
 
 										<Button variant="outlined" color="error" onClick={deleteBtn}>
 											삭제
