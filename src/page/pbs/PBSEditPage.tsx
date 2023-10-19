@@ -69,6 +69,8 @@ const PbsEditPage: React.FC = () => {
 							<TextNumber register={register} name={"endVerse"} verse={"절"}/>
 						</div>
 
+						<hr/>
+
 						<TextMultiField register={register} name={"content"} />
 					</div>
 

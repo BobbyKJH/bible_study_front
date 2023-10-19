@@ -65,11 +65,11 @@ const PBSReadPage: React.FC = () => {
 								&&
 								<>
                   <span>
-										<Button variant="contained" sx={{ margin: "0 20px"}}>
-											<Link to={`/pbs/edit/${id}`} style={{ color: "#fff" }}>
+										<Link to={`/pbs/edit/${id}`}>
+											<Button variant="contained" sx={{ margin: "0 20px"}}>
 												수정
-											</Link>
-										</Button>
+											</Button>
+										</Link>
 
 										<Button variant="outlined" color="error" onClick={deleteBtn}>
 											삭제
