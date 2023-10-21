@@ -10,15 +10,12 @@ declare namespace Bible{
 		endVerse:    number;
 		content:     string;
 		createAt:    string;
-		updateAt:    string;
-		date:        string;
 		userId:      string;
 		userName:    string;
 		showData:    string;
 	}
 
 	interface Create{
-		date: string,
 		book:       string,
 		chapter:    string | null,
 		startVerse: string | null,
