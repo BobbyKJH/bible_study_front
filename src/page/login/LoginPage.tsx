@@ -37,7 +37,7 @@ const LoginPage: React.FC = () => {
 	const loginBtn = (data: { userId: string }): void => {
 		mutate(data, {
 			onSuccess: () => {
-				navigate("/home")
+				navigate("/home", { replace: true })
 			},
 			onError: () => {
 				alert( "일치하는 ID가 없습니다." )
