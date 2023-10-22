@@ -52,7 +52,14 @@ const QTCreatePage: React.FC = () => {
 		event.preventDefault();
 		if(window.confirm("임시 저장 하시겠습니까?")){
 			alert("임시저장 되었습니다.");
-			setNotice(watch());
+			setNotice( {
+				book:       watch("book"),
+				chapter:    watch("chapter"),
+				startVerse: watch("startVerse"),
+				endVerse:   watch("endVerse"),
+				content:    watch("content"),
+				showData:   watch("showData")
+			});
 		}
 	};
 
@@ -63,7 +70,7 @@ const QTCreatePage: React.FC = () => {
 	return (
 		<PageContainer>
 				<NoticeForm onSubmit={handleSubmit(createQT)}>
-					<div style={{display: "flex"}}>
+					<div style={{ display: "flex" }}>
 						<TextSwitch setValue={setValue} watch={watch}/>
 
 						<TextSelect register={register} name={"book"} watch={watch}/>
@@ -90,7 +97,7 @@ const QTCreatePage: React.FC = () => {
 						<Button
 							variant="contained"
 							onClick={handleSubmit(createQT)}
-							sx={{ margin: "0 20px"}}
+							sx={{ margin: "0 20px" }}
 						>생성
 						</Button>
 

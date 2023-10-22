@@ -23,7 +23,7 @@ import { FooterContainer } from '@style/common/FooterStyle.ts'
 
 
 const PBSCreatePage: React.FC = () => {
-	const [notice, setNotice] = useRecoilState<Bible.Create>(PBSNoticeAtom);
+	const [notice, setNotice] = useRecoilState<Bible.Notice>(PBSNoticeAtom);
 	const resetNotice = useResetRecoilState(PBSNoticeAtom);
 
 	const { register, handleSubmit, watch, setValue } = useForm({
@@ -52,7 +52,14 @@ const PBSCreatePage: React.FC = () => {
 		event.preventDefault();
 		if(window.confirm("임시 저장 하시겠습니까?")){
 			alert("임시저장 되었습니다.");
-			setNotice(watch());
+			setNotice({
+				book:       watch("book"),
+				chapter:    watch("chapter"),
+				startVerse: watch("startVerse"),
+				endVerse:   watch("endVerse"),
+				content:    watch("content"),
+				showData:   watch("showData")
+			});
 		}
 	};
 
@@ -60,6 +67,8 @@ const PBSCreatePage: React.FC = () => {
 	const handleBackPage = (): void => {
 		navigate("/pbs")
 	};
+
+	console.log(watch("book"))
 
 	return (
 		<PageContainer>
