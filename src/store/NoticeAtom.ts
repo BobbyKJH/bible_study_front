@@ -3,8 +3,13 @@ import { recoilPersist } from 'recoil-persist';
 /** Type */
 import Bible from '@type/Bible';
 
-const { persistAtom } = recoilPersist({
-	key: "Notice_Persist",
+const { persistAtom: PBSTmpAtom } = recoilPersist({
+	key: "pbs_tmp_save",
+	storage: localStorage
+});
+
+const { persistAtom: QTTmpAtom } = recoilPersist({
+	key: "qt_tmp_save",
 	storage: localStorage
 });
 
@@ -12,26 +17,26 @@ export const PBSNoticeAtom = atom<Bible.Create>({
 	key: "PBS_Notice",
 	default: {
 		book:       "",
-		chapter:    null,
+		chapter:    "",
 		startVerse: null,
 		endVerse:   null,
 		content:    "",
 		showData:   "Y"
 	},
-	effects_UNSTABLE: [persistAtom]
+	effects_UNSTABLE: [PBSTmpAtom]
 });
 
 export const QTNoticeAtom = atom<Bible.Create>({
 	key: "QT_Notice",
 	default: {
 		book:       "",
-		chapter:    null,
+		chapter:    "",
 		startVerse: null,
 		endVerse:   null,
 		content:    "",
 		showData:   "Y"
 	},
-	effects_UNSTABLE: [persistAtom]
+	effects_UNSTABLE: [QTTmpAtom]
 });
 
 const { persistAtom: sessionAtom } = recoilPersist({
