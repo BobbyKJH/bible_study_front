@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router';
 /** Api */
 import { useQTDeleteMutation, useQTDetailQuery } from '@/api/QTQuery.ts';
+/** Atom */
+import { DeleteSnackAtom } from '@/store/SnackAtom.ts'
+/** Hook */
+import useSnack from '@/hook/useSnack.ts'
 /** Component */
 import TextReadMultiField from '@components/read/TextReadMultiField.tsx';
 /** Style */
@@ -20,11 +24,15 @@ const QTReadPage: React.FC = () => {
 	/** 삭제 */
 	const { mutate } = useQTDeleteMutation();
 
+	const { handleSnackClick } = useSnack(DeleteSnackAtom);
+
 	const deleteBtn = (): void => {
+		const deleteSnack = handleSnackClick({ vertical: 'bottom', horizontal: "right" });
+
 		if(window.confirm("글을 삭제하시겠습니까?")){
 			mutate(Number(id), { onSuccess: () => {
-						alert("삭제 하였습니다.")
 						navigate( "/qt" )
+						deleteSnack();
 					}
 				}
 			)

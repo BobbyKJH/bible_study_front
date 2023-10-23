@@ -2,6 +2,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { useNavigate, useParams } from 'react-router'
+/** Hook */
+import useSnack from '@/hook/useSnack.ts'
+/** Atom */
+import { DeleteSnackAtom } from '@/store/SnackAtom.ts'
+import CreateSnack from '@components/common/snack/CreateSnack.tsx'
 /** Component */
 import TextReadMultiField from '@components/read/TextReadMultiField.tsx'
 /** Api */
@@ -11,6 +16,7 @@ import { PageContainer } from '@style/common/PageStyle.ts'
 import { Button, Paper } from '@mui/material'
 /** Icon */
 import { FooterContainer } from '@style/common/FooterStyle.ts'
+import { NoticeDetailBook, NoticeDetailChapter, NoticeDetailTitle } from '@style/notice/NoticeStyle.ts'
 
 
 
@@ -23,11 +29,15 @@ const PBSReadPage: React.FC = () => {
 	/** 제거 */
 	const { mutate } = usePBSDeleteMutation();
 
+	const { handleSnackClick } = useSnack(DeleteSnackAtom);
+
 	const deleteBtn = () => {
+		const deleteSnack = handleSnackClick({ vertical: "bottom", horizontal: "right" });
+
 		if(window.confirm("글을 삭제하시겠습니까?")){
 			mutate(Number(id), { onSuccess: () => {
-						alert("삭제 하였습니다.")
-						navigate( "/pbs" )
+						navigate( "/pbs" );
+						deleteSnack();
 					}
 				}
 			)
@@ -43,19 +53,24 @@ const PBSReadPage: React.FC = () => {
 			{
 				!isLoading ?
 				<Paper elevation={0} sx={{ maxWidth: "lg", margin: "20px auto" }}>
-					<h1>{data.book}</h1>
-					<span>{data.chapter}장</span>
-					<div>
-						<span>{data.startVerse}절</span>
-						<span>{data.endVerse}절</span>
-					</div>
+					<NoticeDetailTitle>
+						<NoticeDetailBook>{data.book}</NoticeDetailBook>
+						<div>
+							<NoticeDetailChapter>{data.chapter}장</NoticeDetailChapter>
 
+							<div>
+								<span>{data.startVerse} </span>
 
+								<div>-</div>
 
+								<span> {data.endVerse}</span>
+							</div>
+						</div>
+					</NoticeDetailTitle>
+					<CreateSnack/>
 					<hr/>
 
 					<TextReadMultiField value={data.content}/>
-
 
 					<FooterContainer content={"space-between"}>
 						<div>
