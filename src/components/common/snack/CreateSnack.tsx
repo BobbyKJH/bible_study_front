@@ -1,9 +1,14 @@
+/** React */
+import React from 'react'
+/** Hook */
 import useSnack from '@/hook/useSnack.ts'
+/** Atom */
 import { CreateSnackAtom } from '@/store/SnackAtom.ts'
+/** Style */
 import { Alert, Snackbar } from '@mui/material'
 
 
-const CreateSnack = () => {
+const CreateSnack: React.FC = () => {
 	const { state, setState } = useSnack(CreateSnackAtom);
 
 	const { vertical, horizontal, open } = state;

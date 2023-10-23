@@ -1,19 +1,22 @@
 /** React */
-import { FooterContainer } from '@style/common/FooterStyle.ts'
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 /** Hook */
+import useSnack from '@/hook/useSnack.ts';
 import { useForm } from 'react-hook-form';
+/** Atom */
+import { EditSnackAtom } from '@/store/SnackAtom.ts'
 /** Api */
 import { useEditQTMutation, useQTDetailQuery } from '@/api/QTQuery.ts';
 /** Component */
 import TextSelect from '@components/create/TextSelect.tsx';
 import TextNumber from '@components/create/TextNumber.tsx';
-import TextSwitch from '@components/create/TextSwitch.tsx'
+import TextSwitch from '@components/create/TextSwitch.tsx';
 import TextMultiField from '@components/create/TextMultiField.tsx';
 /** Style */
 import { Button, Paper } from '@mui/material';
 import { PageContainer } from '@style/common/PageStyle.ts';
+import { FooterContainer } from '@style/common/FooterStyle.ts';
 
 const QtEditPage: React.FC = () => {
 	const { id } = useParams();
@@ -21,6 +24,8 @@ const QtEditPage: React.FC = () => {
 
 	const { data, isLoading } = useQTDetailQuery(id as string);
 	const { mutate } = useEditQTMutation();
+
+	const { handleSnackClick } = useSnack(EditSnackAtom);
 
 	const {
 		register,
@@ -35,10 +40,13 @@ const QtEditPage: React.FC = () => {
 	}, [isLoading]);
 
 	const editQT = (data: any): void => {
+		const editSnack = handleSnackClick({ vertical: "bottom", horizontal: "right" });
+
 		if(window.confirm("수정 하시겠습니까?")){
 			mutate(data, {
 				onSuccess: () => {
 					navigate(`/qt/read/${id}`);
+					editSnack();
 				}
 			});
 		}

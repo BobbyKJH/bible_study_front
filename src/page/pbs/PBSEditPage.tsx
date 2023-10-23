@@ -1,12 +1,15 @@
 /** React */
-import TextSwitch from '@components/create/TextSwitch.tsx'
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 /** Hook */
+import useSnack from '@/hook/useSnack.ts'
 import { useForm } from 'react-hook-form';
+/** Atom */
+import { EditSnackAtom } from '@/store/SnackAtom.ts'
 /** Api */
 import { usePBSDetailQuery, useEditPBSMutation } from '@/api/PBSQuery.ts';
 /** Component */
+import TextSwitch from '@components/create/TextSwitch.tsx'
 import TextNumber from '@components/create/TextNumber.tsx';
 import TextSelect from '@components/create/TextSelect.tsx';
 import TextMultiField from '@components/create/TextMultiField.tsx';
@@ -21,6 +24,8 @@ const PbsEditPage: React.FC = () => {
 
 	const { data, isLoading } = usePBSDetailQuery(id as string);
 	const { mutate } = useEditPBSMutation();
+
+	const { handleSnackClick } = useSnack(EditSnackAtom);
 
 	const {
 		register,
@@ -39,10 +44,13 @@ const PbsEditPage: React.FC = () => {
 	}, [isLoading])
 
 	const editPBS = (data: any) => {
+		const editSnack = handleSnackClick({ vertical: "bottom", horizontal: "right" })
+
 		if(window.confirm("수정 하시겠습니까?")){
 			mutate(data, {
 				onSuccess: () => {
 					navigate(`/pbs/read/${id}`);
+					editSnack();
 				}
 			});
 		}

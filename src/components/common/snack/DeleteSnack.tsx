@@ -1,8 +1,11 @@
-import { Alert } from '@mui/material'
+/** React */
 import React from 'react';
+/** Hook */
 import useSnack from '@/hook/useSnack.ts'
+/** Atom */
 import { DeleteSnackAtom } from '@/store/SnackAtom.ts'
-import Snackbar from '@mui/material/Snackbar';
+/** Style */
+import { Alert, Snackbar } from '@mui/material'
 
 
 const DeleteSnack: React.FC = () => {
