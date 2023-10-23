@@ -1,4 +1,6 @@
 /** React */
+import CreateSnack from '@components/common/snack/CreateSnack.tsx'
+import DeleteSnack from '@components/common/snack/DeleteSnack.tsx'
 import React from 'react'
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from 'react-router-dom'
@@ -46,9 +48,13 @@ const App: React.FC = () => {
       <QueryClientProvider client={queryClient}>
         <GlobalStyle/>
 
+        <CreateSnack/>
+        <DeleteSnack/>
+
         <BrowserRouter>
 
           <ScrollToTop/>
+
 
           <Routes>
             <Route path={"/"} element={<LoginPage/>}/>
