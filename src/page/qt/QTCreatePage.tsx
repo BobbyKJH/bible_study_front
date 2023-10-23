@@ -2,11 +2,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router'
 /** Hook */
+import useSnack from '@/hook/useSnack.ts'
 import { useForm } from 'react-hook-form'
 /** Api */
 import { useCreateQTMutation } from '@/api/QTQuery.ts'
 /** Atom */
 import { QTNoticeAtom } from '@/store/NoticeAtom.ts'
+import { CreateSnackAtom } from '@/store/SnackAtom.ts'
 import { useRecoilState, useResetRecoilState } from 'recoil'
 /** Component */
 import TextSelect from '@components/create/TextSelect.tsx'
@@ -25,6 +27,7 @@ const QTCreatePage: React.FC = () => {
 	const [notice, setNotice] = useRecoilState<Bible.Create>(QTNoticeAtom);
 	const resetNotice = useResetRecoilState(QTNoticeAtom);
 
+	const { handleSnackClick } = useSnack(CreateSnackAtom);
 
 	const navigate = useNavigate()
 
@@ -40,9 +43,13 @@ const QTCreatePage: React.FC = () => {
 
 	/** Post */
 	const createQT = (data: Bible.Create): void => {
+		const createSnack = handleSnackClick({ vertical: "bottom", horizontal: "right" });
 		if(window.confirm("QT 작성하시겠습니까?")){
 			mutate(data,
-				{ onSuccess: () => navigate("/qt") }
+				{ onSuccess: () => {
+						navigate( "/qt" );
+						createSnack();
+					} }
 			);
 			resetNotice();
 		}

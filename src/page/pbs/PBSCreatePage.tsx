@@ -1,17 +1,21 @@
 /** React */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router'
 /** Hook */
 import { useForm } from 'react-hook-form'
+import useSnack from '@/hook/useSnack.ts'
 /** Recoil */
 import { PBSNoticeAtom } from '@/store/NoticeAtom.ts'
+import { CreateSnackAtom } from '@/store/SnackAtom.ts'
 import { useRecoilState, useResetRecoilState } from 'recoil'
 /** Api */
+import { useCreatePBSQuery } from '@/api/BibleQuery.ts'
 import { useCreatePBSMutation } from '@/api/PBSQuery.ts'
 /** Component */
 import TextSelect from '@components/create/TextSelect.tsx'
 import TextNumber from '@components/create/TextNumber.tsx'
 import TextSwitch from '@components/create/TextSwitch.tsx'
+import TextChapter from '@components/create/TextChapter.tsx'
 import TextMultiField from '@components/create/TextMultiField.tsx'
 /** Type */
 import Bible from '@type/Bible'
@@ -23,25 +27,39 @@ import { FooterContainer } from '@style/common/FooterStyle.ts'
 
 
 const PBSCreatePage: React.FC = () => {
-	const [notice, setNotice] = useRecoilState<Bible.Notice>(PBSNoticeAtom);
+	const [notice, setNotice] = useRecoilState<Bible.Create>(PBSNoticeAtom);
 	const resetNotice = useResetRecoilState(PBSNoticeAtom);
 
-	const { register, handleSubmit, watch, setValue } = useForm({
+	const { handleSnackClick } = useSnack(CreateSnackAtom);
+
+	const navigate = useNavigate();
+
+	const { register, handleSubmit, watch, setValue, formState: { errors }, getValues } = useForm({
 		mode: "onChange",
 		defaultValues: {
 			...notice,
 			userId: sessionStorage.getItem("userId"),
 			userName: sessionStorage.getItem("userName")},
 	});
+
+	const { isLoading, data, refetch } = useCreatePBSQuery(getValues("book"), watch("chapter"));
 	const { mutate } = useCreatePBSMutation();
 
-	const navigate = useNavigate();
+	console.log( !isLoading && data );
+
+	useEffect(() => {
+		refetch()
+	}, [watch("book"), watch("chapter")])
 
 	/** Post */
 	const createPBS = (data: Bible.Create): void => {
+		const createSnack = handleSnackClick({ vertical: "bottom", horizontal: "right" });
 		if(window.confirm("PBS 작성하시겠습니까?")){
 			mutate(data,
-				{ onSuccess: () => navigate("/pbs") }
+				{ onSuccess: () => {
+						navigate( "/pbs" );
+						createSnack();
+					} }
 			);
 			resetNotice();
 		}
@@ -68,26 +86,25 @@ const PBSCreatePage: React.FC = () => {
 		navigate("/pbs")
 	};
 
-	console.log(watch("book"))
-
 	return (
 		<PageContainer>
-			<NoticeForm onSubmit={handleSubmit(createPBS)}>
+			{
+				!isLoading ?<NoticeForm onSubmit={handleSubmit( createPBS )}>
 				<TextSwitch setValue={setValue} watch={watch}/>
 
-					<TextSelect register={register} name={"book"} watch={watch}/>
+				<TextSelect register={register} name={"book"} watch={watch}/>
 
-					<TextNumber register={register} name={"chapter"} verse={"장"}/>
+				<TextChapter register={register} name={"chapter"} verse={"장"} max={data.chapter}/>
 
-					<div>
-						<TextNumber register={register} name={"startVerse"} verse={"절"}/>
-						<TextNumber register={register} name={"endVerse"} verse={"절"}/>
-					</div>
+				<div>
+					<TextNumber register={register} name={"startVerse"} verse={"절"}/>
+					<TextNumber register={register} name={"endVerse"} verse={"절"}/>
+				</div>
 
 				<hr/>
 
-				<TextMultiField register={register} name={"content"} />
-			</NoticeForm>
+				<TextMultiField register={register} name={"content"}/>
+			</NoticeForm> : null}
 
 			<FooterContainer content={"space-between"}>
 				<div>
