@@ -7,13 +7,14 @@ interface Props {
 }
 
 export const CreateSnackAtom = atom<Props>({
-	key: "create_snack",
-	default: {
-		open: false,
-		vertical: 'top',
-		horizontal: 'center',
+		key: "create_snack",
+		default: {
+			open: false,
+			vertical: 'top',
+			horizontal: 'center',
+		}
 	}
-});
+);
 
 export const DeleteSnackAtom = atom<Props>(
 	{
@@ -24,4 +25,15 @@ export const DeleteSnackAtom = atom<Props>(
 			horizontal: 'center',
 		}
 	}
-)
+);
+
+export const EditSnackAtom = atom<Props>(
+	{
+		key: "edit_snack",
+		default: {
+			open: false,
+			vertical: 'top',
+			horizontal: 'center',
+		}
+	}
+);

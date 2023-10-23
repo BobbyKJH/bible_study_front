@@ -1,6 +1,5 @@
 /** React */
-import CreateSnack from '@components/common/snack/CreateSnack.tsx'
-import DeleteSnack from '@components/common/snack/DeleteSnack.tsx'
+
 import React from 'react'
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from 'react-router-dom'
@@ -13,6 +12,9 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 /** Components */
 import AuthRouter from '@components/common/AuthRouter.tsx'
 import ScrollToTop from '@components/common/ScrollToTop.tsx'
+import CreateSnack from '@components/common/snack/CreateSnack.tsx'
+import DeleteSnack from '@components/common/snack/DeleteSnack.tsx'
+import EditSnack from '@components/common/snack/EditSnack.tsx'
 /** Page */
 import HomePage from '@/page/HomePage.tsx'
 
@@ -50,6 +52,7 @@ const App: React.FC = () => {
 
         <CreateSnack/>
         <DeleteSnack/>
+        <EditSnack/>
 
         <BrowserRouter>
 
