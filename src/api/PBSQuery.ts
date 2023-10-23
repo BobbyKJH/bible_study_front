@@ -83,10 +83,9 @@ const editPBSList = async (data: any) => {
 
 export const useEditPBSMutation = () => useMutation(editPBSList, {
 	onSuccess: () => {
-		alert( "수정 완료" )
+
 	},
 	onError: () => {
-		alert( "수정 실패" )
 	}
 });
 
