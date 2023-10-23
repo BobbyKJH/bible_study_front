@@ -25,7 +25,9 @@ const getPBSChart = async (startDate: string, endDate: string) => {
 }
 
 /** 주간 PBS Chart */
-export const usePBSChartQuery = (startDate: string, endDate: string) => useQuery(["PBSChart"], () => getPBSChart(startDate, endDate));
+export const usePBSChartQuery = (startDate: string, endDate: string) => useQuery(["PBSChart"], () => getPBSChart(startDate, endDate), {
+	suspense: true
+});
 
 /** QT Chart */
 const getQTChart = async (startDate: string, endDate: string) => {
@@ -49,15 +51,8 @@ const editAdmin = async (data: any) => {
 
 		return res.data
 	} catch (err) {
-		throw err
+		throw err;
 	}
 }
 
-export const useAdminUpdateMutation = () => useMutation(editAdmin, {
-	onSuccess: () => {
-		alert( "수정 완료" )
-	},
-	onError: () => {
-		alert( "수정 실패" )
-	}
-});
+export const useAdminUpdateMutation = () => useMutation(editAdmin);

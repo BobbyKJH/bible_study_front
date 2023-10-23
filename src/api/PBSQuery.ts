@@ -81,11 +81,5 @@ const editPBSList = async (data: any) => {
 	}
 }
 
-export const useEditPBSMutation = () => useMutation(editPBSList, {
-	onSuccess: () => {
-
-	},
-	onError: () => {
-	}
-});
+export const useEditPBSMutation = () => useMutation(editPBSList);
 
