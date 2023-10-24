@@ -3,6 +3,10 @@ import React from 'react';
 import { useNavigate } from 'react-router'
 /** Hook */
 import { useForm } from 'react-hook-form'
+/** Sha256 */
+import { sha256 } from 'js-sha256'
+/** Cookie */
+import { setCookie } from '@utils/cookie.ts'
 /** Query */
 import { useUserMutation } from '@/api/UserQuery.ts'
 /** Component */
@@ -36,8 +40,10 @@ const LoginPage: React.FC = () => {
 	/** 로그인 FC */
 	const loginBtn = (data: { userId: string }): void => {
 		mutate(data, {
-			onSuccess: () => {
-				navigate("/home", { replace: true })
+			onSuccess: (data) => {
+				navigate("/home", { replace: true });
+				setCookie("userId", sha256(data.userId));
+				setCookie("userName", data.userName);
 			},
 			onError: () => {
 				alert( "일치하는 ID가 없습니다." )
@@ -55,6 +61,7 @@ const LoginPage: React.FC = () => {
 
 				<form style={{ width: "80%" }} onSubmit={handleSubmit(loginBtn)}>
 					<TextInput register={register} name={"userId"} label={"ID"}/>
+					{/*{cookie.userId && <div>{cookie.userId}</div>}*/}
 
 					{errors.userId && <LoginAlert>ID를 입력해주세요.</LoginAlert>}
 
