@@ -1,8 +1,9 @@
 /** React */
-
 import React from 'react'
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from 'react-router-dom'
+/** Cookie */
+import { CookiesProvider } from 'react-cookie'
 /** Recoil */
 import { RecoilRoot } from 'recoil'
 /** React-Query */
@@ -46,57 +47,59 @@ const App: React.FC = () => {
   const queryClient = new QueryClient();
 
   return (
-    <RecoilRoot>
-      <QueryClientProvider client={queryClient}>
-        <GlobalStyle/>
+    <CookiesProvider defaultSetOptions={{ path: "/" }}>
+      <RecoilRoot>
+        <QueryClientProvider client={queryClient}>
+          <GlobalStyle/>
 
-        <CreateSnack/>
-        <DeleteSnack/>
-        <EditSnack/>
+          <CreateSnack/>
+          <DeleteSnack/>
+          <EditSnack/>
 
-        <BrowserRouter>
+          <BrowserRouter>
 
-          <ScrollToTop/>
+            <ScrollToTop/>
 
 
-          <Routes>
-            <Route path={"/"} element={<LoginPage/>}/>
-            <Route path={"/create/user"} element={<LoginCreatePage/>}/>
+            <Routes>
+              <Route path={"/"} element={<LoginPage/>}/>
+              <Route path={"/create/user"} element={<LoginCreatePage/>}/>
 
-            <Route element={<AuthRouter/>}>
-              <Route path={"/home"} element={<HomePage/>}/>
+              <Route element={<AuthRouter/>}>
+                <Route path={"/home"} element={<HomePage/>}/>
 
-              <Route path={"mypage"}>
-                <Route path={""} element={<MyPage/>}/>
-                <Route path={"pbs"} element={<MyPagePBS/>}/>
-                <Route path={"qt"} element={<MyPageQT/>}/>
+                <Route path={"mypage"}>
+                  <Route path={""} element={<MyPage/>}/>
+                  <Route path={"pbs"} element={<MyPagePBS/>}/>
+                  <Route path={"qt"} element={<MyPageQT/>}/>
+                </Route>
+
+                <Route path={"/oldTestament"} element={<BibleOldTestamentPage/>}/>
+                <Route path={"/newTestament"} element={<BibleNewTestamentPage/>}/>
+
+                <Route path={"pbs"}>
+                  <Route path={""} element={<PBSPage/>}/>
+                  <Route path={"create"} element={<PBSCreatePage/>}/>
+                  <Route path={"read/:id"} element={<PBSReadPage/>}/>
+                  <Route path={"edit/:id"} element={<PBsEditPage/>}/>
+                </Route>
+
+                <Route path={"qt"}>
+                  <Route path={""} element={<QTPage/>}/>
+                  <Route path={"create"} element={<QTCreatePage/>}/>
+                  <Route path={"read/:id"} element={<QTReadPage/>}/>
+                  <Route path={"edit/:id"} element={<QTEditPage/>}/>
+                </Route>
+
+                <Route path={"/admin"} element={<AdminPage/>}/>
               </Route>
+            </Routes>
+          </BrowserRouter>
 
-              <Route path={"/oldTestament"} element={<BibleOldTestamentPage/>}/>
-              <Route path={"/newTestament"} element={<BibleNewTestamentPage/>}/>
-
-              <Route path={"pbs"}>
-                <Route path={""} element={<PBSPage/>}/>
-                <Route path={"create"} element={<PBSCreatePage/>}/>
-                <Route path={"read/:id"} element={<PBSReadPage/>}/>
-                <Route path={"edit/:id"} element={<PBsEditPage/>}/>
-              </Route>
-
-              <Route path={"qt"}>
-                <Route path={""} element={<QTPage/>}/>
-                <Route path={"create"} element={<QTCreatePage/>}/>
-                <Route path={"read/:id"} element={<QTReadPage/>}/>
-                <Route path={"edit/:id"} element={<QTEditPage/>}/>
-              </Route>
-
-              <Route path={"/admin"} element={<AdminPage/>}/>
-            </Route>
-          </Routes>
-        </BrowserRouter>
-
-        <ReactQueryDevtools initialIsOpen={false}/>
-      </QueryClientProvider>
-    </RecoilRoot>
+          <ReactQueryDevtools initialIsOpen={false}/>
+        </QueryClientProvider>
+      </RecoilRoot>
+    </CookiesProvider>
   );
 };
 
