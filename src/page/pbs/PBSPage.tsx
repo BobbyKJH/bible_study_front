@@ -1,9 +1,10 @@
 /** React */
-import { PBSPageAtom, PBSSearchAtom } from '@/store/NoticeAtom.ts'
 import { Link } from 'react-router-dom'
 import React, { useEffect } from 'react';
 /** Api */
 import { usePBSQuery } from '@/api/PBSQuery.ts'
+/** Atom */
+import { PBSPageAtom, PBSSearchAtom } from '@/store/NoticeAtom.ts'
 /** Custom Hook */
 import usePage from '@/hook/usePage.ts'
 import useSearch from '@/hook/useSearch.ts'
@@ -31,9 +32,6 @@ const PBSPage: React.FC = () => {
 	useEffect(() => {
 		refetch();
 	}, [page, search]);
-
-	console.log( Math.ceil(1/ 10) );
-
 
 	return (
 		<PageContainer>

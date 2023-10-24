@@ -2,6 +2,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { useNavigate, useParams } from 'react-router'
+/** Sha256 */
+import { sha256 } from 'js-sha256'
+/** Cookie */
+import { getCookie } from '@utils/cookie.ts'
 /** Hook */
 import useSnack from '@/hook/useSnack.ts'
 /** Atom */
@@ -59,7 +63,7 @@ const PBSReadPage: React.FC = () => {
 							<NoticeDetailChapter>{data.chapter}장</NoticeDetailChapter>
 
 							<div>
-								<span>{data.startVerse} </span>
+								<span>{data.startVerse}</span>
 
 								<div>-</div>
 
@@ -76,7 +80,7 @@ const PBSReadPage: React.FC = () => {
 						<div>
 							<Button variant="outlined" onClick={handleBackPage}>나가기</Button>
 							{
-								sessionStorage.getItem("userId") === data.userId
+								getCookie("userId") === sha256(data.userId)
 								&&
 								<>
                   <span>
