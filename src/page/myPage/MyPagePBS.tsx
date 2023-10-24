@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 /** Hook */
 import usePage from '@/hook/usePage.ts'
 import useSearch from '@/hook/useSearch.ts'
+/** Cookie */
+import { getCookie } from '@utils/cookie.ts'
 /** Atom */
 import { MyPagePBSAtom, MyPagePBSSearchAtom } from '@/store/MyPageAtom.ts'
 /** Api */
@@ -25,7 +27,7 @@ const MyPagePBS: React.FC = () => {
 	const { search, handleChangeSearch } = useSearch(MyPagePBSSearchAtom, MyPagePBSAtom);
 	const { page, handleClickPage } = usePage(MyPagePBSAtom);
 
-	const { data, isLoading, refetch } = useMyPBSQuery(sessionStorage.getItem("userId"), page, search);
+	const { data, isLoading, refetch } = useMyPBSQuery(getCookie("userId"), page, search);
 
 	useEffect(() => {
 		refetch();

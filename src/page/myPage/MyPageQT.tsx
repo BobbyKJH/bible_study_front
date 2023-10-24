@@ -3,6 +3,8 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 /** Api */
 import { useMyQTQuery } from '@/api/QTQuery.ts'
+/** Cookie */
+import { getCookie } from '@utils/cookie.ts'
 /** Atom */
 import { MyPageQTAtom, MyPageQTSearchAtom } from '@/store/MyPageAtom.ts'
 /** Hook */
@@ -25,7 +27,7 @@ const MyPageQT: React.FC = () => {
 
 	const { search, handleChangeSearch } = useSearch(MyPageQTSearchAtom, MyPageQTAtom);
 
-	const { data, isLoading, refetch } = useMyQTQuery(sessionStorage.getItem("userId"), page, search);
+	const { data, isLoading, refetch } = useMyQTQuery(getCookie("userId"), page, search);
 
 	useEffect(() => {
 		refetch()
