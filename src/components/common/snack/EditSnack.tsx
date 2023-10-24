@@ -20,6 +20,7 @@ const EditSnack: React.FC = () => {
 		<Snackbar
 			anchorOrigin={{ vertical, horizontal }}
 			open={open}
+			autoHideDuration={4000}
 			onClose={handleClose}
 			key={vertical + horizontal}
 		>
@@ -30,4 +31,4 @@ const EditSnack: React.FC = () => {
 	);
 }
 
-export default EditSnack;
+export default React.memo(EditSnack);

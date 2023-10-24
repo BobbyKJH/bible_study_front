@@ -32,4 +32,4 @@ const CreateSnack: React.FC = () => {
 	);
 }
 
-export default CreateSnack;
+export default React.memo(CreateSnack);

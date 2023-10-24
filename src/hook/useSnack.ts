@@ -6,7 +6,7 @@ import { SnackbarOrigin } from '@mui/material/Snackbar'
 interface Props {
 	open: boolean;
 	vertical: "top" | "bottom";
-	horizontal: "right" | "left" | "center"
+	horizontal: "right" | "left" | "center";
 
 }
 
