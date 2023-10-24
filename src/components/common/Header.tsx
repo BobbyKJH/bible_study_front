@@ -1,11 +1,13 @@
 /** React */
-import { MyPagePBSAtom, MyPagePBSSearchAtom, MyPageQTAtom, MyPageQTSearchAtom } from '@/store/MyPageAtom.ts'
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
+/** Cookie */
+import { removeCookie } from '@utils/cookie.ts'
 /** Recoil */
-import { useResetRecoilState, useSetRecoilState } from 'recoil'
 import { sideBarAtom } from '@/store/SideBarAtom.ts'
+import { MyPagePBSAtom, MyPagePBSSearchAtom, MyPageQTAtom, MyPageQTSearchAtom } from '@/store/MyPageAtom.ts'
+import { useResetRecoilState, useSetRecoilState } from 'recoil'
 /** Style */
 import styled from 'styled-components'
 import { Tooltip, Toolbar, AppBar, IconButton, Typography } from '@mui/material'
@@ -47,9 +49,11 @@ const Header: React.FC = () => {
 
 	const handleLogout = () => {
 		if(window.confirm("로그아웃 하시겠습니까?")){
-			sessionStorage.removeItem("userId");
 			sessionStorage.removeItem("userName");
 			sessionStorage.removeItem("userAuth");
+
+			removeCookie("userId");
+			removeCookie("userName");
 
 			navigator("/")
 		}
