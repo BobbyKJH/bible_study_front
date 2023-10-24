@@ -1,13 +1,15 @@
 /** React */
 import React from 'react';
 import { Outlet, Navigate } from "react-router-dom";
+/** Cookie */
+import { getCookie } from '@utils/cookie.ts';
 /** Component */
-import SideBar from '@components/common/sideBar/SideBar.tsx'
-import Header from '@components/common/Header.tsx'
+import Header from '@components/common/Header.tsx';
+import SideBar from '@components/common/sideBar/SideBar.tsx';
 
 const AuthRouter: React.FC = () => {
 	return (
-		sessionStorage.getItem("userId") && sessionStorage.getItem("userName") ?
+		getCookie("userId") ?
 			<>
 				<SideBar/>
 
