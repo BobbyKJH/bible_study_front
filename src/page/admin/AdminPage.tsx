@@ -51,11 +51,14 @@ const AdminPage: React.FC = () => {
         <form>
           <input type={"date"} disabled={true} value={data.startDate}/>
           <input type={"date"} disabled={true} value={data.endDate}/>
+
           <TextInput register={register} name={"book"}/>
 
           <TextReadNumber value={data.chapter} verse={"장"}/>
           <TextReadNumber value={data.startVerse} verse={"절"}/>
           <TextReadNumber value={data.endVerse} verse={"절"}/>
+
+					<hr/>
 
           <TextReadMultiField value={data.evangelize}/>
 
@@ -77,6 +80,8 @@ const AdminPage: React.FC = () => {
 						<TextNumber register={register} name={"chapter"} verse={"장"}/>
 						<TextNumber register={register} name={"startVerse"} verse={"절"}/>
 						<TextNumber register={register} name={"endVerse"} verse={"절"}/>
+
+						<hr/>
 
 						<TextMultiField register={register} name={"evangelize"}/>
 
