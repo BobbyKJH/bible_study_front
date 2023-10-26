@@ -12,7 +12,6 @@ const TextMultiField: React.FC<Bible.Text> = (props) => {
 		<TextField
 			multiline
 			fullWidth
-			minRows={10}
 			variant="standard"
 			inputProps={{
 				style: {
