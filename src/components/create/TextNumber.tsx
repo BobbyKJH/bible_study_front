@@ -11,8 +11,9 @@ const TextNumber: React.FC<Bible.Text> = (props) => {
 	return (
 		<OutlinedInput
 			type={"number"}
+			sx={{ width: "100px" }}
 			endAdornment={<InputAdornment position="end">{verse}</InputAdornment>}
-			{...register(name, { required: true, valueAsNumber: true, min: 0 })}
+			{...register(name, { required: true, valueAsNumber: true, min: { value: 1, message: "1보다 큰 값을 입력해주세요."} })}
 		/>
 	);
 };
