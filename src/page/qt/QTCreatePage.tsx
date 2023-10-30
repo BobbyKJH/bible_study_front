@@ -10,6 +10,8 @@ import { useCreateQTMutation } from '@/api/QTQuery.ts'
 import { QTNoticeAtom } from '@/store/NoticeAtom.ts'
 import { CreateSnackAtom } from '@/store/SnackAtom.ts'
 import { useRecoilState, useResetRecoilState } from 'recoil'
+/** Cookie */
+import { getCookie } from '@utils/cookie.ts';
 /** Component */
 import TextSelect from '@components/create/TextSelect.tsx'
 import TextNumber from '@components/create/TextNumber.tsx'
@@ -37,8 +39,9 @@ const QTCreatePage: React.FC = () => {
 		mode: "onChange",
 		defaultValues: {
 			...notice,
-			userId: sessionStorage.getItem("userId"),
-			userName: sessionStorage.getItem("userName")},
+			userId: getCookie("userId"),
+			userName: getCookie("userName")
+		},
 	});
 
 	/** Post */
