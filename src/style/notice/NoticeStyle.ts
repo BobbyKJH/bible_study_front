@@ -12,6 +12,27 @@ export const NoticePaper = styled(Paper)`
 	padding: 0;
 `;
 
+/** 상세 페이지 */
+export const NoticeDetailTitle = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin: 10px 0;
+	padding: 0 10px;
+	div{
+		display: flex;
+	}
+`
+export const NoticeDetailBook = styled.h1`
+	font-size: 2rem;
+	font-weight: 900;
+`
+
+export const NoticeDetailChapter = styled.span`
+	font-weight: 700;
+`
+/** -------------------------------------------------------------------------- */
+
 /** 게시판 이름 */
 export const NoticeTitle = styled.span`
 	display: flex;
