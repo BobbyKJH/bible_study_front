@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 /** React */
 import PBSChart from '@components/home/PBSChart.tsx'
 import QTChart from '@components/home/QTChart.tsx'
 /** Query */
 import { useAdminQuery } from '@/api/AdminQuery.ts'
 /** Style */
+import { ChartBox } from '@style/common/ChartStyle.ts'
 import { PageContainer } from '@style/common/PageStyle.ts'
 
 
@@ -17,9 +18,13 @@ const HomePage: React.FC = () => {
             {
                 !isLoading ?
                         <div>
-                            <PBSChart startDate={data.startDate} endDate={data.endDate}/>
+                            <ChartBox>
+                                <Suspense fallback={<div>hello</div>}>
+                                    <PBSChart startDate={data.startDate} endDate={data.endDate}/>
+                                </Suspense>
+                            </ChartBox>
+
                             <QTChart startDate={data.startDate} endDate={data.endDate}/>
-                            1
                         </div>
                     :
                     null
