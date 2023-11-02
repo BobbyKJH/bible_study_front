@@ -8,6 +8,8 @@ import useSnack from '@/hook/useSnack.ts'
 import { PBSNoticeAtom } from '@/store/NoticeAtom.ts'
 import { CreateSnackAtom } from '@/store/SnackAtom.ts'
 import { useRecoilState, useResetRecoilState } from 'recoil'
+/** Cookie */
+import { getCookie } from '@utils/cookie.ts';
 /** Api */
 import { useCreatePBSQuery } from '@/api/BibleQuery.ts'
 import { useCreatePBSMutation } from '@/api/PBSQuery.ts'
@@ -38,8 +40,9 @@ const PBSCreatePage: React.FC = () => {
 		mode: "onChange",
 		defaultValues: {
 			...notice,
-			userId: sessionStorage.getItem("userId"),
-			userName: sessionStorage.getItem("userName")},
+			userId: getCookie("userId"),
+			userName: getCookie("userName")
+		},
 	});
 
 	const { isLoading, data, refetch } = useCreatePBSQuery(getValues("book"), watch("chapter"));
