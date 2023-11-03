@@ -20,7 +20,7 @@ const DeleteSnack: React.FC = () => {
 		<Snackbar
 			anchorOrigin={{ vertical, horizontal }}
 			open={open}
-			autoHideDuration={4000}
+			autoHideDuration={1000}
 			onClose={handleClose}
 			key={vertical + horizontal}
 		>
