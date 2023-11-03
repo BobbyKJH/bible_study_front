@@ -1,47 +1,48 @@
 /** React */
-import React from 'react'
+import React from 'react';
 import { Route, Routes } from "react-router";
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 /** Cookie */
-import { CookiesProvider } from 'react-cookie'
+import { CookiesProvider } from 'react-cookie';
 /** Recoil */
-import { RecoilRoot } from 'recoil'
+import { RecoilRoot } from 'recoil';
 /** React-Query */
-import { QueryClient } from '@tanstack/query-core'
-import { QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { QueryClient } from '@tanstack/query-core';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 /** Components */
-import AuthRouter from '@components/common/AuthRouter.tsx'
-import ScrollToTop from '@components/common/ScrollToTop.tsx'
-import CreateSnack from '@components/common/snack/CreateSnack.tsx'
-import DeleteSnack from '@components/common/snack/DeleteSnack.tsx'
-import EditSnack from '@components/common/snack/EditSnack.tsx'
+import AuthRouter from '@components/common/AuthRouter.tsx';
+import ScrollToTop from '@components/common/ScrollToTop.tsx';
+import CreateSnack from '@components/common/snack/CreateSnack.tsx';
+import DeleteSnack from '@components/common/snack/DeleteSnack.tsx';
+import EditSnack from '@components/common/snack/EditSnack.tsx';
 /** Page */
-import HomePage from '@/page/HomePage.tsx'
+import HomePage from '@/page/HomePage.tsx';
 
-import MyPage from '@page/myPage/MyPage.tsx'
-import MyPageQT from '@page/myPage/MyPageQT.tsx'
-import MyPagePBS from '@page/myPage/MyPagePBS.tsx'
+import MyPage from '@page/myPage/MyPage.tsx';
+import MyPageQT from '@page/myPage/MyPageQT.tsx';
+import MyPagePBS from '@page/myPage/MyPagePBS.tsx';
 
-import LoginPage from '@page/login/LoginPage.tsx'
-import LoginCreatePage from '@page/login/LoginCreatePage.tsx'
+import LoginPage from '@page/login/LoginPage.tsx';
+import LoginCreatePage from '@page/login/LoginCreatePage.tsx';
 
-import BibleOldTestamentPage from '@page/bible/BibleOldTestamentPage.tsx'
-import BibleNewTestamentPage from '@page/bible/BibleNewTestamentPage.tsx'
+import BibleOldTestamentPage from '@page/bible/BibleOldTestamentPage.tsx';
+import BibleNewTestamentPage from '@page/bible/BibleNewTestamentPage.tsx';
 
-import PBSPage from '@page/pbs/PBSPage.tsx'
-import PBSCreatePage from '@page/pbs/PBSCreatePage.tsx'
-import PBSReadPage from '@page/pbs/PBSReadPage.tsx'
-import PBsEditPage from '@page/pbs/PBSEditPage.tsx'
+import PBSPage from '@page/pbs/PBSPage.tsx';
+import PBSNotionPage from '@page/pbs/PBSNotionPage.tsx';
+import PBSCreatePage from '@page/pbs/PBSCreatePage.tsx';
+import PBSReadPage from '@page/pbs/PBSReadPage.tsx';
+import PBsEditPage from '@page/pbs/PBSEditPage.tsx';
 
-import QTPage from '@page/qt/QTPage.tsx'
-import QTCreatePage from '@page/qt/QTCreatePage.tsx'
-import QTReadPage from '@page/qt/QTReadPage.tsx'
-import QTEditPage from '@page/qt/QTEditPage.tsx'
+import QTPage from '@page/qt/QTPage.tsx';
+import QTCreatePage from '@page/qt/QTCreatePage.tsx';
+import QTReadPage from '@page/qt/QTReadPage.tsx';
+import QTEditPage from '@page/qt/QTEditPage.tsx';
 
-import AdminPage from '@page/admin/AdminPage.tsx'
+import AdminPage from '@page/admin/AdminPage.tsx';
 /** Style */
-import GlobalStyle from '@style/common/GlobalStyle.ts'
+import GlobalStyle from '@style/common/GlobalStyle.ts';
 
 const App: React.FC = () => {
   const queryClient = new QueryClient();
@@ -79,6 +80,7 @@ const App: React.FC = () => {
 
                 <Route path={"pbs"}>
                   <Route path={""} element={<PBSPage/>}/>
+                  <Route path={":page"} element={<PBSNotionPage/>}/>
                   <Route path={"create"} element={<PBSCreatePage/>}/>
                   <Route path={"read/:id"} element={<PBSReadPage/>}/>
                   <Route path={"edit/:id"} element={<PBsEditPage/>}/>
