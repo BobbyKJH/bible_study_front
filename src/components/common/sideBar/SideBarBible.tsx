@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil'
 import { sideBarAtom } from '@/store/SideBarAtom.ts'
 /** Utils */
-import { pathLocaiton } from '@utils/utilsFc.ts'
+import { pathLocaiton } from '@utils/pathLocaiton.ts'
 /** Style */
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';

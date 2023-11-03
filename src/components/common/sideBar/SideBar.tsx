@@ -47,18 +47,18 @@ const SideBar: React.FC = () => {
 			<Toolbar />
 			<Divider />
 			<List sx={{ paddingTop: 0 }}>
-				<SideBarText path={"home"} text={"홈"} Icon={BiHome} handleClose={handleCloseSideBar}/>
+				<SideBarText path={"home"} location={"home"} text={"홈"} Icon={BiHome} handleClose={handleCloseSideBar}/>
 
 				<SideBarBible/>
 
-				<SideBarText path={"pbs"} text={"PBS"} Icon={TbClipboardText} handleClose={handleClosePBS}/>
+				<SideBarText path={"pbs/1"} location={"pbs"} text={"PBS"} Icon={TbClipboardText} handleClose={handleClosePBS}/>
 
-				<SideBarText path={"qt"} text={"QT"} Icon={TbClipboardList} handleClose={handleCloseQT}/>
+				<SideBarText path={"qt"} location={"qt"} text={"QT"} Icon={TbClipboardList} handleClose={handleCloseQT}/>
 
 				{
 					sessionStorage.getItem("userAuth") === sha256("admin")
 					&&
-					<SideBarText path={"admin"} text={"관리자 권한"} Icon={BsFillPersonLinesFill} handleClose={handleCloseSideBar}/>}
+					<SideBarText path={"admin"} location={"admin"} text={"관리자 권한"} Icon={BsFillPersonLinesFill} handleClose={handleCloseSideBar}/>}
 			</List>
 		</div>
 	);
