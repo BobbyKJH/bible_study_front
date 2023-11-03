@@ -80,7 +80,7 @@ const PBSReadPage: React.FC = () => {
 						<div>
 							<Button variant="outlined" onClick={handleBackPage}>나가기</Button>
 							{
-								getCookie("userId") === sha256(data.userId)
+								getCookie("userId") === data.userId
 								&&
 								<>
                   <span>
