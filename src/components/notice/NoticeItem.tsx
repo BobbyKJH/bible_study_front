@@ -1,11 +1,12 @@
+/** React */
 import React from 'react';
+/** Style */
 import {
-	NoticeBook,
-	NoticeChapter,
-	NoticeDate,
-	NoticeItemContainer,
 	NoticeNum,
-	NoticeVerse
+	NoticeBook,
+	NoticeVerse,
+	NoticeChapter,
+	NoticeItemContainer
 } from '@style/notice/NoticeStyle.ts'
 
 interface NoticeItemProps {
@@ -15,11 +16,10 @@ interface NoticeItemProps {
 	chapter: number,
 	startVerse: number,
 	endVerse: number,
-	date: string
 }
 
 const NoticeItem: React.FC<NoticeItemProps> = (props) => {
-	const { id, content, book, chapter, startVerse, endVerse, date } = props;
+	const { id, content, book, chapter, startVerse, endVerse } = props;
 
 	return (
 		<NoticeItemContainer>
@@ -31,7 +31,6 @@ const NoticeItem: React.FC<NoticeItemProps> = (props) => {
 				~
 				<span>{endVerse}절</span>
 			</NoticeVerse>
-			<NoticeDate>{date}</NoticeDate>
 		</NoticeItemContainer>
 	);
 };
