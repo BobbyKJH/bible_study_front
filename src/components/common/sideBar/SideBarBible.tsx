@@ -12,8 +12,8 @@ import ListItem from '@mui/material/ListItem';
 import Collapse from '@mui/material/Collapse';
 import ListItemText from '@mui/material/ListItemText';
 /** Icon */
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
+// import ExpandLess from '@mui/icons-material/ExpandLess';
+// import ExpandMore from '@mui/icons-material/ExpandMore';
 import ListItemIcon from '@mui/material/ListItemIcon'
 import { BiSolidBible, BiBible } from "react-icons/bi";
 
@@ -41,7 +41,7 @@ const SideBarBible = () => {
 									<BiSolidBible size={"20"}/>
 								</ListItemIcon>
 								<ListItemText primary={"성경"} />
-								{open ? <ExpandLess /> : <ExpandMore />}
+								{/*{open ? <ExpandLess /> : <ExpandMore />}*/}
 							</ListItem>
 						</li>
 

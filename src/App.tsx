@@ -30,7 +30,7 @@ import BibleOldTestamentPage from '@page/bible/BibleOldTestamentPage.tsx';
 import BibleNewTestamentPage from '@page/bible/BibleNewTestamentPage.tsx';
 
 import PBSPage from '@page/pbs/PBSPage.tsx';
-import PBSNotionPage from '@page/pbs/PBSNotionPage.tsx';
+// import PBSNotionPage from '@page/pbs/PBSNotionPage.tsx';
 import PBSCreatePage from '@page/pbs/PBSCreatePage.tsx';
 import PBSReadPage from '@page/pbs/PBSReadPage.tsx';
 import PBsEditPage from '@page/pbs/PBSEditPage.tsx';
@@ -80,7 +80,7 @@ const App: React.FC = () => {
 
                 <Route path={"pbs"}>
                   <Route path={""} element={<PBSPage/>}/>
-                  <Route path={":page"} element={<PBSNotionPage/>}/>
+                  {/*<Route path={":page"} element={<PBSNotionPage/>}/>*/}
                   <Route path={"create"} element={<PBSCreatePage/>}/>
                   <Route path={"read/:id"} element={<PBSReadPage/>}/>
                   <Route path={"edit/:id"} element={<PBsEditPage/>}/>
