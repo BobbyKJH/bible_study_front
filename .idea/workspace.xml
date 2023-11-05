@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d4ed37a4-8d30-4e75-84c6-db379b2d8d00" name="변경" comment="Type : &#10;&#10;##################################################&#10;&#10;- &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="develop" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;author&quot;: &quot;BobbyKJH&quot;
+    },
+    {
+      &quot;author&quot;: &quot;BobbyKJH&quot;
+    },
+    {
+      &quot;state&quot;: &quot;MERGED&quot;,
+      &quot;assignee&quot;: &quot;BobbyKJH&quot;,
+      &quot;author&quot;: &quot;BobbyKJH&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;MERGED&quot;,
+    &quot;assignee&quot;: &quot;BobbyKJH&quot;,
+    &quot;author&quot;: &quot;BobbyKJH&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="1cc7f8aa-0fe7-4cfe-910d-9c59214cdd3f" />
+        <option name="url" value="https://github.com/BobbyKJH/bible_study_front.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2U4AN052DB0MLpljcn8EL1AkrTd" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "/Users/kimjeonghyeon/Desktop/front/bible_study_front",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Errors",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/common/snack" />
+      <recent name="$PROJECT_DIR$/src/page/myPage" />
+      <recent name="$PROJECT_DIR$/src/page/login" />
+      <recent name="$PROJECT_DIR$/src/components" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="d4ed37a4-8d30-4e75-84c6-db379b2d8d00" name="변경" comment="" />
+      <created>1692188434761</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1692188434761</updated>
+      <workItem from="1692188435900" duration="5454000" />
+      <workItem from="1693745591072" duration="54842000" />
+      <workItem from="1694596767144" duration="36147000" />
+      <workItem from="1694825984645" duration="26657000" />
+      <workItem from="1695051271140" duration="26918000" />
+      <workItem from="1695385895833" duration="13944000" />
+      <workItem from="1695644632334" duration="59322000" />
+      <workItem from="1696509744064" duration="31844000" />
+      <workItem from="1696931195329" duration="86830000" />
+      <workItem from="1697359494487" duration="379000" />
+      <workItem from="1697359876671" duration="125000" />
+      <workItem from="1697360012273" duration="19651000" />
+      <workItem from="1697528919741" duration="48810000" />
+      <workItem from="1697884228359" duration="41000" />
+      <workItem from="1697884277502" duration="47124000" />
+      <workItem from="1698413399519" duration="23577000" />
+      <workItem from="1699186770528" duration="1618000" />
+    </task>
+    <task id="LOCAL-00119" summary="Feat : TextSelect&#10;&#10;##################################################&#10;&#10;- PBS QT 생성 및 수정 성경 선택 component 생성&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697641657238</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1697641657238</updated>
+    </task>
+    <task id="LOCAL-00120" summary="Feat : ShowData Switch&#10;&#10;##################################################&#10;&#10;- ShowData Switch Create&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697641686734</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1697641686734</updated>
+    </task>
+    <task id="LOCAL-00121" summary="Feat : SideBar&#10;&#10;##################################################&#10;&#10;- SideBar 게시판 Reset 기능 추가&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697641714847</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1697641714847</updated>
+    </task>
+    <task id="LOCAL-00122" summary="Feat : PBS 게시판 CRUD &#10;&#10;##################################################&#10;&#10;- PBS 게시판 CRUD 페이지 수정&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697641772773</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1697641772773</updated>
+    </task>
+    <task id="LOCAL-00123" summary="Feat : QT Notice CRUD&#10;&#10;##################################################&#10;&#10;- QT 게시판 CRUD 수정&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697641807439</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1697641807439</updated>
+    </task>
+    <task id="LOCAL-00124" summary="Style : QT Edit, Read&#10;&#10;##################################################&#10;&#10;- QT 스타일 변경&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697730559754</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1697730559754</updated>
+    </task>
+    <task id="LOCAL-00125" summary="Style : QT Edit, Read&#10;&#10;##################################################&#10;&#10;- QT Edit Read Style 수정&#10;&#10;####################경##############################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697730586978</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1697730586978</updated>
+    </task>
+    <task id="LOCAL-00126" summary="Feat : QT, PBS Chart&#10;&#10;##################################################&#10;&#10;- Chart Custom&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697737984559</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1697737984559</updated>
+    </task>
+    <task id="LOCAL-00127" summary="Feat : LoginPage&#10;&#10;##################################################&#10;&#10;- Login Page replace true&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697884357763</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1697884357764</updated>
+    </task>
+    <task id="LOCAL-00128" summary="Feat : DB 수정으로 인한 Type&#10;&#10;##################################################&#10;&#10;- DB 수정 updateAt, date 삭제&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697884720247</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1697884720247</updated>
+    </task>
+    <task id="LOCAL-00129" summary="Feat : QT PBS Tmp Save&#10;&#10;##################################################&#10;&#10;- QT PBS 임시저장 수정&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697978373874</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1697978373874</updated>
+    </task>
+    <task id="LOCAL-00130" summary="Feat : BibleQuery&#10;&#10;##################################################&#10;&#10;- 성경 벙위 설정 Api 생성&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1697995339684</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1697995339684</updated>
+    </task>
+    <task id="LOCAL-00131" summary="Feat : Snack Bar Component&#10;&#10;##################################################&#10;&#10;- Delete Snack Bar Create&#10;- Create Snack Bar Create&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698077771103</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1698077771103</updated>
+    </task>
+    <task id="LOCAL-00132" summary="Feat : QT PBS 임시저장 &#10;&#10;##################################################&#10;&#10;- QT 임시저장 LocalStorage&#10;- PBS 임시저장 LocalStorage&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698077836844</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1698077836845</updated>
+    </task>
+    <task id="LOCAL-00133" summary="Feat : Detail Page Snack&#10;&#10;##################################################&#10;&#10;- 삭제 SnackBar 적용&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698077901780</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1698077901780</updated>
+    </task>
+    <task id="LOCAL-00134" summary="Feat : BibleQuery&#10;&#10;##################################################&#10;&#10;- Bible 범위를 위한 Api 생성 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698077962279</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1698077962279</updated>
+    </task>
+    <task id="LOCAL-00135" summary="Feat : Create Snack 적용&#10;&#10;##################################################&#10;&#10;- QT Snack 적용&#10;- PBS Snack 적용&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698078033458</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1698078033458</updated>
+    </task>
+    <task id="LOCAL-00136" summary="Feat : Edit Snack Create&#10;&#10;##################################################&#10;&#10;- Edit Snack Create&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698080173826</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1698080173826</updated>
+    </task>
+    <task id="LOCAL-00137" summary="Remove : 수정 Mutation&#10;&#10;##################################################&#10;&#10;- 수정 Mutation onSuccess &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698080236689</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1698080236689</updated>
+    </task>
+    <task id="LOCAL-00138" summary="Feat : Edit Snack &#10;&#10;##################################################&#10;&#10;- QT Notice Edit Snack 적용&#10;- PBS Notice Edit Snack 적용&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698080481362</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1698080481362</updated>
+    </task>
+    <task id="LOCAL-00139" summary="Feat : Mutation Edit&#10;&#10;##################################################&#10;&#10;- Mutation onSuccess Remove &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698080636593</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1698080636593</updated>
+    </task>
+    <task id="LOCAL-00140" summary="Feat : React - Cookie&#10;&#10;##################################################&#10;&#10;- Login을 위한 React-Cookie install &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698160657975</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1698160657975</updated>
+    </task>
+    <task id="LOCAL-00141" summary="Feat : cookie.ts&#10;&#10;##################################################&#10;&#10;- cookie utils function create&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698160682445</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1698160682445</updated>
+    </task>
+    <task id="LOCAL-00142" summary="Feat : CookieProviders&#10;&#10;##################################################&#10;&#10;- React - Cookie &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698160711768</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1698160711768</updated>
+    </task>
+    <task id="LOCAL-00143" summary="Feat : LoginPage.tsx&#10;&#10;##################################################&#10;&#10;- userId Cookie &#10;- userName Cookie&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698160749602</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1698160749602</updated>
+    </task>
+    <task id="LOCAL-00144" summary="Feat : Snack Component&#10;&#10;##################################################&#10;&#10;- Snack Component autoHideDuration 설정&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698160827187</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1698160827187</updated>
+    </task>
+    <task id="LOCAL-00145" summary="Feat : MyPage&#10;&#10;##################################################&#10;&#10;- MyPage SessionStorage -&gt; Cookie 변경 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698161799669</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1698161799669</updated>
+    </task>
+    <task id="LOCAL-00146" summary="Feat : AuthRouter&#10;&#10;##################################################&#10;&#10;- SessionStorage -&gt; Cookie 변경 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698161864025</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1698161864025</updated>
+    </task>
+    <task id="LOCAL-00147" summary="Feat : QT , PBS Read&#10;&#10;##################################################&#10;&#10;- sessionStorage -&gt; Cookie 변경&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698162018443</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1698162018443</updated>
+    </task>
+    <task id="LOCAL-00148" summary="Remove : SessionStorage userId&#10;&#10;##################################################&#10;&#10;- userId 제거&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698162097284</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1698162097284</updated>
+    </task>
+    <task id="LOCAL-00149" summary="Remove : Header Session Remove&#10;&#10;##################################################&#10;&#10;- SessionStorage userId Remove&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698162219327</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1698162219327</updated>
+    </task>
+    <task id="LOCAL-00150" summary="Style : AdminPage&#10;&#10;##################################################&#10;&#10;- 관리자 페이지 style 추가&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698277243616</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1698277243616</updated>
+    </task>
+    <task id="LOCAL-00151" summary="Feat : TextMultiField.tsx &#10;&#10;##################################################&#10;&#10;- minRow 제거&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698330335751</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1698330335751</updated>
+    </task>
+    <task id="LOCAL-00152" summary="Feat : TextNumber&#10;&#10;##################################################&#10;&#10;- width &amp;&amp; min&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698364436046</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1698364436046</updated>
+    </task>
+    <task id="LOCAL-00153" summary="Feat : Create Chapter&#10;&#10;##################################################&#10;&#10;- 장 설정 max 값을 지정 해주기 위해 component 생성&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698419013152</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1698419013153</updated>
+    </task>
+    <task id="LOCAL-00154" summary="Feat : gitignore&#10;&#10;##################################################&#10;&#10;- 환경 변수 생성&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698499558634</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1698499558634</updated>
+    </task>
+    <task id="LOCAL-00155" summary="Feat : QtCreate&#10;&#10;##################################################&#10;&#10;- QT 생성 쿠카 있는값 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698649412016</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1698649412016</updated>
+    </task>
+    <task id="LOCAL-00156" summary="Style : 상세페이지 Style&#10;&#10;##################################################&#10;&#10;- 살세 페이지 Style 수정&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698732867511</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1698732867512</updated>
+    </task>
+    <task id="LOCAL-00157" summary="Feat : PBS Chart Suspense&#10;&#10;##################################################&#10;&#10;- PBS Chart Suspense 적용 변경 예정 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698814754805</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1698814754805</updated>
+    </task>
+    <task id="LOCAL-00158" summary="Feat : PBS Create&#10;&#10;##################################################&#10;&#10;- Session -&gt; Cookie 변경 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1698918594736</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1698918594736</updated>
+    </task>
+    <task id="LOCAL-00159" summary="Style : NoticeItem.tsx&#10;&#10;##################################################&#10;&#10;- 게시판 style&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1699006619733</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1699006619733</updated>
+    </task>
+    <task id="LOCAL-00160" summary="Feat : pathLocation&#10;&#10;##################################################&#10;&#10;- 폴더명 변경&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1699023844706</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1699023844706</updated>
+    </task>
+    <task id="LOCAL-00161" summary="Feat : pageIndex Type&#10;&#10;##################################################&#10;&#10;- page type 변경&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1699023874159</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1699023874159</updated>
+    </task>
+    <task id="LOCAL-00162" summary="Feat : SideBar&#10;&#10;##################################################&#10;&#10;- SideBar location props add&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1699024223599</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1699024223599</updated>
+    </task>
+    <task id="LOCAL-00163" summary="Feat : App Route &#10;&#10;##################################################&#10;&#10;- PBSNotionPage Route Add&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1699024256018</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1699024256018</updated>
+    </task>
+    <task id="LOCAL-00164" summary="Feat : Snack&#10;&#10;##################################################&#10;&#10;- autoHideDuration 1000ms 변경 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1699024974233</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1699024974233</updated>
+    </task>
+    <task id="LOCAL-00165" summary="Feat : PBSReadPage&#10;&#10;##################################################&#10;&#10;- Edit 조건 변경&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1699025008199</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1699025008199</updated>
+    </task>
+    <task id="LOCAL-00166" summary="Fixed : App, SideBar&#10;&#10;##################################################&#10;&#10;- Fixed&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1699186912351</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1699186912351</updated>
+    </task>
+    <task id="LOCAL-00167" summary="Feat : Migration Next.JS&#10;&#10;##################################################&#10;&#10;- React -&gt; Next JS Migration&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경">
+      <option name="closed" value="true" />
+      <created>1699187011224</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1699187011224</updated>
+    </task>
+    <option name="localTasksCounter" value="168" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Feat : LoginPage.tsx&#10;&#10;##################################################&#10;&#10;- userId Cookie &#10;- userName Cookie&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : Snack Component&#10;&#10;##################################################&#10;&#10;- Snack Component autoHideDuration 설정&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : MyPage&#10;&#10;##################################################&#10;&#10;- MyPage SessionStorage -&gt; Cookie 변경 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : AuthRouter&#10;&#10;##################################################&#10;&#10;- SessionStorage -&gt; Cookie 변경 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : QT , PBS Read&#10;&#10;##################################################&#10;&#10;- sessionStorage -&gt; Cookie 변경&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Remove : SessionStorage userId&#10;&#10;##################################################&#10;&#10;- userId 제거&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Remove : Header Session Remove&#10;&#10;##################################################&#10;&#10;- SessionStorage userId Remove&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Style : AdminPage&#10;&#10;##################################################&#10;&#10;- 관리자 페이지 style 추가&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : TextMultiField.tsx &#10;&#10;##################################################&#10;&#10;- minRow 제거&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : TextNumber&#10;&#10;##################################################&#10;&#10;- width &amp;&amp; min&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : Create Chapter&#10;&#10;##################################################&#10;&#10;- 장 설정 max 값을 지정 해주기 위해 component 생성&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : gitignore&#10;&#10;##################################################&#10;&#10;- 환경 변수 생성&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : QtCreate&#10;&#10;##################################################&#10;&#10;- QT 생성 쿠카 있는값 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Style : 상세페이지 Style&#10;&#10;##################################################&#10;&#10;- 살세 페이지 Style 수정&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : PBS Chart Suspense&#10;&#10;##################################################&#10;&#10;- PBS Chart Suspense 적용 변경 예정 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : PBS Create&#10;&#10;##################################################&#10;&#10;- Session -&gt; Cookie 변경 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Style : NoticeItem.tsx&#10;&#10;##################################################&#10;&#10;- 게시판 style&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : pathLocation&#10;&#10;##################################################&#10;&#10;- 폴더명 변경&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : pageIndex Type&#10;&#10;##################################################&#10;&#10;- page type 변경&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : SideBar&#10;&#10;##################################################&#10;&#10;- SideBar location props add&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : App Route &#10;&#10;##################################################&#10;&#10;- PBSNotionPage Route Add&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : Snack&#10;&#10;##################################################&#10;&#10;- autoHideDuration 1000ms 변경 &#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : PBSReadPage&#10;&#10;##################################################&#10;&#10;- Edit 조건 변경&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Fixed : App, SideBar&#10;&#10;##################################################&#10;&#10;- Fixed&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <MESSAGE value="Feat : Migration Next.JS&#10;&#10;##################################################&#10;&#10;- React -&gt; Next JS Migration&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat : Migration Next.JS&#10;&#10;##################################################&#10;&#10;- React -&gt; Next JS Migration&#10;&#10;##################################################&#10;# Feat     : 새로운 기능 추가&#10;&#10;# Refactor : 기능 리팩토링&#10;&#10;# Style    : 기능의 영향 없이 스타일만 변경&#10;&#10;# Fixed    : 버그 수정&#10;&#10;# Rename   : 파일 및 폴더 이름 변경" />
+  </component>
+</project>
