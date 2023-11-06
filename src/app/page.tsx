@@ -1,15 +1,18 @@
 "use client"
+import { Button, Paper, TextField } from '@mui/material';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 /** Api */
 import { useUserMutation } from '@/api/UserQuery';
 /** Custom Hook */
 import { SubmitHandler, useForm } from 'react-hook-form';
+import styles from "@/app/page.module.css"
 
 const LoginPage = () => {
   const { push } = useRouter();
 
-  const { register, handleSubmit, resetField, setFocus } = useForm({
+  const { register, handleSubmit, resetField, setFocus, formState: { errors } } = useForm({
     defaultValues: {
       userId: ""
     }
@@ -35,11 +38,18 @@ const LoginPage = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(LoginUser)}>
-      <input {...register("userId")}/>
+      <Paper className={styles.container} elevation={3}>
+        <form onSubmit={handleSubmit(LoginUser)}>
+          <div className={styles.inputBox}>
+            <TextField className={styles.input} {...register("userId", { required: "아이디를 입력해주세요."})}  label="Login" variant="outlined" />
+            <p className={styles.error}>{errors?.userId?.message}</p>
+          </div>
 
-      <button type={'submit'}>로그인</button>
-    </form>
+          <Button className={styles.button} variant="contained" type={"submit"}>로그인</Button>
+
+          <Link className={styles.create} href={"/create"}>회원 가입</Link>
+        </form>
+      </Paper>
   )
 }
 
