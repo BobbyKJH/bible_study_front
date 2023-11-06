@@ -1,26 +1,45 @@
 "use client"
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import React from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useEffect } from 'react';
+/** Api */
+import { useUserMutation } from '@/api/UserQuery';
+/** Custom Hook */
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 const LoginPage = () => {
-  const {data, isLoading} = useQuery({
-    queryKey: ["pbs"],
-    queryFn: async () => {
-      try {
-        const res = await axios.get("http://localhost:8083/pbs/all")
-        return res.data;
-      } catch (err) {
-        throw err;
-      }
+  const { push } = useRouter();
+
+  const { register, handleSubmit, resetField, setFocus } = useForm({
+    defaultValues: {
+      userId: ""
     }
   })
 
-  console.log(!isLoading && data)
+  const { mutate } = useUserMutation();
+
+  useEffect(() => {
+    setFocus("userId")
+  }, []);
+
+  const LoginUser: SubmitHandler<{ userId: string }> = (data) => {
+    mutate(data, {
+      onSuccess: () => {
+        push("home");
+      },
+      onError: () => {
+        alert("존재하지 않는 아이디 입니다.");
+        resetField("userId");
+        setFocus("userId");
+      }
+    })
+  }
+
   return (
-    <div>
-1
-    </div>
+    <form onSubmit={handleSubmit(LoginUser)}>
+      <input {...register("userId")}/>
+
+      <button type={'submit'}>로그인</button>
+    </form>
   )
 }
 
