@@ -11,9 +11,11 @@
   "dependencies": {
     "@tanstack/react-query": "^5.7.2",
     "axios": "^1.6.0",
+    "js-sha256": "^0.10.1",
     "next": "14.0.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.48.2"
   },
   "devDependencies": {
     "@types/node": "^20",
