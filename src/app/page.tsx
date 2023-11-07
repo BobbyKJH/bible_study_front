@@ -1,13 +1,18 @@
 "use client"
-import { Button, Paper, TextField } from '@mui/material';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useEffect } from 'react';
+/** Cookie */
+import { setCookie } from '@/libs/cookie';
+/** sha256 */
+import { sha256 } from 'js-sha256';
 /** Api */
 import { useUserMutation } from '@/api/UserQuery';
 /** Custom Hook */
 import { SubmitHandler, useForm } from 'react-hook-form';
+/** Style */
 import styles from "@/app/page.module.css"
+import { Button, Paper, TextField } from '@mui/material';
 
 const LoginPage = () => {
   const { push } = useRouter();
@@ -26,8 +31,9 @@ const LoginPage = () => {
 
   const LoginUser: SubmitHandler<{ userId: string }> = (data) => {
     mutate(data, {
-      onSuccess: () => {
+      onSuccess: (data) => {
         push("home");
+        setCookie("userId", sha256(data.userId));
       },
       onError: () => {
         alert("존재하지 않는 아이디 입니다.");
