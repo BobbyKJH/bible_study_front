@@ -1,0 +1,11 @@
+.nav_bar {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.my_page{
+  display: flex;
+  width: 60px;
+  justify-content: space-between;
+}
