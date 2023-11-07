@@ -1,4 +1,5 @@
 "use client"
+import { removeCookie } from '@/libs/cookie';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 /** Hook */
@@ -21,7 +22,8 @@ const Header: React.FC = () => {
 	const handleClickMyPage = () => push("/home/mypage");
 
 	const handleClickLogout = () => {
-
+		removeCookie("userId");
+		push("/")
 	}
 
 	return (
@@ -63,7 +65,7 @@ const Header: React.FC = () => {
 									color="inherit"
 									aria-label="open drawer"
 									edge="end"
-									// onClick={handleLogout}
+									onClick={handleClickLogout}
 								>
 									<IoLogOutOutline/>
 								</IconButton>
