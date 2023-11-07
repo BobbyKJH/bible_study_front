@@ -14,6 +14,7 @@ import { BsFillPersonLinesFill } from 'react-icons/bs'
 
 const Sidebar: React.FC = () => {
 	const { sidebar, handleCloseSidebar } = useSidebar();
+
 	return (
 		<>
 			<Drawer
@@ -34,9 +35,9 @@ const Sidebar: React.FC = () => {
 
 				<SidebarBible/>
 
-				<SidebarText href={"pbs"} text={"PBS"} Icon={TbClipboardText}/>
+				<SidebarText href={"pbs?page=1&book="} text={"PBS"} Icon={TbClipboardText}/>
 
-				<SidebarText href={"qt"} text={"QT"} Icon={TbClipboardList}/>
+				<SidebarText href={"qt?page=1&book="} text={"QT"} Icon={TbClipboardList}/>
 
 				<SidebarText href={"admin"} text={"관리자 권한"} Icon={BsFillPersonLinesFill}/>
 
@@ -63,9 +64,9 @@ const Sidebar: React.FC = () => {
 
 				<SidebarBible/>
 
-				<SidebarText href={"pbs"} text={"PBS"} Icon={TbClipboardText}/>
+				<SidebarText href={"pbs?page=1&book="} text={"PBS"} Icon={TbClipboardText}/>
 
-				<SidebarText href={"qt"} text={"QT"} Icon={TbClipboardList}/>
+				<SidebarText href={"qt?page=1&book="} text={"QT"} Icon={TbClipboardList}/>
 
 				<SidebarText href={"admin"} text={"관리자 권한"} Icon={BsFillPersonLinesFill}/>
 
