@@ -1,4 +1,5 @@
 const BibleBooks = [
+	{ id:0, book:"" },
 	{ id: 1, book: "창세기"},
 	{ id: 2, book: "출애굽기"},
 	{ id: 3, book: "레위기"},
