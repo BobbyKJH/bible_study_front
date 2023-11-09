@@ -2,10 +2,11 @@
 import React from 'react';
 import { Outlet, Navigate } from "react-router-dom";
 /** Cookie */
+import { getCookie } from '@/libs/cookie.ts';
 
 const AuthRoutes: React.FC = () => {
 	return (
-		sessionStorage.getItem("userName") ?
+		getCookie("userId") ?
 			<>
 				<Outlet/>
 			</>
