@@ -3,7 +3,6 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 
 /** QT 게시판 */
 const getQTList = async (page: number, book: string) => {
-	// eslint-disable-next-line no-useless-catch
 	try {
 		const res = await AxiosInstance.get(`qt?page=${page}&book=${book}`);
 		return res.data;
