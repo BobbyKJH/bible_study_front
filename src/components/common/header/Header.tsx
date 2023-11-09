@@ -1,4 +1,5 @@
 "use client"
+import Link from 'next/link';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 /** Cookie */
@@ -24,7 +25,7 @@ const Header: React.FC = () => {
 
 	const handleClickLogout = () => {
 		removeCookie("userId");
-		removeCookie("userName");
+		sessionStorage.removeItem("userName");
 		push("/")
 	}
 
@@ -46,9 +47,11 @@ const Header: React.FC = () => {
 						<GiHamburgerMenu style={{ color:"#fff" }} />
 					</IconButton>
 
-					<Typography variant="h6" noWrap component="div" fontWeight={900}>
-						주은혜 교회
-					</Typography>
+					<Link className={styles.title} href={"/home"}>
+						<Typography variant="h6" noWrap component="div" fontWeight={900}>
+								주은혜 교회
+						</Typography>
+					</Link>
 
 					<div>
 							<Tooltip title="마이 페이지">
