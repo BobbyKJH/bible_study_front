@@ -22,14 +22,15 @@
       "@type/*": ["src/type/*"],
       "@style/*": ["src/style/*"],
       "@utils/*": ["src/utils/*"],
-      "@components/*": ["src/components/*"],
+      "@components/*": ["src/components/*"]
     },
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src", "**/*.ts", "**/*.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
