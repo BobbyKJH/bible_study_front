@@ -1,7 +1,8 @@
 "use client"
-import { removeCookie } from '@/libs/cookie';
 import React from 'react';
 import { useRouter } from 'next/navigation';
+/** Cookie */
+import { removeCookie } from '@/libs/cookie';
 /** Hook */
 import useSidebar from '@/hook/useSidebar';
 /** Style */
@@ -23,6 +24,7 @@ const Header: React.FC = () => {
 
 	const handleClickLogout = () => {
 		removeCookie("userId");
+		removeCookie("userName");
 		push("/")
 	}
 
