@@ -8,6 +8,8 @@ import { RecoilRoot } from 'recoil';
 import HomePage from '@page/HomePage.tsx';
 import LoginPage from '@page/login/LoginPage.tsx';
 import AuthRoutes from '@page/common/AuthRoutes.tsx';
+/** Style */
+import ResetStyle from '@/App.styled.ts';
 
 const App: React.FC = () => {
   const queryClient = new QueryClient();
@@ -15,6 +17,8 @@ const App: React.FC = () => {
   return (
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
+        <ResetStyle/>
+        
         <BrowserRouter>
           <Routes>
             <Route path={"/"} element={<LoginPage/>} />
