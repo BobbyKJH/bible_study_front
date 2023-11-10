@@ -1,8 +1,13 @@
-import { useUserMutation } from '@/api/UserQuery.ts';
-import { setCookie } from '@/libs/cookie.ts';
 import React from 'react';
-import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
+/** Hook */
+import { useForm } from 'react-hook-form';
+/** Api */
+import { useUserMutation } from '@/api/UserQuery.ts';
+/** Cookie */
+import { setCookie } from '@/libs/cookie.ts';
+/** Sha256 */
+import { sha256 } from 'js-sha256';
 
 const LoginPage: React.FC = () => {
 	const navigate = useNavigate();
@@ -16,7 +21,7 @@ const LoginPage: React.FC = () => {
 	const handleLogin = (data: { userId: string }) => {
 		mutate(data, {
 			onSuccess: (data) => {
-				setCookie("userId", data.userId);
+				setCookie("userId", sha256(data.userId));
 				navigate("/home")
 			}
 		});
