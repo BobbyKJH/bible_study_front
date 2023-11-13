@@ -1,4 +1,6 @@
+import { removeCookie } from '@/libs/cookie.ts';
 import React from 'react';
+import { useNavigate } from 'react-router';
 /** Atom */
 import { useSetRecoilState } from 'recoil';
 import { SidebarAtom } from '@/atom/SidebarAtom.ts';
@@ -12,9 +14,17 @@ import { BsPersonLinesFill } from "react-icons/bs";
 
 const Header: React.FC = () =>  {
 	const setSidebar = useSetRecoilState(SidebarAtom);
+	const navigate = useNavigate();
 
 	const handleOpenSidebar = () => {
 		setSidebar(true);
+	}
+
+	const handleLogout = () => {
+		removeCookie("userId");
+		removeCookie("userAuth");
+		sessionStorage.removeItem("userName");
+		navigate("/");
 	}
 
 	return (
@@ -56,6 +66,7 @@ const Header: React.FC = () =>  {
 								color="inherit"
 								aria-label="open drawer"
 								edge="start"
+								onClick={handleLogout}
 							>
 								<BiLogIn/>
 							</IconButton>
