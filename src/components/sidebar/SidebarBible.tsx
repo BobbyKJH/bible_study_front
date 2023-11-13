@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+/** Atom */
+import { useSetRecoilState } from 'recoil';
+import { SidebarAtom } from '@/atom/SidebarAtom.ts';
 /** Style */
 import { SidebarBibleBox } from '@components/sidebar/SidebarBible.styled.ts';
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
@@ -10,6 +13,7 @@ import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
 const SidebarBible: React.FC = () => {
 	const { pathname } = useLocation();
+	const setSidebar = useSetRecoilState(SidebarAtom);
 	const [open, setOpen] = useState(true);
 
 	const handleClick = () => {
@@ -18,6 +22,10 @@ const SidebarBible: React.FC = () => {
 
 	const pagePath = (location: string): boolean => {
 			return pathname.includes(location)
+	}
+
+	const handleCloseSidebar = () => {
+		setSidebar(false);
 	}
 
 	return (
@@ -34,7 +42,7 @@ const SidebarBible: React.FC = () => {
 				<List component="div" disablePadding>
 
 					<SidebarBibleBox $path={pagePath("oldTestament")}>
-						<Link to={"/home/oldTestament"}>
+						<Link to={"/home/oldTestament"} onClick={handleCloseSidebar}>
 							<ListItemButton sx={{ pl: 4 }} >
 								<ListItemIcon>
 									<BiSolidBible />

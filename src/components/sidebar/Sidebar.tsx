@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
+import { getCookie } from '@/libs/cookie.ts';
+import React from 'react';
 /** Component */
 import SidebarPath from '@components/sidebar/SidebarPath.tsx';
+import SidebarBible from '@components/sidebar/SidebarBible.tsx';
 /** Atom */
 import { useRecoilState } from 'recoil';
 import { SidebarAtom } from '@/atom/SidebarAtom.ts';
 /** Style */
-import { Collapse, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar } from '@mui/material';
+import { Drawer, Toolbar } from '@mui/material';
 /** Icon */
-import MailIcon from '@mui/icons-material/Mail';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import { ExpandLess, ExpandMore, StarBorder } from '@mui/icons-material';
+import { BsFillPersonFill } from 'react-icons/bs';
+import { TbClipboardList, TbClipboardText, TbHome } from 'react-icons/tb';
 
 const Sidebar: React.FC = () => {
 	const [sidebar, setSidebar] = useRecoilState(SidebarAtom);
-	const [open, setOpen] = useState(true);
-
-	const handleClick = () => {
-		setOpen(!open);
-	};
 
 	const handleCloseSidebar = () => {
 		setSidebar(false);
@@ -37,46 +33,15 @@ const Sidebar: React.FC = () => {
 			>
 				<Toolbar />
 
-				<SidebarPath text={"PBS"} path={"pbs?page=1&book="} page={"pbs"}/>
-				<SidebarPath text={"QT"} path={"qt?page=1&book="} page={"qt"}/>
+				<SidebarPath text={"홈"} path={""} page={"home"} Icon={TbHome}/>
 
-				{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-					<ListItem key={text} disablePadding>
-						<ListItemButton>
-							<ListItemIcon>
-								{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-							</ListItemIcon>
-							<ListItemText primary={text} />
-						</ListItemButton>
-					</ListItem>
-				))}
+				<SidebarBible/>
 
-				<div>
-					<ListItemButton onClick={handleClick}>
-						<ListItemIcon>
-							<InboxIcon />
-						</ListItemIcon>
-						<ListItemText primary="성경" />
-						{open ? <ExpandLess /> : <ExpandMore />}
-					</ListItemButton>
-					<Collapse in={open} timeout="auto" unmountOnExit>
-						<List component="div" disablePadding>
-							<ListItemButton sx={{ pl: 4 }}>
-								<ListItemIcon>
-									<StarBorder />
-								</ListItemIcon>
-								<ListItemText primary="구약" />
-							</ListItemButton>
+				<SidebarPath text={"PBS"} path={"/pbs?page=1&book="} page={"pbs"} Icon={TbClipboardList}/>
 
-							<ListItemButton sx={{ pl: 4 }}>
-								<ListItemIcon>
-									<StarBorder />
-								</ListItemIcon>
-								<ListItemText primary="신약" />
-							</ListItemButton>
-						</List>
-					</Collapse>
-				</div>
+				<SidebarPath text={"QT"} path={"/qt?page=1&book="} page={"qt"} Icon={TbClipboardText}/>
+
+				{getCookie("userAuth") === "admin" && <SidebarPath text={"관리자 권한"} path={"/admin"} page={"admin"} Icon={BsFillPersonFill}/>}
 			</Drawer>
 
 			{/* Mobile Sidebar */}
@@ -92,35 +57,16 @@ const Sidebar: React.FC = () => {
 				}}
 			>
 				<Toolbar />
-				<div>
-					<ListItemButton onClick={handleClick}>
-						<ListItemIcon>
-							<InboxIcon />
-						</ListItemIcon>
-						<ListItemText primary="성경" />
-						{open ? <ExpandLess /> : <ExpandMore />}
-					</ListItemButton>
-					<Collapse in={open} timeout="auto" unmountOnExit>
-						<List component="div" disablePadding>
-							<ListItemButton sx={{ pl: 4 }}>
-								<ListItemIcon>
-									<StarBorder />
-								</ListItemIcon>
-								<ListItemText primary="구약" />
-							</ListItemButton>
 
-							<ListItemButton sx={{ pl: 4 }}>
-								<ListItemIcon>
-									<StarBorder />
-								</ListItemIcon>
-								<ListItemText primary="신약" />
-							</ListItemButton>
-						</List>
-					</Collapse>
-				</div>
+				<SidebarPath text={"홈"} path={""} page={"home"} Icon={TbHome}/>
 
-				<SidebarPath text={"PBS"} path={"pbs?page=1&book="} page={"pbs"}/>
-				<SidebarPath text={"QT"} path={"qt?page=1&book="} page={"qt"}/>
+				<SidebarBible/>
+
+				<SidebarPath text={"PBS"} path={"/pbs?page=1&book="} page={"pbs"} Icon={TbClipboardList}/>
+
+				<SidebarPath text={"QT"} path={"/qt?page=1&book="} page={"qt"} Icon={TbClipboardText}/>
+
+				{getCookie("userAuth") === "admin" && <SidebarPath text={"관리자 권한"} path={"/admin"} page={"admin"} Icon={BsFillPersonFill}/>}
 			</Drawer>
 		</>
 	);
