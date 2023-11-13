@@ -1,11 +1,11 @@
 /** React */
-import Sidebar from '@components/sidebar/Sidebar.tsx';
 import React from 'react';
 import { Outlet, Navigate } from "react-router-dom";
 /** Cookie */
 import { getCookie } from '@/libs/cookie.ts';
 /** Components */
 import Header from '@components/header/Header.tsx';
+import Sidebar from '@components/sidebar/Sidebar.tsx';
 /** Style */
 import { AuthRoutesContainer } from '@page/common/AuthRoutes.styled.ts';
 
