@@ -1,6 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 /** Page */
+import LoginPage from '@page/login/LoginPage.tsx';
+
+import HomePage from '@page/HomePage.tsx';
+import AdminPage from '@page/admin/AdminPage.tsx';
+
 import NewTestamentPage from '@page/bible/NewTestamentPage.tsx';
 import OldTestamentPage from '@page/bible/OldTestamentPage.tsx';
 
@@ -20,9 +25,7 @@ import MyGraphPage from '@page/myPage/MyGraphPage.tsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 /** Atom */
 import { RecoilRoot } from 'recoil';
-/** Page */
-import HomePage from '@page/HomePage.tsx';
-import LoginPage from '@page/login/LoginPage.tsx';
+/** Component */
 import AuthRoutes from '@page/common/AuthRoutes.tsx';
 /** Style */
 import ResetStyle from '@/App.styled.ts';
@@ -43,6 +46,7 @@ const App: React.FC = () => {
 
               <Route path={"/home"}>
                 <Route path={""} element={<HomePage/>}/>
+                <Route path={"admin"} element={<AdminPage/>} />
 
                 <Route path={"pbs"}>
                   <Route path={""} element={<PbsPage/>}/>
