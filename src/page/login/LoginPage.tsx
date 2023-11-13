@@ -8,10 +8,14 @@ import { useUserMutation } from '@/api/UserQuery.ts';
 import { setCookie } from '@/libs/cookie.ts';
 /** Sha256 */
 import { sha256 } from 'js-sha256';
+/** Type */
+import Bible from '@type/Bible';
 
 const LoginPage: React.FC = () => {
 	const navigate = useNavigate();
+
 	const { mutate } = useUserMutation();
+
 	const { register, handleSubmit} = useForm({
 		defaultValues: {
 			"userId": ""
@@ -20,8 +24,10 @@ const LoginPage: React.FC = () => {
 
 	const handleLogin = (data: { userId: string }) => {
 		mutate(data, {
-			onSuccess: (data) => {
+			onSuccess: (data: Bible.User) => {
 				setCookie("userId", sha256(data.userId));
+				setCookie("userAuth", data.userAuth);
+				sessionStorage.setItem("userName", data.userName);
 				navigate("/home")
 			}
 		});
