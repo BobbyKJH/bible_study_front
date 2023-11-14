@@ -35,7 +35,7 @@ const Sidebar: React.FC = () => {
 			>
 				<Toolbar />
 
-				{/*<SidebarPath text={"홈"} path={""} page={"home"} Icon={TbHome}/>*/}
+				<SidebarPath text={"홈"} path={""} page={"home"} Icon={TbHome}/>
 
 				<SidebarBible/>
 
