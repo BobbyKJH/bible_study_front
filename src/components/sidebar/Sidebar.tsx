@@ -1,5 +1,6 @@
-import { getCookie } from '@/libs/cookie.ts';
 import React from 'react';
+/** Cookie */
+import { getCookie } from '@/libs/cookie.ts';
 /** Component */
 import SidebarPath from '@components/sidebar/SidebarPath.tsx';
 import SidebarBible from '@components/sidebar/SidebarBible.tsx';
@@ -8,6 +9,7 @@ import { useRecoilState } from 'recoil';
 import { SidebarAtom } from '@/atom/SidebarAtom.ts';
 /** Style */
 import { Drawer, Toolbar } from '@mui/material';
+import { MobileSidebarToolbar } from '@components/sidebar/Sidebar.styled.ts';
 /** Icon */
 import { BsFillPersonFill } from 'react-icons/bs';
 import { TbClipboardList, TbClipboardText, TbHome } from 'react-icons/tb';
@@ -33,7 +35,7 @@ const Sidebar: React.FC = () => {
 			>
 				<Toolbar />
 
-				<SidebarPath text={"홈"} path={""} page={"home"} Icon={TbHome}/>
+				{/*<SidebarPath text={"홈"} path={""} page={"home"} Icon={TbHome}/>*/}
 
 				<SidebarBible/>
 
@@ -56,7 +58,7 @@ const Sidebar: React.FC = () => {
 					[`& .MuiDrawer-paper`]: { width: 230, boxSizing: 'border-box' },
 				}}
 			>
-				<Toolbar />
+				<MobileSidebarToolbar />
 
 				<SidebarPath text={"홈"} path={""} page={"home"} Icon={TbHome}/>
 
