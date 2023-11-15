@@ -25,6 +25,8 @@ import MyGraphPage from '@page/myPage/MyGraphPage.tsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 /** Atom */
 import { RecoilRoot } from 'recoil';
+/** Libs */
+import ScrollToTop from '@/libs/ScrollToTop.ts';
 /** Component */
 import AuthRoutes from '@page/common/AuthRoutes.tsx';
 /** Style */
@@ -37,8 +39,10 @@ const App: React.FC = () => {
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
         <ResetStyle/>
-        
+
         <BrowserRouter>
+          <ScrollToTop/>
+
           <Routes>
             <Route path={"/"} element={<LoginPage/>} />
 
