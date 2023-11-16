@@ -5,8 +5,8 @@ import { BibleBook } from '@/libs/BibleBooks.ts';
 /** Type */
 import { SelectChangeEvent } from '@mui/material/Select/SelectInput';
 /** Style */
-import { BibleEm } from '@components/notice/NoticeBible.styled.ts';
-import { FormControl, InputLabel, ListSubheader, MenuItem, Select } from '@mui/material';
+import { InputLabel, ListSubheader, MenuItem, Select } from '@mui/material';
+import { BibleEm, NoticeBibleSelect } from '@components/notice/NoticeBible.styled.ts';
 
 const NoticeBible: React.FC = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -26,10 +26,18 @@ const NoticeBible: React.FC = () => {
 		return arr.slice(num1, num2)
 	}
 
+	const MenuProps = {
+		PaperProps: {
+			style: {
+				maxHeight: 48 * 4.5 + 8,
+			},
+		},
+	};
+
 	return (
-		<FormControl sx={{ minWidth: 150 }} >
+		<NoticeBibleSelect>
 			<InputLabel htmlFor="grouped-select">성경</InputLabel>
-			<Select value={book as string} onChange={handleChangeBible} label="성경">
+			<Select MenuProps={MenuProps} value={book as string} onChange={handleChangeBible} label="성경">
 				<MenuItem value="">
 					<BibleEm>
 						전체
@@ -56,7 +64,7 @@ const NoticeBible: React.FC = () => {
 					</MenuItem>
 				))}
 			</Select>
-		</FormControl>
+		</NoticeBibleSelect>
 	);
 };
 
