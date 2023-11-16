@@ -7,6 +7,7 @@ import NoticeItem from '@components/notice/NoticeItem.tsx';
 import NoticeBible from '@components/notice/NoticeBible.tsx';
 import NoticePagination from '@components/notice/NoticePagination.tsx';
 import NoticeLoadingItem from '@components/notice/NoticeLoadingItem.tsx';
+import NoticeCreateButton from '@components/notice/NoticeCreateButton.tsx';
 /** Type */
 import Bible from '@type/Bible';
 
@@ -28,16 +29,20 @@ const PbsPage: React.FC = () => {
 		<div>
 			<NoticeBible/>
 
-			{data.pbs.map((notice: Bible.Notice) => (
-				<Link to={`/home/pbs/${notice.id}`} key={notice.id}>
-					<NoticeItem
-						book={notice.book}
-						startVerse={notice.startVerse}
-						endVerse={notice.endVerse}
-						chapter={notice.chapter}
-					/>
-				</Link>
-			))}
+			{
+				data.pbs.map((notice: Bible.Notice) => (
+					<Link to={`/home/pbs/${notice.id}`} key={notice.id}>
+						<NoticeItem
+							book={notice.book}
+							startVerse={notice.startVerse}
+							endVerse={notice.endVerse}
+							chapter={notice.chapter}
+						/>
+					</Link>
+				))
+			}
+
+			<NoticeCreateButton path={"pbs"}/>
 
 			<NoticePagination count={data.length}/>
 		</div>
