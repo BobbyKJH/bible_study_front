@@ -5,11 +5,13 @@ import { Toolbar } from '@mui/material';
 
 export const HeaderTitle = styled(Link)`
 	color: #fff;
+	padding-left: 20px;
 `
 
 export const HeaderToolbar = styled(Toolbar)`
 	height: 64px;
 	padding: 10px;
+	padding: 0 10px;
 	box-sizing: border-box;
 	justify-content: space-between;
 `

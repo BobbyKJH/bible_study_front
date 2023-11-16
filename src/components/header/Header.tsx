@@ -31,12 +31,12 @@ const Header: React.FC = () =>  {
 		<>
 			<CssBaseline />
 			<AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-				<HeaderToolbar>
+				<HeaderToolbar sx={{padding: "20px"}}>
 					<IconButton
 						color="inherit"
 						aria-label="open drawer"
 						edge="start"
-						sx={{ display: { xs: "flex", md: "none" }}}
+						sx={{ display: { xs: "flex", md: "none" }, paddingLeft: "20px"}}
 						onClick={handleOpenSidebar}
 					>
 						<LuAlignJustify/>
