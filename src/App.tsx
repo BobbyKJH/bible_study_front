@@ -31,6 +31,7 @@ import ScrollToTop from '@/libs/ScrollToTop.ts';
 import AuthRoutes from '@page/common/AuthRoutes.tsx';
 /** Style */
 import ResetStyle from '@/App.styled.ts';
+import { StyledEngineProvider } from '@mui/styled-engine';
 
 const App: React.FC = () => {
   const queryClient = new QueryClient();
@@ -38,47 +39,49 @@ const App: React.FC = () => {
   return (
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
-        <ResetStyle/>
+        <StyledEngineProvider injectFirst>
+          <ResetStyle/>
 
-        <BrowserRouter>
-          <ScrollToTop/>
+          <BrowserRouter>
+            <ScrollToTop/>
 
-          <Routes>
-            <Route path={"/"} element={<LoginPage/>} />
+            <Routes>
+              <Route path={"/"} element={<LoginPage/>} />
 
-            <Route element={<AuthRoutes/>}>
+              <Route element={<AuthRoutes/>}>
 
-              <Route path={"/home"}>
-                <Route path={""} element={<HomePage/>}/>
-                <Route path={"admin"} element={<AdminPage/>} />
+                <Route path={"/home"}>
+                  <Route path={""} element={<HomePage/>}/>
+                  <Route path={"admin"} element={<AdminPage/>} />
 
-                <Route path={"pbs"}>
-                  <Route path={""} element={<PbsPage/>}/>
-                  <Route path={"create"} element={<PbsCreatePage/>}/>
-                  <Route path={"edit/:id"} element={<PbsEditPage/>}/>
-                  <Route path={":id"} element={<PbsDetailPage/>}/>
+                  <Route path={"pbs"}>
+                    <Route path={""} element={<PbsPage/>}/>
+                    <Route path={"create"} element={<PbsCreatePage/>}/>
+                    <Route path={"edit/:id"} element={<PbsEditPage/>}/>
+                    <Route path={":id"} element={<PbsDetailPage/>}/>
+                  </Route>
+
+                  <Route path={"qt"}>
+                    <Route path={""} element={<QtPage/>}/>
+                    <Route path={"create"} element={<QtCreatePage/>}/>
+                    <Route path={"edit/:id"} element={<QtEditPage/>}/>
+                    <Route path={":id"} element={<QtDetailPage/>}/>
+                  </Route>
+
+                  <Route path={"myPage"}>
+                    <Route path={""} element={<MyPage/>}/>
+                    <Route path={"graph"} element={<MyGraphPage/>}/>
+                  </Route>
+
+                  <Route path={"oldTestament"} element={<OldTestamentPage/>}/>
+                  <Route path={"newTestament"} element={<NewTestamentPage/>}/>
                 </Route>
 
-                <Route path={"qt"}>
-                  <Route path={""} element={<QtPage/>}/>
-                  <Route path={"create"} element={<QtCreatePage/>}/>
-                  <Route path={"edit/:id"} element={<QtEditPage/>}/>
-                  <Route path={":id"} element={<QtDetailPage/>}/>
-                </Route>
-
-                <Route path={"myPage"}>
-                  <Route path={""} element={<MyPage/>}/>
-                  <Route path={"graph"} element={<MyGraphPage/>}/>
-                </Route>
-
-                <Route path={"oldTestament"} element={<OldTestamentPage/>}/>
-                <Route path={"newTestament"} element={<NewTestamentPage/>}/>
               </Route>
 
-            </Route>
-
-          </Routes>
-        </BrowserRouter>
+            </Routes>
+          </BrowserRouter>
+        </StyledEngineProvider>
       </QueryClientProvider>
     </RecoilRoot>
   )
