@@ -2,6 +2,7 @@ import React from 'react';
 /** Libs */
 import { BibleBooks } from '@/libs/BibleBooks.ts';
 /** Style */
+import { NoticeItemSubTitle, NoticeItemTitle } from '@components/notice/NoticeItem.styled.ts';
 import { ListItemButton, ListItem, ListItemAvatar, ListItemText, Avatar } from '@mui/material';
 /** Icon */
 import { BiBible, BiSolidBible } from 'react-icons/bi';
@@ -33,8 +34,8 @@ const NoticeItem: React.FC<Props> = ({ book, startVerse, endVerse, chapter }) =>
 					</ListItemAvatar>
 
 					<ListItemText
-						primary={<p style={{fontWeight: 900, fontSize:"1rem"}}>{book}</p>}
-						secondary={`${chapter}장 ${startVerse} - ${endVerse} 절`}
+						primary={<NoticeItemTitle>{book}</NoticeItemTitle>}
+						secondary={<NoticeItemSubTitle>{chapter}장 {startVerse} - {endVerse} 절</NoticeItemSubTitle>}
 					/>
 				</ListItem>
 			</ListItemButton>
