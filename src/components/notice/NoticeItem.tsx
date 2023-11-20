@@ -35,7 +35,7 @@ const NoticeItem: React.FC<Props> = ({ book, startVerse, endVerse, chapter }) =>
 
 				<ListItemText
 					primary={<NoticeItemTitle>{book}</NoticeItemTitle>}
-					secondary={<NoticeItemSubTitle>{chapter}장 {startVerse} - {endVerse} 절</NoticeItemSubTitle>}
+					secondary={<NoticeItemSubTitle>{chapter}장 {startVerse} - {endVerse}</NoticeItemSubTitle>}
 				/>
 			</ListItem>
 		</ListItemButton>
