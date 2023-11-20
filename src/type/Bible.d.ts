@@ -19,6 +19,17 @@ declare namespace Bible{
 		showData: string
 	}
 
+	interface Create {
+		book: string;
+		startVerse: number | null;
+		endVerse: number | null;
+		chapter: number | null;
+		content: string;
+		userName: string | null;
+		userId: string;
+		showData: string;
+	}
+
 }
 
 export default Bible;
