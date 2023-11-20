@@ -50,7 +50,7 @@ const Header: React.FC = () =>  {
 
 					<HeaderIconBox>
 						<Tooltip title={"마이페이지"}>
-							<HeaderIcon to={"/home/myPage"}>
+							<HeaderIcon to={"/home/myPage?page=1&book="}>
 								<IconButton
 									color="inherit"
 									aria-label="open drawer"
