@@ -1,4 +1,6 @@
 import React from 'react';
+/** Component */
+import NoticeBible from '@components/notice/NoticeBible.tsx';
 /** Style */
 import { Avatar, ListItem, ListItemAvatar, ListItemButton, ListItemText } from '@mui/material';
 import { NoticeLoadingItemSubTitle, NoticeLoadingItemTitle } from '@components/notice/NoticeLoadingItem.styled.ts';
@@ -10,6 +12,8 @@ const NoticeLoadingItem: React.FC = () => {
 
 	return (
 		<>
+			<NoticeBible/>
+
 			{...tempArr.map((temp) => (
 				<ListItemButton key={temp}>
 					<ListItem>
