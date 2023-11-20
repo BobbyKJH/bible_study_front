@@ -25,20 +25,20 @@ const NoticeItem: React.FC<Props> = ({ book, startVerse, endVerse, chapter }) =>
 	const BibleIcon = bibleId?.id as number
 
 	return (
-			<ListItemButton>
-				<ListItem>
-					<ListItemAvatar>
-						<Avatar>
-							{BibleIcon < 40 ? <BiBible/> : <BiSolidBible/>}
-						</Avatar>
-					</ListItemAvatar>
+		<ListItemButton>
+			<ListItem>
+				<ListItemAvatar>
+					<Avatar>
+						{BibleIcon < 40 ? <BiBible/> : <BiSolidBible/>}
+					</Avatar>
+				</ListItemAvatar>
 
-					<ListItemText
-						primary={<NoticeItemTitle>{book}</NoticeItemTitle>}
-						secondary={<NoticeItemSubTitle>{chapter}장 {startVerse} - {endVerse} 절</NoticeItemSubTitle>}
-					/>
-				</ListItem>
-			</ListItemButton>
+				<ListItemText
+					primary={<NoticeItemTitle>{book}</NoticeItemTitle>}
+					secondary={<NoticeItemSubTitle>{chapter}장 {startVerse} - {endVerse} 절</NoticeItemSubTitle>}
+				/>
+			</ListItem>
+		</ListItemButton>
 	);
 }
 
