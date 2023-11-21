@@ -1,3 +1,4 @@
+import Snack from '@components/snack/Snack.tsx';
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 /** Page */
@@ -45,6 +46,7 @@ const App: React.FC = () => {
           <BrowserRouter>
             <ScrollToTop/>
 
+            <Snack/>
             <Routes>
               <Route path={"/"} element={<LoginPage/>} />
 
