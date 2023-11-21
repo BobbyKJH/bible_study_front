@@ -4,7 +4,7 @@ import { recoilPersist } from 'recoil-persist';
 /** Pbs 임시저장 */
 const { persistAtom: pbsStorage } = recoilPersist({
 	key: "Pbs.Storage",
-	storage: sessionStorage
+	storage: localStorage
 });
 
 export const PbsAtom = atom({
@@ -23,7 +23,7 @@ export const PbsAtom = atom({
 /** Qt 임시저장 */
 const { persistAtom: qtStorage } = recoilPersist({
 	key: "Qt.Storage",
-	storage: sessionStorage
+	storage: localStorage
 });
 
 export const QtAtom = atom({
