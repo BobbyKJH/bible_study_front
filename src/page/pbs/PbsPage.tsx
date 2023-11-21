@@ -10,6 +10,8 @@ import NoticeLoadingItem from '@components/notice/NoticeLoadingItem.tsx';
 import NoticeCreateButton from '@components/notice/NoticeCreateButton.tsx';
 /** Type */
 import Bible from '@type/Bible';
+/** Style */
+import { Grid } from '@mui/material';
 
 const PbsPage: React.FC = () => {
 	const [searchParams] = useSearchParams();
@@ -29,18 +31,22 @@ const PbsPage: React.FC = () => {
 		<div>
 			<NoticeBible/>
 
+			<Grid container>
 			{
 				data.pbs.map((notice: Bible.Notice) => (
-					<Link to={`/home/pbs/${notice.id}`} key={notice.id}>
-						<NoticeItem
-							book={notice.book}
-							startVerse={notice.startVerse}
-							endVerse={notice.endVerse}
-							chapter={notice.chapter}
-						/>
-					</Link>
+					<Grid item xs={6} key={notice.id}>
+						<Link to={`/home/pbs/${notice.id}`} key={notice.id}>
+							<NoticeItem
+								book={notice.book}
+								startVerse={notice.startVerse}
+								endVerse={notice.endVerse}
+								chapter={notice.chapter}
+							/>
+						</Link>
+					</Grid>
 				))
 			}
+			</Grid>
 
 			<NoticeCreateButton path={"pbs"}/>
 
