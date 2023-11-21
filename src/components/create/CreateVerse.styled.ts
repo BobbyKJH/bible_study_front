@@ -7,13 +7,15 @@ export const TextFieldVerse = styled(OutlinedInput)`
 		border: none;
 	}
 	::-webkit-inner-spin-button{
-      appearance: none;
-      -moz-appearance: none;
-      -webkit-appearance: none;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
     }
 	}
 `
 
 export const TextFieldVerseError = styled(FormHelperText)`
 	color: #ff0000;
+	position: absolute;
+	bottom: -10px;
 `
