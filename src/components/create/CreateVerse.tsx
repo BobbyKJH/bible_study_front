@@ -8,10 +8,11 @@ import { TextFieldVerse, TextFieldVerseError } from '@components/create/CreateVe
 interface Props {
 	register: UseFormRegister<any>;
 	name: string;
+	content: string;
 	errors: FieldError | undefined | any;
 }
 
-const CreateVerse: React.FC<Props> = ({ register, name, errors }) => {
+const CreateVerse: React.FC<Props> = ({ register, name, content, errors }) => {
 	const handleNumberKey = (e: React.KeyboardEvent) => {
 		if (!/^[0-9]+$/.test(e.key) && e.key.length === 1) {
 			e.preventDefault()
@@ -21,7 +22,7 @@ const CreateVerse: React.FC<Props> = ({ register, name, errors }) => {
 	return (
 		<FormControl>
 			<TextFieldVerse
-				endAdornment={<InputAdornment position="end">절</InputAdornment>}
+				endAdornment={<InputAdornment position="end">{content}</InputAdornment>}
 				{...register(name, {
 					required: "입력해주세요.",
 					valueAsNumber: true,
@@ -33,7 +34,6 @@ const CreateVerse: React.FC<Props> = ({ register, name, errors }) => {
 				})}
 				type={"number"}
 				onKeyDown={handleNumberKey}
-				onPaste={e => e.preventDefault()}
 			/>
 			<TextFieldVerseError>{errors}</TextFieldVerseError>
 		</FormControl>
