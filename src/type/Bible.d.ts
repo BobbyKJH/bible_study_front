@@ -20,7 +20,7 @@ declare namespace Bible{
 	}
 
 	interface Create {
-		book: string;
+		book: string | null;
 		startVerse: number | null;
 		endVerse: number | null;
 		chapter: number | null;
