@@ -58,15 +58,7 @@ const createPBSList = async (data: any) => {
 	}
 }
 
-export const useCreatePBSMutation = () => useMutation( {
-	mutationFn: createPBSList,
-	onSuccess: () => {
-		alert( "작성 완료" )
-	},
-	onError: () => {
-		alert( "작성 실패" )
-	}
-});
+export const useCreatePBSMutation = () => useMutation( { mutationFn: createPBSList });
 
 /** PBS 삭제 */
 const deletePBS = async (id: number) => {
