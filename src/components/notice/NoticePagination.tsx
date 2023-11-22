@@ -19,10 +19,16 @@ const NoticePagination: React.FC<Props> = ({ count }) => {
 		setSearchParams(searchParams);
 		window.scrollTo( { top:0, left: 0, behavior: "smooth" });
 	}, [searchParams])
-
+	
 	return (
 		<NoticePaginationContainer>
-			<Pagination count={pagination(count)} page={Number(page)} onChange={handlePageChange}/>
+			<Pagination
+				size={window.innerWidth < 900 ? "small" : "medium"}
+				count={pagination(count)}
+				page={Number(page)}
+				onChange={handlePageChange}
+				showFirstButton showLastButton
+			/>
 		</NoticePaginationContainer>
 	);
 };
