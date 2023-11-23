@@ -13,7 +13,7 @@ const CreateContent: React.FC<Props> = ({ register }) => {
 		<CreateContentMultiTextField
 			multiline
 			fullWidth
-			minRows={14}
+			minRows={10}
 			{...register("content", { required: true })}
 			placeholder={"본문을 작성해보세요."}
 		/>
