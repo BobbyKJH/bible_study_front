@@ -18,7 +18,6 @@ const CreateBook: React.FC<Props> = ({ setValue, storage }) => {
 
 	useEffect(() => {
 		setValue("book", book)
-		console.log( book );
 	}, [book])
 
 	const handleChangeBook = (_event: any, newValue: string | null) => {
