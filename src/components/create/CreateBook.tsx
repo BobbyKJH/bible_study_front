@@ -5,7 +5,7 @@ import { BibleBook } from '@/libs/BibleBooks.ts';
 import { UseFormSetValue } from 'react-hook-form';
 /** Style */
 import { TextField } from '@mui/material';
-import { CreateBookComplete } from '@components/create/CreateBook.styled.ts';
+import { CreateBookAutoComplete } from '@components/create/CreateBook.styled.ts';
 
 interface Props {
 	setValue: UseFormSetValue<any>;
@@ -32,7 +32,7 @@ const CreateBook: React.FC<Props> = ({ setValue, storage }) => {
 
 
 	return (
-		<CreateBookComplete
+		<CreateBookAutoComplete
 			value={book}
 			fullWidth
 			onChange={handleChangeBook}
