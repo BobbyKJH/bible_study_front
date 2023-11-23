@@ -30,6 +30,11 @@ declare namespace Bible{
 		showData: string;
 	}
 
+	interface  Edit {
+		userName: string | null;
+		userId: string;
+	}
+
 }
 
 export default Bible;
