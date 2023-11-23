@@ -3,7 +3,7 @@ import React from 'react';
 import { FieldError, UseFormRegister } from 'react-hook-form';
 /** Style */
 import { FormControl, InputAdornment } from '@mui/material';
-import { TextFieldVerse, TextFieldVerseError } from '@components/create/CreateVerse.styled.ts';
+import { CreateVerseField, CreateVerseError } from '@components/create/CreateVerse.styled.ts';
 
 interface Props {
 	register: UseFormRegister<any>;
@@ -21,7 +21,7 @@ const CreateVerse: React.FC<Props> = ({ register, name, content, errors }) => {
 
 	return (
 		<FormControl>
-			<TextFieldVerse
+			<CreateVerseField
 				endAdornment={<InputAdornment position="end">{content}</InputAdornment>}
 				{...register(name, {
 					required: "입력해주세요.",
@@ -35,7 +35,7 @@ const CreateVerse: React.FC<Props> = ({ register, name, content, errors }) => {
 				type={"number"}
 				onKeyDown={handleNumberKey}
 			/>
-			<TextFieldVerseError>{errors}</TextFieldVerseError>
+			<CreateVerseError>{errors}</CreateVerseError>
 		</FormControl>
 	);
 };

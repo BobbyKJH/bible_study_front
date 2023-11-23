@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FormHelperText, OutlinedInput } from '@mui/material';
 
-export const TextFieldVerse = styled(OutlinedInput)`
+export const CreateVerseField = styled(OutlinedInput)`
 	width: 100px;
   fieldset{
 		border: none;
@@ -14,7 +14,7 @@ export const TextFieldVerse = styled(OutlinedInput)`
 	}
 `
 
-export const TextFieldVerseError = styled(FormHelperText)`
+export const CreateVerseError = styled(FormHelperText)`
 	color: #ff0000;
 	position: absolute;
 	bottom: -10px;
