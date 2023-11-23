@@ -24,6 +24,7 @@ const Header: React.FC = () =>  {
 		removeCookie("userId");
 		removeCookie("userAuth");
 		sessionStorage.removeItem("userName");
+		sessionStorage.removeItem("userAuth");
 		navigate("/");
 	}
 
