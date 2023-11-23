@@ -27,7 +27,6 @@ const NoticePagination: React.FC<Props> = ({ count }) => {
 				count={pagination(count)}
 				page={Number(page)}
 				onChange={handlePageChange}
-				showFirstButton showLastButton
 			/>
 		</NoticePaginationContainer>
 	);
