@@ -11,7 +11,7 @@ import { AuthRoutesContainer } from '@page/common/AuthRoutes.styled.ts';
 
 const AuthRoutes: React.FC = () => {
 	return (
-		getCookie("userId") ?
+		getCookie("userId") && sessionStorage.getItem("userName") ?
 			<AuthRoutesContainer>
 				<Header/>
 
