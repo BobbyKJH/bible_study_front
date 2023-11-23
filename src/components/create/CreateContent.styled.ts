@@ -1,9 +1,11 @@
-import { TextField } from '@mui/material';
 import styled from 'styled-components';
+import { TextField } from '@mui/material';
 
 export const CreateContentMultiTextField = styled(TextField)`
-	height: 100%;
 	fieldset{
 		border: none;
+	}
+	.MuiInputBase-input{
+		font-weight: 700;
 	}
 `
