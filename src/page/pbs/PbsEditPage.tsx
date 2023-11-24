@@ -9,10 +9,10 @@ import useSnack from '@/hook/useSnack.ts';
 import { getCookie } from '@/libs/cookie.ts';
 /** Component */
 import EditBook from '@components/edit/EditBook.tsx';
-import EditButtonGroup from '@components/edit/EditButtonGroup.tsx';
+import EditVerse from '@components/edit/EditVerse.tsx';
 import EditContent from '@components/edit/EditContent.tsx';
 import EditShowData from '@components/edit/EditShowData.tsx';
-import EditVerse from '@components/edit/EditVerse.tsx';
+import EditButtonGroup from '@components/edit/EditButtonGroup.tsx';
 /** Type */
 import Bible from '@type/Bible';
 /** Style */
