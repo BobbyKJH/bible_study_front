@@ -28,7 +28,7 @@ const MyQtNotice: React.FC = () => {
 	return (
 		<div>
 			{
-				data.pbs.map((notice: Bible.Notice) => (
+				data.qt.map((notice: Bible.Notice) => (
 					<Link to={`/home/qt/${notice.id}`} key={notice.id}>
 						<NoticeItem
 							book={notice.book}
