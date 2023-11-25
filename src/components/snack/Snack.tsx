@@ -22,4 +22,4 @@ const Snack: React.FC = () => {
 	);
 }
 
-export default Snack;
+export default React.memo(Snack);
