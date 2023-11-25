@@ -56,15 +56,7 @@ const createQTList = async (data: any) => {
 	}
 }
 
-export const useCreateQTMutation = () => useMutation( {
-	mutationFn: createQTList,
-	onSuccess: () => {
-		alert( "작성 완료" );
-	},
-	onError: () => {
-		alert( "작성 실패" );
-	}
-});
+export const useCreateQTMutation = () => useMutation( { mutationFn: createQTList });
 
 /** QT 삭제 */
 const deleteQT = async (id: number) => {
@@ -89,13 +81,5 @@ const editQTList = async (data: any) => {
 	}
 }
 
-export const useEditQTMutation = () => useMutation( {
-	mutationFn: editQTList,
-	onSuccess: () => {
-		alert( "수정 완료" );
-	},
-	onError: () => {
-		alert( "수정 실패" );
-	}
-});
+export const useEditQTMutation = () => useMutation( { mutationFn: editQTList });
 
