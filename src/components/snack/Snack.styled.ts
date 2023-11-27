@@ -3,9 +3,7 @@ import { Alert, Snackbar } from '@mui/material';
 
 export const SnackContainer = styled(Snackbar)`
   width: 160px;
-	@media(max-width: 899px){
-    bottom: 90px;
-	}
+	bottom: 35px;
 `
 
 export const SnackAlert = styled(Alert)`
