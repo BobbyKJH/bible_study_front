@@ -19,7 +19,7 @@ import CreateButtonGroup from '@components/create/CreateButtonGroup.tsx';
 /** Type */
 import Bible from '@type/Bible';
 /** Style */
-import { Button, Container } from '@mui/material';
+import { Container } from '@mui/material';
 
 const QtCreatePage: React.FC = () => {
 	const navigate = useNavigate()
@@ -111,11 +111,7 @@ const QtCreatePage: React.FC = () => {
 
 				<CreateContent register={register}/>
 
-				<CreateButtonGroup>
-					<Button type={"submit"}>등록</Button>
-
-					<Button onClick={handleTempStorage}>임시저장</Button>
-				</CreateButtonGroup>
+				<CreateButtonGroup handleTempStorage={handleTempStorage}/>
 			</form>
 		</Container>
 	);
