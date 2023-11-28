@@ -4,6 +4,7 @@ import { FormControl } from '@mui/material';
 export const NoticeBibleSelect = styled(FormControl)`
 	width: 150px;
 	z-index: 100;
+  text-align: center;
 	background-color: #fff;
 `
 

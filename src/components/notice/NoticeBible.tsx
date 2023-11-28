@@ -29,7 +29,7 @@ const NoticeBible: React.FC = () => {
 	const MenuProps = {
 		PaperProps: {
 			style: {
-				maxHeight: 48 * 4.5 + 8,
+				maxHeight: 48 * 4.5,
 			},
 		},
 	};
