@@ -1,16 +1,22 @@
+import SpeedDial from '@mui/material/SpeedDial';
 import styled from 'styled-components';
 
-export const CreateButtonGroupContainer = styled.div`
-  position: fixed;
-  bottom: 0;
-  left: 230px;
-  right: 0;
-  display: flex;
-  padding: 15px;
-  justify-content: right;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
-  @media(max-width: 899px){
-    left: 0;
-  }
-`;
+interface Props {
+	bottom: number;
+	bgc: string;
+}
+
+export const PbsTempButton = styled(SpeedDial)<Props>`
+	position: fixed;
+	bottom: 30px;
+	right: ${({bottom}) => bottom}px;
+  .MuiSpeedDial-fab{
+		background-color: ${({bgc}) => bgc};
+	}
+`
+
+export const PbsCreateButton = styled.button`
+	background-color: #00000000;
+	border: none;
+	color: #fff;
+`
