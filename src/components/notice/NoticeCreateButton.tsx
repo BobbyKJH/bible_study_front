@@ -1,7 +1,7 @@
-import { Tooltip } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 /** Style */
+import { Tooltip } from '@mui/material';
 import { NoticeCreateIcon, NoticeCreateSpeedDial } from '@components/notice/NoticeCreateButton.styled.ts';
 
 interface Props {
@@ -14,6 +14,7 @@ const NoticeCreateButton: React.FC<Props> = ({ path }) => {
 			<Tooltip title="글쓰기" placement="top">
 				<NoticeCreateSpeedDial
 					ariaLabel="SpeedDial basic"
+					FabProps={{ size: "small" }}
 					icon={<NoticeCreateIcon />}
 				/>
 			</Tooltip>
