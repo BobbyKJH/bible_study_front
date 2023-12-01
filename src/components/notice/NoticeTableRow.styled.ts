@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components';
-import { TableRow } from '@mui/material';
+/** Style */
+import { TableRow, TableCell } from '@mui/material';
 
 const TableRowsBgc = keyframes`
 	0%{
@@ -12,8 +13,13 @@ const TableRowsBgc = keyframes`
 
 export const NoticeRow = styled(TableRow)`
 	cursor: pointer;
+	box-sizing: border-box;
 	&:hover{
 		animation: ${TableRowsBgc} .5s;
     background-color: #80808010;
 	}
+`
+
+export const NoticeCell = styled(TableCell)`
+	font-weight: 700;
 `

@@ -1,8 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 /** Style */
-import { TableCell } from '@mui/material';
-import { NoticeRow } from '@components/notice/NoticeTableRow.styled.ts';
+import { NoticeRow, NoticeCell } from '@components/notice/NoticeTableRow.styled.ts';
 
 interface Props {
 	id: number;
@@ -23,12 +22,12 @@ const NoticeTableRow: React.FC<Props> = ({ id, book, chapter, startVerse, endVer
 
 	return (
 		<NoticeRow onClick={handlePathChange}>
-			<TableCell component="th" align="center">
+			<NoticeCell component="th" align="center">
 				{book}
-			</TableCell>
-			<TableCell align="center">{chapter}장</TableCell>
-			<TableCell align="center">{startVerse}절 - {endVerse}절</TableCell>
-			<TableCell align="center">{createAt}</TableCell>
+			</NoticeCell>
+			<NoticeCell align="center">{chapter}장</NoticeCell>
+			<NoticeCell align="center">{startVerse}절 - {endVerse}절</NoticeCell>
+			<NoticeCell align="center">{createAt}</NoticeCell>
 		</NoticeRow>
 	);
 };
