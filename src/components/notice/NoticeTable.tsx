@@ -1,13 +1,12 @@
-import NoticeBible from '@components/notice/NoticeBible.tsx';
-import { NoticeTableCell, NoticeTableHeader } from '@components/notice/NoticeTable.styled.ts';
-import NoticeTableRow from '@components/notice/NoticeTableRow.tsx';
-import { TableCell } from '@mui/material';
-import Bible from '@type/Bible';
 import React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableContainer from '@mui/material/TableContainer';
-import TableRow from '@mui/material/TableRow';
+/** Component */
+import NoticeBible from '@components/notice/NoticeBible.tsx';
+import NoticeTableRow from '@components/notice/NoticeTableRow.tsx';
+/** Type */
+import Bible from '@type/Bible';
+/** Style */
+import { Table, TableBody, TableContainer, TableRow, TableCell } from '@mui/material';
+import { NoticeTableCell, NoticeTableHeader } from '@components/notice/NoticeTable.styled.ts';
 
 interface Props {
 	data: Bible.Notice[];
@@ -20,7 +19,7 @@ const NoticeTable: React.FC<Props> = ({ data, link }) => {
 			<Table aria-label="simple table">
 				<NoticeTableHeader>
 					<TableRow>
-						<TableCell align="left" sx={{fontSize: "1rem"}} colSpan={2}>PBS</TableCell>
+						<TableCell align="left" colSpan={2}>PBS</TableCell>
 						<TableCell align="right" colSpan={2}>
 							<NoticeBible/>
 						</TableCell>
