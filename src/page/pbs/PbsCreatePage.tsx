@@ -19,7 +19,7 @@ import CreateButtonGroup from '@components/create/CreateButtonGroup.tsx';
 /** Type */
 import Bible from '@type/Bible';
 /** Style */
-import { Button } from '@mui/material';
+import { Container } from '@mui/material';
 
 const PbsCreatePage: React.FC = () => {
 	const navigate = useNavigate()
@@ -74,48 +74,46 @@ const PbsCreatePage: React.FC = () => {
 	}
 
 	return (
-		<form onSubmit={handleSubmit(handleCreateButton)}>
-			<div style={{ display:"flex", justifyContent: "space-between", alignItems: "center"}}>
-				<CreateBook setValue={setValue} storage={storage.book}/>
-			</div>
-
-			<div style={{ display:"flex", justifyContent: "space-between", alignItems: "center"}}>
-				<CreateShowData/>
-
-				<div>
-					<CreateVerse
-						register={register}
-						name={"chapter"}
-						content={"장"}
-						errors={errors?.chapter?.message}
-					/>
-
-					<CreateVerse
-						register={register}
-						name={"startVerse"}
-						content={"절"}
-						errors={errors?.startVerse?.message}
-					/>
-
-					<CreateVerse
-						register={register}
-						name={"endVerse"}
-						content={"절"}
-						errors={errors?.endVerse?.message}
-					/>
+		<Container sx={{ m :"80px auto",padding:0, boxSizing: "border-box" }}>
+			<form onSubmit={handleSubmit(handleCreateButton)}>
+				<div style={{ display:"flex", justifyContent: "space-between", alignItems: "center"}}>
+					<CreateBook setValue={setValue} storage={storage.book}/>
 				</div>
-			</div>
 
-			<hr/>
+				<div style={{ display:"flex", justifyContent: "space-between", alignItems: "center"}}>
+					<CreateShowData setValue={setValue} watch={watch}/>
 
-			<CreateContent register={register}/>
+					<div>
+						<CreateVerse
+							register={register}
+							name={"chapter"}
+							content={"장"}
+							errors={errors?.chapter?.message}
+						/>
 
-			<CreateButtonGroup>
-				<Button type={"submit"}>등록</Button>
+						<CreateVerse
+							register={register}
+							name={"startVerse"}
+							content={"절"}
+							errors={errors?.startVerse?.message}
+						/>
 
-				<Button onClick={handleTempStorage}>임시저장</Button>
-			</CreateButtonGroup>
-		</form>
+						<CreateVerse
+							register={register}
+							name={"endVerse"}
+							content={"절"}
+							errors={errors?.endVerse?.message}
+						/>
+					</div>
+				</div>
+
+				<hr style={{marginTop: "10px", border: "1px solid black"}}/>
+
+				<CreateContent register={register}/>
+
+				<CreateButtonGroup handleTempStorage={handleTempStorage}/>
+			</form>
+		</Container>
 	);
 };
 
