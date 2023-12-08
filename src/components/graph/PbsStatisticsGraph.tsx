@@ -20,7 +20,7 @@ const PbsStatisticsGraph: React.FC<Props> = ({ startDate, endDate }) => {
   const PbsData =
     !isLoading &&
     data.map((pbs: { date: string; chart: number }, idx: number) => {
-      const day = ["월", "화", "수", "목", "금", "토", "일"];
+      const day = ["일", "월", "화", "수", "목", "금", "토"];
       return { date: day[idx], PBS: pbs.chart };
     });
 

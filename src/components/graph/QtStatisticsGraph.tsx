@@ -20,7 +20,7 @@ const QtStatisticsGraph: React.FC<Props> = ({ startDate, endDate }) => {
   const QtData =
     !isLoading &&
     data.map((pbs: { date: string; chart: number }, idx: number) => {
-      const day = ["월", "화", "수", "목", "금", "토", "일"];
+      const day = ["일", "월", "화", "수", "목", "금", "토"];
       return { date: day[idx], QT: pbs.chart };
     });
 
