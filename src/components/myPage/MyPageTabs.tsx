@@ -31,7 +31,6 @@ const MyPageTabs: React.FC = () => {
 		>
 			<MyPageTab value="pbs" label="PBS"/>
 			<MyPageTab value="qt" label="QT"/>
-			<MyPageTab value="graph" label="그래프"/>
 		</Tabs>
 	);
 };
