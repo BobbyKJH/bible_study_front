@@ -25,8 +25,8 @@ const NoticeTableRow: React.FC<Props> = ({ id, book, chapter, startVerse, endVer
 			<NoticeCell component="th" align="center">
 				{book}
 			</NoticeCell>
-			<NoticeCell align="center">{chapter}장</NoticeCell>
-			<NoticeCell align="center">{startVerse}절 - {endVerse}절</NoticeCell>
+			<NoticeCell align="center">{chapter}</NoticeCell>
+			<NoticeCell align="center">{startVerse} - {endVerse}</NoticeCell>
 			<NoticeCell align="center">{createAt}</NoticeCell>
 		</NoticeRow>
 	);
