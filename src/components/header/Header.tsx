@@ -1,4 +1,3 @@
-import { removeCookie } from '@/libs/cookie.ts';
 import React from 'react';
 import { useNavigate } from 'react-router';
 /** Atom */
@@ -21,9 +20,7 @@ const Header: React.FC = () =>  {
 	}
 
 	const handleLogout = () => {
-		removeCookie("userId");
-		removeCookie("userAuth");
-		sessionStorage.removeItem("userName");
+		sessionStorage.removeItem("uuid");
 		sessionStorage.removeItem("userAuth");
 		navigate("/");
 	}
