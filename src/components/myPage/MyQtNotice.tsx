@@ -1,8 +1,6 @@
 import { Grid } from '@mui/material';
 import React, { useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-/** Cookie */
-import { getCookie } from '@/libs/cookie.ts';
 /** Api */
 import { useMyQTQuery } from '@/api/QTQuery.ts';
 /** Component */
@@ -20,7 +18,9 @@ const MyQtNotice: React.FC = () => {
 	const page = searchParams.get("page");
 	const book = searchParams.get("book");
 
-	const { data, isLoading, refetch } = useMyQTQuery(getCookie("userId"), Number(page), book as string)
+	const { data, isLoading, refetch } = useMyQTQuery(sessionStorage.getItem("uuid"), Number(page), book as string)
+
+	console.log(!isLoading && data);
 
 	useEffect(() => {
 		refetch();

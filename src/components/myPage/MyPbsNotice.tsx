@@ -1,8 +1,6 @@
 import { Grid } from '@mui/material';
 import React, { useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-/** Cookie */
-import { getCookie } from '@/libs/cookie.ts';
 /** Api */
 import { useMyPBSQuery } from '@/api/PBSQuery.ts';
 /** Component */
@@ -20,7 +18,7 @@ const MyPbsNotice: React.FC = () => {
 	const page = searchParams.get("page");
 	const book = searchParams.get("book");
 
-	const { data, isLoading, refetch } = useMyPBSQuery(getCookie("userId"), Number(page), book as string)
+	const { data, isLoading, refetch } = useMyPBSQuery(sessionStorage.getItem("uuid"), Number(page), book as string)
 
 	useEffect(() => {
 		refetch();
