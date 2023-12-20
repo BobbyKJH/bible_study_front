@@ -5,8 +5,6 @@ import { useCreateQTMutation } from '@/api/QTQuery.ts';
 /** Atom */
 import { QtAtom } from '@/atom/CreateAtom.ts';
 import { useRecoilState, useResetRecoilState } from 'recoil';
-/** Cookie */
-import { getCookie } from '@/libs/cookie.ts';
 /** Hook */
 import { useForm } from 'react-hook-form';
 import useSnack from '@/hook/useSnack.ts';
@@ -40,7 +38,7 @@ const QtCreatePage: React.FC = () => {
 	} = useForm<Bible.Create>({
 		defaultValues: {
 			...storage,
-			userId: getCookie("userId"),
+			uuid: sessionStorage.getItem("uuid"),
 			userName: sessionStorage.getItem("userName"),
 		},
 		mode: "onChange"
@@ -50,11 +48,11 @@ const QtCreatePage: React.FC = () => {
 		mutate(data, {
 			onSuccess: () => {
 				navigate("/home/qt?page=1&book=");
-				handleOpenSnack( { message: "등록 완료", severity: "success" });
+				handleOpenSnack({ message: "등록 완료", severity: "success" });
 				resetStorage();
 			},
 			onError: () => {
-				handleOpenSnack( { message: "등록 실패", severity: "error" });
+				handleOpenSnack({ message: "등록 실패", severity: "error" });
 			}
 		})
 	}
@@ -70,7 +68,7 @@ const QtCreatePage: React.FC = () => {
 			content: watch("content"),
 			showData: watch("showData")
 		})
-		handleOpenSnack( { message: "저장 완료", severity: "info" });
+		handleOpenSnack({ message: "저장 완료", severity: "info" });
 	}
 
 	return (
