@@ -21,7 +21,7 @@ export const usePBSQuery = (page: number, book: string) =>
 /** 상세 정보 */
 const getPBSDetailList = async (id: string) => {
   try {
-    const res = await AxiosInstance.get(`pbs/${id}`);
+    const res = await AxiosInstance.get(`pbs/${+id}`);
     return res.data;
   } catch (err) {
     throw err;
@@ -35,14 +35,10 @@ export const usePBSDetailQuery = (id: string) =>
   });
 
 /** PBS MyPage */
-const getMyPagePBS = async (
-  userId: string | null,
-  page: number,
-  book: string
-) => {
+const getMyPagePBS = async (uuid: string | null, page: number, book: string) => {
   try {
     const res = await AxiosInstance.get(
-      `mypage/pbs?userId=${userId}&page=${page}&book=${book}`
+      `pbs/mypage?uuid=${uuid}&page=${page}&book=${book}`
     );
     return res.data;
   } catch (err) {
@@ -50,21 +46,17 @@ const getMyPagePBS = async (
   }
 };
 
-export const useMyPBSQuery = (
-  userId: string | null,
-  page: number,
-  book: string
-) =>
+export const useMyPBSQuery = (uuid: string | null, page: number, book: string) =>
   useQuery({
     queryKey: ["myPagePbs"],
-    queryFn: () => getMyPagePBS(userId, page, book),
+    queryFn: () => getMyPagePBS(uuid, page, book),
   });
 
 /** PBS 생성 */
 const createPBSList = async (data: any) => {
   try {
     const res = await AxiosInstance.post("pbs", data);
-    console.log(res.data);
+
     return res.data;
   } catch (err) {
     throw err;

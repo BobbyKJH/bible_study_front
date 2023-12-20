@@ -35,13 +35,13 @@ export const useQTDetailQuery = (id: string) =>
 
 /** QT MyPage */
 const getMyPageQt = async (
-  userId: string | null,
+  uuid: string | null,
   page: number,
   book: string
 ) => {
   try {
     const res = await AxiosInstance.get(
-      `mypage/qt?userId=${userId}&page=${page}&book=${book}`
+      `qt/mypage?uuid=${uuid}&page=${page}&book=${book}`
     );
     return res.data;
   } catch (err) {
@@ -50,13 +50,13 @@ const getMyPageQt = async (
 };
 
 export const useMyQTQuery = (
-  userId: string | null,
+  uuid: string | null,
   page: number,
   book: string
 ) =>
   useQuery({
     queryKey: ["myPageQt"],
-    queryFn: () => getMyPageQt(userId, page, book),
+    queryFn: () => getMyPageQt(uuid, page, book),
   });
 
 /** QT 생성 */
