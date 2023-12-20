@@ -48,7 +48,7 @@ const QtDetailPage: React.FC = () => {
 			<DetailContent content={data.content}/>
 
 			<DetailButtonGroup
-				userId={data.userId}
+				uuid={data.uuid}
 				id={data.id}
 				path={"qt"}
 				handleDelete={handleDelete}

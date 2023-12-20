@@ -49,7 +49,7 @@ const PbsDetailPage: React.FC = () => {
 			<DetailContent content={data.content}/>
 
 			<DetailButtonGroup
-				userId={data.userId}
+				uuid={data.uuid}
 				id={data.id}
 				path={"pbs"}
 				handleDelete={handleDelete}
