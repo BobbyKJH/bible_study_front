@@ -1,23 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-/** Cookie */
-import { getCookie } from '@/libs/cookie.ts';
 /** Style */
 import { Button } from '@mui/material';
-import {
-	DetailButtonGroupContainer,
-	DetailDeleteButton,
-	DetailEditButton
-} from '@components/detail/DetailButtonGroup.styled.ts';
+import { DetailButtonGroupContainer, DetailDeleteButton, DetailEditButton } from '@components/detail/DetailButtonGroup.styled.ts';
 
 interface Props {
-	userId: string;
+	uuid: string;
 	id: number;
 	path: string;
 	handleDelete: () => void;
 }
 
-const DetailButtonGroup: React.FC<Props> = ({ userId, id, path, handleDelete }) => {
+const DetailButtonGroup: React.FC<Props> = ({ uuid, id, path, handleDelete }) => {
 	const navigate = useNavigate();
 
 	const goBack = () => {
@@ -33,7 +27,7 @@ const DetailButtonGroup: React.FC<Props> = ({ userId, id, path, handleDelete }) 
 			<Button variant="contained" onClick={goBack}>뒤로가기</Button>
 
 			{
-				userId === getCookie("userId") &&
+				uuid === sessionStorage.getItem("uuid") &&
 					<div>
 						<DetailEditButton variant="contained" color="success" onClick={handleEditButton}>
 							수정
