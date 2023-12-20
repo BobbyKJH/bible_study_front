@@ -1,9 +1,10 @@
 declare namespace Bible{
 
 	interface User {
+		id: string;
 		userId: string;
 		userName: string;
-		userAuth: string;
+		auth: string;
 	}
 
 	interface Notice {
