@@ -21,7 +21,8 @@ const Header: React.FC = () =>  {
 
 	const handleLogout = () => {
 		sessionStorage.removeItem("uuid");
-		sessionStorage.removeItem("userAuth");
+		sessionStorage.removeItem("auth");
+		sessionStorage.removeItem("userName");
 		navigate("/");
 	}
 
