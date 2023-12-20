@@ -1,6 +1,4 @@
 import React from 'react';
-/** Cookie */
-import { getCookie } from '@/libs/cookie.ts';
 /** Component */
 import SidebarPath from '@components/sidebar/SidebarPath.tsx';
 import SidebarBible from '@components/sidebar/SidebarBible.tsx';
@@ -43,7 +41,7 @@ const Sidebar: React.FC = () => {
 
 				<SidebarPath text={"QT"} path={"/qt?page=1&book="} page={"qt"} Icon={TbClipboardText}/>
 
-				{getCookie("userAuth") === "admin" && <SidebarPath text={"관리자 권한"} path={"/admin"} page={"admin"} Icon={BsFillPersonFill}/>}
+				{sessionStorage.getItem("auth") === "ADMIN" && <SidebarPath text={"관리자 권한"} path={"/admin"} page={"admin"} Icon={BsFillPersonFill}/>}
 			</Drawer>
 
 			{/* Mobile Sidebar */}
@@ -68,7 +66,7 @@ const Sidebar: React.FC = () => {
 
 				<SidebarPath text={"QT"} path={"/qt?page=1&book="} page={"qt"} Icon={TbClipboardText}/>
 
-				{getCookie("userAuth") === "admin" && <SidebarPath text={"관리자 권한"} path={"/admin"} page={"admin"} Icon={BsFillPersonFill}/>}
+				{sessionStorage.getItem("auth") === "ADMIN" && <SidebarPath text={"관리자 권한"} path={"/admin"} page={"admin"} Icon={BsFillPersonFill}/>}
 			</Drawer>
 		</>
 	);
