@@ -96,3 +96,19 @@ const editQTList = async (data: any) => {
 };
 
 export const useEditQTMutation = () => useMutation({ mutationFn: editQTList });
+
+/** Qt View Best */
+export const viewQTList = async (book: string) => {
+  try {
+    const res = await AxiosInstance.get(`qt/view?book=${book}`);
+
+    return res.data
+  } catch (err) {
+    throw err;
+  }
+}
+
+export const useViewQTQuery = (book: string) => useQuery({
+  queryKey: ["bestViewQt", book],
+  queryFn: () => viewQTList(book)
+});

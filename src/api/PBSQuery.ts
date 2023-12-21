@@ -93,3 +93,19 @@ const editPBSList = async (data: any) => {
 
 export const useEditPBSMutation = () =>
   useMutation({ mutationFn: editPBSList });
+
+/** PBS View Best */
+export const viewPBSList = async (book: string) => {
+  try {
+    const res = await AxiosInstance.get(`pbs/view?book=${book}`);
+
+    return res.data
+  } catch (err) {
+    throw err;
+  }
+}
+
+export const useViewPBSQuery = (book: string) => useQuery({
+  queryKey: ["bestViewPbs", book],
+  queryFn: () => viewPBSList(book)
+});
