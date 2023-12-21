@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { SidebarAtom } from '@/atom/SidebarAtom.ts';
 /** Style */
-import { SidebarBibleBox } from '@components/sidebar/SidebarBible.styled.ts';
+import { BibleListText, SidebarBibleBox, SidebarBibleListText } from '@components/sidebar/SidebarBible.styled.ts';
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 /** Icon */
 import { FaBible } from 'react-icons/fa';
@@ -34,7 +34,7 @@ const SidebarBible: React.FC = () => {
 				<ListItemIcon>
 					<FaBible />
 				</ListItemIcon>
-				<ListItemText primary="성경" />
+				<ListItemText primary={<SidebarBibleListText>성경</SidebarBibleListText>} />
 				{open ? <ExpandLess /> : <ExpandMore />}
 			</ListItemButton>
 
@@ -47,7 +47,7 @@ const SidebarBible: React.FC = () => {
 								<ListItemIcon>
 									<BiSolidBible />
 								</ListItemIcon>
-								<ListItemText primary="구약" />
+								<ListItemText primary={<BibleListText>구약</BibleListText>} />
 							</ListItemButton>
 						</Link>
 					</SidebarBibleBox>
@@ -58,7 +58,7 @@ const SidebarBible: React.FC = () => {
 								<ListItemIcon>
 									<BiBible />
 								</ListItemIcon>
-								<ListItemText primary="신약" />
+								<ListItemText primary={<BibleListText>신약</BibleListText>} />
 							</ListItemButton>
 						</Link>
 					</SidebarBibleBox>

@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { SidebarAtom } from '@/atom/SidebarAtom.ts';
 import { useSetRecoilState } from 'recoil';
 /** Style */
-import { SidebarLink } from '@components/sidebar/SidebarPath.styled.ts';
+import { SidebarLink, SidebarListText } from '@components/sidebar/SidebarPath.styled.ts';
 /** Style */
 import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
@@ -38,7 +38,7 @@ const SidebarPath: React.FC<Props> = ({ text, path, page, Icon }) => {
 					<ListItemIcon>
 						<Icon />
 					</ListItemIcon>
-					<ListItemText primary={text}/>
+					<ListItemText primary={<SidebarListText>{text}</SidebarListText>}/>
 				</ListItemButton>
 			</ListItem>
 		</SidebarLink>

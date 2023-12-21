@@ -25,10 +25,10 @@ const Sidebar: React.FC = () => {
 				variant="permanent"
 				open
 				sx={{
-					width: 230,
+					width: 200,
 					flexShrink: 0,
 					display: { xs: "none", md: "block" },
-					[`& .MuiDrawer-paper`]: { width: 230, boxSizing: 'border-box' },
+					[`& .MuiDrawer-paper`]: { width: 200, boxSizing: 'border-box' },
 				}}
 			>
 				<Toolbar />
@@ -50,10 +50,10 @@ const Sidebar: React.FC = () => {
 				onClose={handleCloseSidebar}
 				open={sidebar}
 				sx={{
-					width: 230,
+					width: 200,
 					flexShrink: 0,
 					display: { xs: "block", md: "none" },
-					[`& .MuiDrawer-paper`]: { width: 230, boxSizing: 'border-box' },
+					[`& .MuiDrawer-paper`]: { width: 200, boxSizing: 'border-box' },
 				}}
 			>
 				<MobileSidebarToolbar />
