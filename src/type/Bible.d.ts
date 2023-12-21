@@ -17,7 +17,8 @@ declare namespace Bible{
 		userName: string,
 		userId: string,
 		createAt: string,
-		showData: string
+		showData: string,
+		view: number
 	}
 
 	interface Create {
