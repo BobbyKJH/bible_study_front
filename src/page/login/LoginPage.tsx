@@ -1,34 +1,43 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
+/** Recoil */
+import { useRecoilState } from 'recoil';
+import { SnackAtom } from '@/atom/SnackAtom';
 /** Hook */
 import { useForm } from 'react-hook-form';
 /** Api */
 import { useUserMutation } from '@/api/UserQuery.ts';
-/** Cookie */
-import { setCookie } from '@/libs/cookie.ts';
-/** Sha256 */
-import { sha256 } from 'js-sha256';
 /** Type */
 import Bible from '@type/Bible';
 
 const LoginPage: React.FC = () => {
 	const navigate = useNavigate();
+	const [snack, setSnack] = useRecoilState(SnackAtom);
 
 	const { mutate } = useUserMutation();
 
-	const { register, handleSubmit} = useForm({
+	const { register, handleSubmit, resetField } = useForm({
 		defaultValues: {
-			"userId": ""
+			userId: "",
 		}
 	})
 
 	const handleLogin = (data: { userId: string }) => {
 		mutate(data, {
 			onSuccess: (data: Bible.User) => {
-				setCookie("userId", sha256(data.userId));
-				setCookie("userAuth", data.userAuth);
 				sessionStorage.setItem("userName", data.userName);
+				sessionStorage.setItem("uuid", data.id);
+				sessionStorage.setItem("auth", data.auth);
 				navigate("/home")
+			},
+			onError: () => {
+				setSnack({
+					...snack,
+					open: true,
+					message: "아이디",
+					severity: "error"
+				});
+				resetField("userId");
 			}
 		});
 	}
