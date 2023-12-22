@@ -1,12 +1,11 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router";
 /** Api */
-import { useEditPBSMutation, usePBSDetailQuery } from "@/api/PBSQuery.ts";
+import { useMutation } from "@tanstack/react-query";
+import { usePBSDetailQuery } from "@/api/PBSQuery.ts";
 /** Hook */
 import { useForm } from "react-hook-form";
 import useSnack from "@/hook/useSnack.ts";
-/** Cookie */
-import { getCookie } from "@/libs/cookie.ts";
 /** Component */
 import EditBook from "@components/edit/EditBook.tsx";
 import EditVerse from "@components/edit/EditVerse.tsx";
@@ -17,24 +16,31 @@ import EditButtonGroup from "@components/edit/EditButtonGroup.tsx";
 import Bible from "@type/Bible";
 /** Style */
 import { Container } from "@mui/material";
+import AxiosInstance from "@/api/AxiosInstance";
 
 const PbsEditPage: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+
   /** Api */
+  const editPBSList = async (data: any) => {
+    try {
+      const res = await AxiosInstance.put(`pbs/${id}`, data);
+  
+      return res.data;
+    } catch (err) {
+      throw err;
+    }
+  };
+
   const { data, isLoading } = usePBSDetailQuery(id as string);
-  const { mutate } = useEditPBSMutation();
+  const { mutate } = useMutation({ mutationFn: editPBSList });
+
   /** Hook */
   const { handleOpenSnack } = useSnack();
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
     defaultValues: {
-      id: id,
-      userId: getCookie("userId"),
+      uuid: sessionStorage.getItem("uuid"),
       userName: sessionStorage.getItem("userName"),
     },
   });
@@ -45,6 +51,9 @@ const PbsEditPage: React.FC = () => {
         handleOpenSnack({ message: "수정 완료", severity: "info" });
         navigate(-1);
       },
+      onError: () => {
+        handleOpenSnack({ message: "수정 실패", severity: "error" });
+      }
     });
   };
 

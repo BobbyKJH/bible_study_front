@@ -6,7 +6,6 @@ import { useEditQTMutation, useQTDetailQuery } from '@/api/QTQuery.ts';
 import { useForm } from 'react-hook-form';
 import useSnack from '@/hook/useSnack.ts';
 /** Cookie */
-import { getCookie } from '@/libs/cookie.ts';
 /** Component */
 import EditBook from '@components/edit/EditBook.tsx';
 import EditVerse from '@components/edit/EditVerse.tsx';
@@ -16,7 +15,7 @@ import EditButtonGroup from '@components/edit/EditButtonGroup.tsx';
 /** Type */
 import Bible from '@type/Bible';
 /** Style */
-import { Button, Container } from '@mui/material';
+import { Container } from '@mui/material';
 
 const QtEditPage: React.FC = () => {
 	const { id } = useParams();
@@ -32,13 +31,12 @@ const QtEditPage: React.FC = () => {
 		setValue,
 		formState: { errors } } = useForm({
 		defaultValues: {
-			id: id,
-			userId: getCookie("userId"),
+			uuid: sessionStorage.getItem("uuid"),
 			userName: sessionStorage.getItem("userName")
 		}
 	});
 
-	const handleEditPbs = (data: Bible.Edit) => {
+	const handleEditPbs = (data: any) => {
 		mutate(data, {
 			onSuccess: () => {
 				handleOpenSnack({ message: "수정 완료", severity: "info" });
@@ -90,9 +88,7 @@ const QtEditPage: React.FC = () => {
 
 				<EditContent register={register} value={data.content}/>
 
-				<EditButtonGroup>
-					<Button type={"submit"}>수정</Button>
-				</EditButtonGroup>
+				<EditButtonGroup />
 			</form>
 		</Container>
 	);
