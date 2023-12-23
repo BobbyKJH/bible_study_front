@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const NoticePaginationContainer = styled.div`
 	position: fixed;
 	bottom: 0;
-	left: 230px;
+	left: 200px;
 	right: 0;
 	display: flex;
   padding: 15px 0;
