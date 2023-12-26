@@ -13,3 +13,14 @@ export const PbsDetailTitleBox = styled.div`
 	align-items: flex-end;
 	padding: 20px 14px 10px 14px;
 `
+
+export const PbsDetailSubTitle = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: right;
+`
+
+export const PbsCreateDate = styled.div`
+	display: block;
+`
