@@ -29,6 +29,8 @@
       "@libs/*": ["src/libs/*"],
       "@components/*": ["src/components/*"],
       "@api/*": ["src/api/*"],
+      "@atom/*": ["src/atom/*"],
+      "@hook/*": ["src/hook/*"],
     }
   },
   
