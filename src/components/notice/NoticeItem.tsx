@@ -12,9 +12,10 @@ interface Props {
 	startVerse: number;
 	endVerse: number;
 	chapter: number;
+	view: number;
 }
 
-const NoticeItem: React.FC<Props> = ({ book, startVerse, endVerse, chapter }) => {
+const NoticeItem: React.FC<Props> = ({ book, startVerse, endVerse, chapter, view }) => {
 	/** 신약 구약 구분 하는 FC */
 	const bibleId = BibleBooks.find((books) => {
 		const testament = books.book === book;
@@ -35,7 +36,7 @@ const NoticeItem: React.FC<Props> = ({ book, startVerse, endVerse, chapter }) =>
 
 				<ListItemText
 					primary={<NoticeItemTitle>{book}</NoticeItemTitle>}
-					secondary={<NoticeItemSubTitle>{chapter}장 {startVerse} - {endVerse}</NoticeItemSubTitle>}
+					secondary={<NoticeItemSubTitle>{chapter}장 {startVerse}:{endVerse} {view}회</NoticeItemSubTitle>}
 				/>
 			</ListItem>
 		</ListItemButton>
