@@ -11,7 +11,6 @@ export const CreateVerseField = styled(OutlinedInput)`
 		-moz-appearance: none;
 		-webkit-appearance: none;
     }
-	}
 `
 
 export const CreateVerseError = styled(FormHelperText)`
