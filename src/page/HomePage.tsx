@@ -17,8 +17,8 @@ const HomePage: React.FC = () => {
     <div>
       <PbsBible />
       <div style={{ display: "flex" }}>
-        <PbsStatisticsGraph startDate={data.startDate} endDate={data.endDate} />
-        <QtStatisticsGraph startDate={data.startDate} endDate={data.endDate} />
+        {/* <PbsStatisticsGraph startDate={data.startDate} endDate={data.endDate} /> */}
+        {/* <QtStatisticsGraph startDate={data.startDate} endDate={data.endDate} /> */}
       </div>
     </div>
   );
