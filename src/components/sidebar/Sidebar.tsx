@@ -6,7 +6,7 @@ import SidebarBible from '@components/sidebar/SidebarBible.tsx';
 import { useRecoilState } from 'recoil';
 import { SidebarAtom } from '@/atom/SidebarAtom.ts';
 /** Style */
-import { Drawer, Toolbar } from '@mui/material';
+import { Drawer } from '@mui/material';
 import { MobileSidebarToolbar } from '@components/sidebar/Sidebar.styled.ts';
 /** Icon */
 import { BsFillPersonFill } from 'react-icons/bs';
@@ -21,7 +21,7 @@ const Sidebar: React.FC = () => {
 
 	return (
 		<>
-			<Drawer
+			{/* <Drawer
 				variant="permanent"
 				open
 				sx={{
@@ -42,7 +42,7 @@ const Sidebar: React.FC = () => {
 				<SidebarPath text={"QT"} path={"/qt?page=1&book="} page={"qt"} Icon={TbClipboardText}/>
 
 				{sessionStorage.getItem("auth") === "ADMIN" && <SidebarPath text={"관리자 권한"} path={"/admin"} page={"admin"} Icon={BsFillPersonFill}/>}
-			</Drawer>
+			</Drawer> */}
 
 			{/* Mobile Sidebar */}
 			<Drawer
