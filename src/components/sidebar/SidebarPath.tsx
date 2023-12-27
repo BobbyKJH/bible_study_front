@@ -1,12 +1,12 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 /** Atom */
 import { SidebarAtom } from '@/atom/SidebarAtom.ts';
 import { useSetRecoilState } from 'recoil';
-/** Style */
-import { SidebarLink, SidebarListText } from '@components/sidebar/SidebarPath.styled.ts';
+/** libs */
+import pagePath from '@/libs/pagePath';
 /** Style */
 import { ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { SidebarLink, SidebarListText } from '@components/sidebar/SidebarPath.styled.ts';
 
 interface Props {
 	text: string;
@@ -16,16 +16,7 @@ interface Props {
 }
 
 const SidebarPath: React.FC<Props> = ({ text, path, page, Icon }) => {
-	const { pathname } = useLocation();
 	const setSidebar = useSetRecoilState(SidebarAtom);
-
-	const pagePath = (location: string): boolean => {
-		if(location === "home") {
-			return pathname === "/home";
-		} else {
-			return pathname.includes(location)
-		}
-	}
 
 	const handleCloseSidebar = () => {
 		setSidebar(false);
