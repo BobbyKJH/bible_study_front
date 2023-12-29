@@ -29,16 +29,14 @@ const CreateBook: React.FC<Props> = ({ setValue, storage }) => {
 		setInputValue(newInputValue);
 	}
 
-
 	return (
 		<CreateBookAutoComplete
 			value={book}
-			fullWidth
 			onChange={handleChangeBook}
 			inputValue={inputValue}
 			onInputChange={handleSearchInput}
 			options={BibleBook}
-			renderInput={(params) => <TextField {...params} label="성경" />}
+			renderInput={(params) => <TextField {...params} label="성경" variant="standard" />}
 		/>
 	);
 }
