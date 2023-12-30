@@ -3,9 +3,10 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 export const CreateBookAutoComplete = styled(Autocomplete)`
   fieldset{
-    border: 1px solid #000;
 		border-radius: 5px;
   }
+  padding: 10px;
+  width: 50%;
 	margin-bottom: 10px;
-	margin-top: 10px;
+  
 `
