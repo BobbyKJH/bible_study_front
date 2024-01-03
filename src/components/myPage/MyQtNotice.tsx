@@ -20,8 +20,6 @@ const MyQtNotice: React.FC = () => {
 
 	const { data, isLoading, refetch } = useMyQTQuery(sessionStorage.getItem("uuid"), Number(page), book as string)
 
-	console.log(!isLoading && data);
-
 	useEffect(() => {
 		refetch();
 	}, [searchParams])
@@ -42,6 +40,7 @@ const MyQtNotice: React.FC = () => {
 								startVerse={notice.startVerse}
 								endVerse={notice.endVerse}
 								chapter={notice.chapter}
+								view={notice.view}
 							/>
 						</Link>
 					</Grid>
