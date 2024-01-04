@@ -37,6 +37,7 @@ const QtPage: React.FC = () => {
 							startVerse={notice.startVerse}
 							endVerse={notice.endVerse}
 							chapter={notice.chapter}
+							view={notice.view}
 						/>
 					</Link>
 				))
