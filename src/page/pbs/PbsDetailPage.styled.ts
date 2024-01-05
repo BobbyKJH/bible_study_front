@@ -11,7 +11,10 @@ export const PbsDetailTitleBox = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
-	padding: 20px 14px 10px 14px;
+	padding: 20px;
+	div{
+		font-weight: 700;
+	}
 `
 
 export const PbsDetailSubTitle = styled.div`
