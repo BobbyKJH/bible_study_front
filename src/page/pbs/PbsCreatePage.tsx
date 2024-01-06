@@ -72,14 +72,13 @@ const PbsCreatePage: React.FC = () => {
 	}
 
 	return (
-		<Container sx={{ m :"80px auto",padding:0, boxSizing: "border-box" }}>
+		<Container sx={{ padding:0, boxSizing: "border-box" }}>
 			<form onSubmit={handleSubmit(handleCreateButton)}>
 				<div style={{ display:"flex", justifyContent: "space-between", alignItems: "center"}}>
-					<CreateBook setValue={setValue} storage={storage.book}/>
 				</div>
 
 				<div style={{ display:"flex", justifyContent: "space-between", alignItems: "center"}}>
-					<CreateShowData setValue={setValue} watch={watch}/>
+					<CreateBook setValue={setValue} storage={storage.book}/>
 
 					<div>
 						<CreateVerse
@@ -104,6 +103,9 @@ const PbsCreatePage: React.FC = () => {
 						/>
 					</div>
 				</div>
+
+				<CreateShowData setValue={setValue} watch={watch}/>
+
 
 				<hr style={{marginTop: "10px", border: "1px solid black"}}/>
 
