@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import useSnack from '@/hook/useSnack.ts';
 import { useNavigate, useParams } from 'react-router';
 /** Api */
@@ -31,17 +31,22 @@ const PbsDetailPage: React.FC = () => {
 
 	if(isLoading) return <p>hello</p>
 
-	console.log( !isLoading && data );
-
 	return (
 		<PbsDetailContainer>
 			<PbsDetailTitleBox>
 				<DetailBook book={data.book}/>
 
 				<div>
-					{data.chapter}
-					{data.startVerse}
-					{data.endVerse}
+					<span>
+						{data.chapter}장
+					</span>
+					<span>
+						{data.startVerse}
+					</span>
+					:
+					<span>
+						{data.endVerse}
+					</span>
 				</div>
 			</PbsDetailTitleBox>
 
